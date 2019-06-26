@@ -42,7 +42,7 @@ public class Top5Servlet extends HttpServlet {
 			
 			ArrayList<Top5> list = sb.selectTop5(t);
 			
-			page = "mainheader1.jsp";
+			page = request.getParameter("page");
 			
 			request.setAttribute("t", t);
 			request.setAttribute("list", list);

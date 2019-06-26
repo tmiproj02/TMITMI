@@ -28,7 +28,7 @@
 			return new PasswordAuthentication(sender, password);
 		}
 	});
-	String host = "http://localhost:8088/semi/views/member/"; // 사이트
+	String host = "http://192.168.20.49/semi/views/member/"; // 사이트
 	String code = null; // 암호화된 인증코드 담을 변수
 	String contents = "인증을 위한 인증 메일입니다. 버튼을 누르세요." + "<a href='" + host + "mailVerifyCheck.jsp?code="
 				      + PasswordWrapper.getSHA512(receiver) + "&receiver=" + receiver + "'>" + "인증하기" + "</a>";

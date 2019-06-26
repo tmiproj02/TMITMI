@@ -83,7 +83,7 @@ html {
 .detailsTab ul li {
 	float: left;
 	cursor: pointer;
-	padding: 18px 31px;
+	padding: 18px 14px;
 	border: solid 1px #ccc;
 	background: #fff;
 }
@@ -121,16 +121,15 @@ li {
 }
 
 .pricebox p {
-/* 	font-size: 16px; */
+	font-size: 16px;
 	margin : 10px 10px;
 }
 
 .pricebox a{
-padding: 15px 100px; 
-color:#fff;
-background: #364559; 
+padding: 10px 100px; 
+background: #bdd4f2; 
 border-radius: 8px;
-margin: 20px 10px; 
+margin: 20px 10px;
 }
 .shildbox {
 /* 	border: 1px solid #e6e6e6; */
@@ -168,7 +167,7 @@ margin: 20px 10px;
 .sellerintrodu {
 	margin: 20px 0;
 	padding-top: 20px;
-	border-top: 1px dashed #e6e6e6;
+	border-top: 1px dashed #000;
 }
 
 .sellerpadding {
@@ -238,12 +237,12 @@ margin: 20px 10px;
 
 				</div>
 
-				<div class="starbox" style="margin: 30px 0;">
+				<div class="starbox">
 					<div class="ui huge star rating" data-rating="1"
 						data-max-rating="1"></div>
 						<span style="font-size: 21px; vertical-align: top;"> : &nbsp;&nbsp;<%=b.getBevaluation() %>.0 <span style="font-size: 12px;">점</span></span> 
 
- 					<script>
+					<script>
 						$('.ui.rating').rating();
 					</script>
 				</div>
@@ -270,26 +269,23 @@ margin: 20px 10px;
 				</ul>
 				<div class="tabcontent1" style="margin-bottom: 500px;">
 					<p>
-						<span style="font-size: 18px;display: block; margin: 10px 0; font-weight: bold;">서비스 설명</span>
 						<%=b.getBcontent() %>
 					</p>
 				</div>
 
 				<div class="tabcontent2" style="margin-bottom: 500px;">
 					<p>
-					<span style="font-size: 18px; display: block; margin: 10px 0; font-weight: bold;">가격정보</span>
 						<%=b.getErecontent() %>
 					</p>
- 				</div> 
+				</div>
 				<div class="tabcontent3" style="margin-bottom: 500px;">
 					<p>
-					<span style="font-size: 18px; display: block; margin: 10px 0; font-weight: bold;">수정 및 재진행</span>
 						<%=b.getRequest() %>
 					</p>
 				</div>
 
 				<div class="tabcontent4" style="margin-bottom: 500px;">
-					<span style="font-size: 18px; display: block; margin: 10px 0; font-weight: bold;">서비스 평가</span>
+
 					<div class="outer">
 		<br>
 		<% if(m != null){ %>
@@ -303,32 +299,48 @@ margin: 20px 10px;
                
                <table align="center">
                   <tr>
-                   
-                     <td><textArea rows="3" cols="60" id="replyContent" name="replyContent" style="resize: none;"></textArea></td>
-                     <td><button type="submit" id="addReply" style="cursor:pointer;width:110px;color: #fff;background-color: #364559;border-color: #364559;padding: 15px 5px;border-radius: 4px;">댓글 등록</button></td>
-<!--                   </tr> -->
+                     <td>댓글 작성</td>
+                     <td><textArea rows="3" cols="80" id="replyContent" name="replyContent"></textArea></td>
+                     <td><button type="submit" id="addReply">댓글 등록</button></td>
+                  </tr>
                </table>
             </form>
             <%} %>
-          </div>
+         </div>
          <div id="replySelectArea">
       		<!-- 게시글의 댓글을 보여주는 부분 -->
       		<% if (clist != null){%>
       			<% for(BoardComment bco : clist){ %>
 	      			<table id="replySelectTable"
-	             style="margin-left : 0px;
-	                   width : 550px;"
+	             style="margin-left : <%= (bco.getClevel()-1) * 15 %>px;
+	                   width : <%= 800 - ((bco.getClevel()-1) * 15)%>px;"
 	             class="replyList<%=bco.getClevel()%>">
 	              <tr>
 	                 <td rowspan="2"> </td>
 	               <td><b><%= bco.getCwriter() %></b></td>
-	               <td style="text-align: right;"><%= bco.getCdate() %></td>
+	               <td><%= bco.getCdate() %></td>
 	               <td align="center">
-	               
+	               <%if(m.getEmail().equals(bco.getCwriterId())) { %>
+	                  <input type="hidden" name="cno" value="<%=bco.getCno()%>"/>
+	                       
+	                  <button type="button" class="updateBtn" 
+	                     onclick="updateReply(this);">수정하기</button>
+	                     
+	                  <button type="button" class="updateConfirm"
+	                     onclick="updateConfirm(this);"
+	                     style="display:none;" >수정완료</button> &nbsp;&nbsp;
+	                     
+	                  <button type="button" class="deleteBtn"
+	                     onclick="deleteReply(this);">삭제하기</button>
+	       
+	                     
+	               <% } else {%>
+	                  
+	               <% } %>
 	               </td>
 	            </tr>
 	            <tr class="comment replyList<%=bco.getClevel()%>">
- 	               <td colspan="3" style="background : transparent;">
+	               <td colspan="3" style="background : transparent;">
 	               <div class="reply-content" cols="105" rows="3"
 	                readonly="readonly"><%= bco.getCcontent() %></div>
 	               </td>
@@ -500,9 +512,9 @@ margin: 20px 10px;
 				</div>
 				
 				<% if(m != null) { %>
-				<div style="text-align: center;" style="margin: 30px 0 !important;">
+				<div style="text-align: center;">
 				<a href="<%= request.getContextPath() %>/buyPage.bo?bno=<%=b.getBno()%>"
-					>구매하기(<%=b.getPrice() %>원)</a>
+					style="">구매하기(<%=b.getPrice() %>원)</a>
 				</div>
 				
 				<% } else { %>
@@ -513,7 +525,7 @@ margin: 20px 10px;
 				<% } %>
 			</div>
 
-		
+			
 			<div class="shildbox container2 clearFix" style="margin-top: 20px;">
 				<img src="/semi/resources/images/shild.png" alt=""
 					style="float: left; margin:10px 10px;">
