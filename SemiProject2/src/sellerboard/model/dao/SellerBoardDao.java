@@ -18,6 +18,7 @@ import seller.model.exception.SellerException;
 import sellerboard.model.exception.SellerboardException;
 import sellerboard.model.vo.SellerBoard;
 import sellerboard.model.vo.Talent;
+import sellerboard.model.vo.Top5;
 
 public class SellerBoardDao {
 
@@ -365,6 +366,83 @@ public class SellerBoardDao {
 		}
 		
 		return t;
+	}
+
+
+	public ArrayList<String> selectTop3(Connection con) throws SellerboardException {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<String> list = new ArrayList<String>();
+		System.out.println("들어감");
+		String sql = "SELECT ROWNUM, C.CATE FROM (SELECT T.CATEGORY1_NAME CATE,SUM(D.PRICE) FROM DEALMANAGER D JOIN SELLERBOARD S ON(D.BNO=S.BNO) JOIN TALENT1 T ON(S.CATEGORY1_CODE = T.CATEGORY1_CODE) GROUP BY T.CATEGORY1_NAME ORDER BY 1 DESC) C WHERE ROWNUM < 4";
+		try {
+			pstmt=con.prepareStatement(sql);
+			
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				String str = "";
+				
+				str = rset.getString(2);
+				
+				list.add(str);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new SellerboardException(e.getMessage());
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+
+	public ArrayList<Top5> selectTop5(Connection con, Top5 t) throws SellerboardException {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("Top5select");
+		ArrayList<Top5> list = new ArrayList<Top5>();
+		try {
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setString(1, t.getTop1());
+			pstmt.setString(2, t.getTop2());
+			pstmt.setString(3, t.getTop3());
+			
+			rset = pstmt.executeQuery();
+			
+			
+			while(rset.next()) {
+				Top5 to = new Top5();
+				
+				to.setNickname(rset.getString(1));
+				to.setIncome(rset.getInt(2));
+				to.setCate(rset.getString(3));
+				
+				System.out.println(to.getNickname());
+				System.out.println(to.getIncome());
+				System.out.println(to.getCate());
+				
+				
+				
+				list.add(to);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new SellerboardException(e.getMessage());
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
 	}
 
 }

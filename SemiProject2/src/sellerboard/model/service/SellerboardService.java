@@ -8,6 +8,7 @@ import sellerboard.model.dao.SellerBoardDao;
 import sellerboard.model.exception.SellerboardException;
 import sellerboard.model.vo.SellerBoard;
 import sellerboard.model.vo.Talent;
+import sellerboard.model.vo.Top5;
 
 public class SellerboardService {
 
@@ -87,6 +88,28 @@ public class SellerboardService {
 		close(con);
 		
 		return t;
+	}
+
+	public Top5 selectTop3() throws SellerboardException {
+		con = getConnection();
+		
+		ArrayList<String> list = sbDao.selectTop3(con);
+		
+		Top5 t = new Top5(list.get(0),list.get(1),list.get(2));
+		
+		close(con);
+		
+		return t;
+	}
+
+	public ArrayList<Top5> selectTop5(Top5 t) throws SellerboardException {
+		con = getConnection();
+		
+		ArrayList<Top5> list = sbDao.selectTop5(con,t);
+		
+		
+		
+		return list;
 	}
 
 }
