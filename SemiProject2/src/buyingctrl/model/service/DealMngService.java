@@ -136,9 +136,12 @@ public class DealMngService {
 		con = getConnection();
 		try {
 			dmDao.dealComplete(mno,bno,sno,con,cp);
-			commit(con);
+			dmDao.makeIncome(bno,sno,cp,con);
+			dmDao.makeIncomeToSeller(sno,cp,con);
 			
-		}catch(Exception e) {
+			commit(con);
+		}
+		catch(Exception e) {
 			rollback(con);
 			e.printStackTrace();
 		}
@@ -147,15 +150,5 @@ public class DealMngService {
 		
 	}
 
-
-	
-
-	
-	
-	
-	
-	
-	
-	
 	
 }

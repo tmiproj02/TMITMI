@@ -38,10 +38,6 @@ public class DealCompleteServlet extends HttpServlet {
 		int sno = Integer.parseInt(request.getParameter("sno"));
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String email = request.getParameter("email"); // 어따쓰는건지?
-		System.out.println("mno : " + mno);
-		System.out.println("sno : " + sno);
-		System.out.println("bno : " + bno);
-		
 		
 		
 		int cp = Integer.parseInt(request.getParameter("tprice")); //차감되는가격(이름변경해야함.)

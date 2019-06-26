@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	int mCount = 0;
+	int buyCount = 0;
+	int sellCount = 0;
+		
+	    mCount = (int)(session.getAttribute("mCount"));
+
+		buyCount = (int)(session.getAttribute("buyCount"));
+
+	    sellCount = (int)(session.getAttribute("sellCount"));
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +35,7 @@ font-family: 'Noto Sans KR', sans-serif;
 }
 .section2{
 	margin: 0 auto;
-	width: 1170px;
+	width: 1024px;
 	
 }
 .section3{
@@ -38,12 +51,12 @@ font-family: 'Noto Sans KR', sans-serif;
  	display:inline-block;
 }
 .mp1{
-	width:22%;
+	width:25%;
 	margin:0 auto;
 	float : left;
 }
 .mp2{
-	width:78%;
+	width:75%;
 	margin:0 auto;
 	float : left;
 }
@@ -181,7 +194,7 @@ font-family: 'Noto Sans KR', sans-serif;
 			<h3>나의 TMI</h3>
 		</div>
 			<div class="section4">
-				<div class="mp1" style="margin-top: 15px;">
+				<div class="mp1"">
 					<div class="profile">
 								<div class="padding-15">
 								<div class="user-profile-body">
@@ -244,36 +257,36 @@ font-family: 'Noto Sans KR', sans-serif;
 		 
 				
 			<div class="mp2">
-				<div class="box1" style="border: 1px solid #E6E6E6; border-radius: 3px; width: 870px; height: 105px; padding: 5px 10px; margin-top: 35px; margin-left: 20px;">
-					<div class="dbox" style="text-align: center;padding: 20px 0px;">
-						<div class="detail1" style="border-right: 1px solid #E6E6E6; padding-right: 44px;">
+				<div class="box1" style="border: 1px solid #E6E6E6; border-radius: 3px; width: 100%; height: 105px; margin-top:21px ">
+					<div class="dbox" style="text-align: center;padding: 25px 0px;">
+						<div class="detail1" style="border-right: 1px solid #E6E6E6; padding-right: 35px;">
 							<h4>판매 중인 건</h4>
-							<a href=""><b>0</b>건</a>
+							<a href="/semi/myboard.bo"><b><%= sellCount %></b>건</a>
 						</div>
-						<div class="detail2" style="border-right: 1px solid #E6E6E6;padding:0 48px;">
+						<div class="detail2" style="border-right: 1px solid #E6E6E6;padding:0 35px;">
 							<h4>이달의 수익금</h4>
-							<a href=""><b>0</b>건</a>
+							<a href="/semi/list.ic"><b><%=income %></b>원</a>
 						</div> 
-						<div class="detail3" style="border-right: 1px solid #E6E6E6;padding:0 48px;">
+						<div class="detail3" style="border-right: 1px solid #E6E6E6;padding:0 35px;">
 							<h4>구매 중인 건</h4>
-							<a href=""><b>0</b>건</a>
+							<a href="/semi/nReq.bo"><b><%= buyCount %></b>건</a>
 						</div>
-						<div class="detail4" style="border-right: 1px solid #E6E6E6;padding:0 48px;">
+						<div class="detail4" style="border-right: 1px solid #E6E6E6;padding:0 39px;">
 							<h4>TMI 캐쉬</h4>
-							<a href=""><b>0</b>건</a>
+							<a href="/semi/cList.bo"><b><%= cash %></b>원</a>
 						</div>
-						<div class="detail5" style="padding-left: 40px">
+						<div class="detail5" style="padding-left: 35px">
 							<h4>보유 쿠폰 개수</h4>
-							<a href=""><b>0</b>건</a>
+							<a href="/semi/views/personBUY/coupon.jsp"><b>0</b>개</a>
 						</div>
 					</div>
 				
 				</div>
-				<div class="box2" style="margin-top:20px; margin-left:25px;">
+				<div class="box2" style="margin-top:20px;">
 					<div class="content1">
 						<ul class="sell-ing">
 							<li>
-								<a style="color:#000; font-size:15px;" href="">할일 &nbsp; <span class="selling-history select">0</span></a>
+								<a style="color:#000; font-size:15px;margin-left:10px;" href="">할일 &nbsp; <span class="selling-history select">0</span></a>
 							</li>
 							<li style="font-size:15px;">
 							<a style="color:#000; font-size:15px;" href="">알림 &nbsp; <span class="selling-history select">0</span></a>
@@ -281,7 +294,7 @@ font-family: 'Noto Sans KR', sans-serif;
 							
 						</ul>
 					</div>
-					<div class="content2" style="border: 1px solid #E6E6E6; width:870px; height:320px; margin-top:20px;"></div>
+					<div class="content2" style="border: 1px solid #E6E6E6;height:320px; margin-top:20px;"></div>
 				</div>
 			
 			</div>

@@ -327,12 +327,12 @@ nav{
                        			</div>
                             </div>
                             <script>
-                            	$('.mylog,.downmymenu').mouseenter(function(){
-                            		$('.downmymenu').css("display","block");
-                            	});
-                            	$('.mylog,.downmymenu').mouseleave(function(){
-                            		$('.downmymenu').css("display","none");
-                            	});
+                            $('.mylog,.mylog>a,.downmymenu').mouseenter(function(){
+                        		$('.downmymenu').css("display","block");
+                        	});
+                        	$('.mylog,.downmymenu').mouseleave(function(){
+                        		$('.downmymenu').css("display","none");
+                        	});
                             	
                             </script>
                         </div>
@@ -346,7 +346,7 @@ nav{
                         	<div class="cate" id="cate0"><a href="/semi/views/myPage/myPage.jsp">나의정보</a></div>
                         </li>
                         <li clase="talent-category">
-	                        <div class="cate" id="cate1"><a href="">구매관리</a></div>
+	                        <div class="cate" id="cate1"><a style="cursor:pointer;" onclick="nrequest();">구매관리</a></div>
                         	<ul class="downmenu" id="downmenu1">
                         		<li><a style="cursor:pointer;" onclick="nrequest();">구매관리</a></li>
                         		<li><a style="cursor:pointer;" onclick="billHist();">TMI캐시</a></li>

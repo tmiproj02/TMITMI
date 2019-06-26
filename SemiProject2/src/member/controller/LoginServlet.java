@@ -33,9 +33,11 @@ public class LoginServlet extends HttpServlet {
 		
 		String userEmail = request.getParameter("userEmail");
 		String userPwd = request.getParameter("userPwd");
-		
 		String isSNS = request.getParameter("isSNS");
-	
+		int mCount = 0;
+		int buyCount =0;
+		int sellCount =0;
+		
 		Member m = new Member(userEmail,userPwd);
 		m.setIsSNS(isSNS);
 		
@@ -44,36 +46,53 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 			m = ms.selectMemeber(m);
+			mCount = ms.getMcount(m);
+			buyCount = ms.getBuyCount(m);
+			sellCount = ms.getSellCount(m);
 			
+		
 			// 관리자 계정일 경우 관리자 페이지로 보낸다.
 			if(m.getIsAdmin().equals("Y")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("admin", m);
 				response.sendRedirect("memberSelect.admin");
 			}// 관리자가 아닐 경우 메일인증 여부 확인
-			
-			 else if(m.getEmailVerification().equals("0")) {
-			 request.setAttribute("errorMsg", "메일인증이 되지않은 계정입니다.");
-			 request.getRequestDispatcher("views/LoginForm.jsp").forward(request, response);
-			 }
-			 
-			else if(m.getIsValid().equals("N")||m.getIsAlive().equals("N")) {
+			else if(m.getEmailVerification().equals("0")) {
+				request.setAttribute("errorMsg", "메일인증이 되지않은 계정입니다.");
+				request.getRequestDispatcher("views/LoginForm.jsp").forward(request, response);
+			}else if(m.getIsValid().equals("N")||m.getIsAlive().equals("N")) {
 				request.setAttribute("errorMsg", "관리자에 의해 정지되었거나 탈퇴한 회원입니다.");
 				request.getRequestDispatcher("views/LoginForm.jsp").forward(request, response);
 			}
 			
 			else { // 메일인증 된 회원이면 로그인
-
+					
+					// 판매자일 경우
 				if(m.getIsSeller().equals("Y")) {
-					System.out.println(m.getIsSeller()+"판매자 실행");
+
 					HttpSession session = request.getSession();
 					session.setAttribute("member", m);
+					
+					System.out.println("서블릿에서의 mCount : " + mCount);
+					session.setAttribute("mCount", mCount);
+					session.setAttribute("buyCount", buyCount);
+					session.setAttribute("sellCount", sellCount);
+					
 					RequestDispatcher view = request.getRequestDispatcher("seller.so");
 					view.forward(request, response);
+					
+					
+					// 판매자 아닐경우
 				}else {
-
 					HttpSession session = request.getSession();
 					session.setAttribute("member", m);
+					System.out.println("서블릿에서의 mCount : " + mCount);
+					session.setAttribute("mCount", mCount);
+					session.setAttribute("buyCount", buyCount);
+					session.setAttribute("sellCount", sellCount);
+					
+					
+					
 					RequestDispatcher view = request.getRequestDispatcher("mainheader2.jsp");
 					view.forward(request, response);
 				}

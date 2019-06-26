@@ -157,6 +157,52 @@ public class MemberService {
 		
 		return isDup;
 	}
+
+	public int getMcount(Member m) {
+		int mCount = 0;
+		con = getConnection();
+		try {
+			mCount = mDao.getMcount(m,con);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return mCount;
+	}
+
+	public int getBuyCount(Member m) {
+		
+		int buyCount = 0;
+		con = getConnection();
+		try {
+			buyCount = mDao.getBuyCount(m,con);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return buyCount;
+	}
+
+	public int getSellCount(Member m) {
+		int sellCount = 0;
+		con = getConnection();
+		try {
+			sellCount = mDao.getSellCount(m,con);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return sellCount;
+	}
 	
 	
 }
