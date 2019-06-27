@@ -80,7 +80,7 @@ public class SellerRegistration extends HttpServlet {
 		SellerboardService sbs = new SellerboardService();
 		
 		
-		session.setAttribute("seller", s);
+		
 		int sno=0;
 		
 		try {
@@ -88,6 +88,10 @@ public class SellerRegistration extends HttpServlet {
 			System.out.println("판매자 등록완료");
 			ss.changeIsseller(mno);
 			sno=sbs.findSno(email);
+			s.setSno(sno);
+			session.setAttribute("seller", s);
+			
+			
 			response.sendRedirect("views/seller/SellerComplete.jsp");
 		} catch(SellerException | SellerboardException e){
 			request.setAttribute("msg", "판매자 등록 중 에러가 발생했어");

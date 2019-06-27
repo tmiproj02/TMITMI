@@ -50,7 +50,7 @@
 	
 	footer {
 		position: absolute;
-		bottom: -100px;
+		bottom: -200px;
 		left: 0;
 	}
 	
