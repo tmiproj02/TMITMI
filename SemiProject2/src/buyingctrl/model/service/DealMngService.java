@@ -36,13 +36,12 @@ public class DealMngService {
 		try {
 			dingList = dmDao.ingselectList(con, m);
 			System.out.println("진행중조회service : " + dingList);
-
+			close(con);
 		}catch(Exception e) {
 			e.printStackTrace();
+			close(con);
 		}
-		
-		
-		close(con);
+
 		
 		return dingList;
 		
@@ -140,10 +139,13 @@ public class DealMngService {
 			dmDao.makeIncomeToSeller(sno,cp,con);
 			
 			commit(con);
+			close(con);
 		}
 		catch(Exception e) {
 			rollback(con);
+			close(con);
 			e.printStackTrace();
+			
 		}
 		
 		

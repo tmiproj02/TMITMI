@@ -24,9 +24,9 @@ public class ServiceManageService {
 		try {
 			
 			sList = sDao.selectServiceList(con);
-		
+			close(con);
 		}catch(Exception e) {
-			
+			close(con);
 			e.printStackTrace();
 		}
 		
@@ -41,8 +41,10 @@ public class ServiceManageService {
 			con = getConnection();
 			sDao.refuseService(bno,con);
 			commit(con);
+			close(con);
 		}catch(Exception e) {
 			rollback(con);
+			close(con);
 			e.printStackTrace();
 			
 		}
@@ -55,8 +57,9 @@ public class ServiceManageService {
 		ArrayList<SellerBoard> docList = null;
 		try {
 			docList = sDao.selectDocList(email,con);
-			
+			close(con);
 		}catch(Exception e) {
+			close(con);
 			e.printStackTrace();
 		}
 		
@@ -68,8 +71,10 @@ public class ServiceManageService {
 		try {
 			sDao.approveService(bno,con);
 			commit(con);
+			close(con);
 		}catch(Exception e) {
 			rollback(con);
+			close(con);
 			e.printStackTrace();
 		}
 		
