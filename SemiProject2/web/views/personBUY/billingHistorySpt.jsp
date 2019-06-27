@@ -225,7 +225,7 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a style="cursor:pointer;"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;" onclick="nrequest();">							
+								<a href="/semi/prging.bo?state=1" style="cursor:pointer;"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;" onclick="nrequest();">							
 									<div><img src="/semi/resources/images/buying_active.png" alt="" /></div>
 									<h6>구매관리</h6>							
 								</div></a>

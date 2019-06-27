@@ -103,13 +103,12 @@ public class DealMngDao {
 	
 	
 	//진행중 조회
-	public ArrayList<DealMng> ingselectList(Connection con, Member m,int currentPage, int limit) throws buyingctrlException  {
+	public ArrayList<DealMng> ingselectList(Connection con, Member m) throws buyingctrlException  {
 		
 		ArrayList<DealMng> dingList = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		int startRow = (currentPage -1) * limit +1; // 현재 페이지가 1이라면  --> 1번글,  현재 페이지가 2라면--> 11번글
-		int endRow = startRow + limit -1; // 10 , 20
+		
 	
 		
 		String sql = prop.getProperty("ingselectList");
@@ -121,8 +120,6 @@ public class DealMngDao {
 			pstmt = con.prepareStatement(sql);
 			System.out.println("sql: " + sql);
 			 pstmt.setInt(1, m.getMno());
-			pstmt.setInt(2, endRow);
-			pstmt.setInt(3, startRow);
 
 			rset = pstmt.executeQuery();
 			
@@ -135,6 +132,7 @@ public class DealMngDao {
 				dm.setDealdate(rset.getDate("dealdate"));
 				dm.setPrice(rset.getInt("price"));
 				dm.setProgress(rset.getString("progress"));
+				dm.setSno(rset.getInt("sno"));
 				dingList.add(dm);
 				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
 				
@@ -143,6 +141,7 @@ public class DealMngDao {
 			
 			
 		} catch(SQLException e) {
+			e.printStackTrace();
 			throw new buyingctrlException("진행중 조회 에러");
 		
 		} finally {
@@ -155,119 +154,7 @@ public class DealMngDao {
 		
 	}
 
-	//완료된 거래 리스트 조회
-	public ArrayList<DealMng> finselectList(Connection con, Member m) throws buyingctrlException {
-		
-		ArrayList<DealMng> finList = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("finselectList");
-		
-		try {
-			finList = new ArrayList<DealMng>();
-			
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setInt(1, m.getMno());
-			pstmt.setString(2, m.getNickName());
-			pstmt.setString(3, fin);
-			
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				DealMng dm = new DealMng();
-				
-				dm.setBtitle(rset.getString("btitle"));
-				dm.setNickname(rset.getString("nickName"));
-				dm.setDmcode(rset.getInt("dmcode"));
-				dm.setDealdate(rset.getDate("dealdate"));
-				dm.setProgress(rset.getString("progress"));
-				dm.setPrice(rset.getInt("price"));
-				
-				
-				finList.add(dm);
-				System.out.println("완료된 구매내역 조회 리스트(DealMngDao) : "+ finList);
-				
-			}
-			
-			
-			
-		} catch(SQLException e) {
-			throw new buyingctrlException("거래 완료 리스트 에러");
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		
-		
-		
-		
-		return finList;
-	}
-
-
 	
-	//거래 취소 조회
-	public ArrayList<DealMng> ccselectList(Connection con, Member m) throws buyingctrlException {
-		
-		ArrayList<DealMng> ccList = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("ccselectList");
-		
-		try {
-			ccList = new ArrayList<DealMng>();
-			
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setInt(1, m.getMno());
-			pstmt.setString(2, m.getNickName());
-			pstmt.setString(3, cc);
-			
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				DealMng dm = new DealMng();
-				
-				dm.setBtitle(rset.getString("btitle"));
-				dm.setNickname(rset.getString("nickName"));
-				dm.setDmcode(rset.getInt("dmcode"));
-				dm.setDealdate(rset.getDate("dealdate"));
-				dm.setProgress(rset.getString("progress"));
-				dm.setPrice(rset.getInt("price"));
-
-				
-				ccList.add(dm);
-				System.out.println("취소 구매내역 조회 리스트(DealMngDao) : "+ ccList);
-				
-			}
-			
-			
-			
-		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new buyingctrlException("거래 취소 조회 에러");
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		
-		
-		
-		
-		return ccList;
-		
-		
-		
-		
-	}
-
 	//구매 전체 내역에서 검색
 	public ArrayList<DealMng> searchAllList(Connection con, String keyword, Member m) throws buyingctrlException {
 		
@@ -571,6 +458,7 @@ public class DealMngDao {
 				dm.setDealdate(rset.getDate("dealdate"));
 				dm.setPrice(rset.getInt("price"));
 				dm.setProgress(rset.getString("progress"));
+				dm.setSno(rset.getInt("sno"));
 				dingList.add(dm);
 				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
 				
@@ -617,6 +505,7 @@ public class DealMngDao {
 				dm.setDealdate(rset.getDate("dealdate"));
 				dm.setPrice(rset.getInt("price"));
 				dm.setProgress(rset.getString("progress"));
+				dm.setSno(rset.getInt("sno"));
 				dingList.add(dm);
 				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
 				

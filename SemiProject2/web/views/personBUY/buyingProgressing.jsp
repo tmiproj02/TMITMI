@@ -246,7 +246,7 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a href="/semi/views/personBUY/buyingcontrol.jsp"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
+								<a href="/semi/prging.bo?state=1"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
 									<div><img src="/semi/resources/images/buying_active.png" alt="" /></div>
 									<h6>구매관리</h6>							
 								</div></a>
@@ -257,11 +257,11 @@
 							</div>
 							<div class="menu-line" style="text-align:center;border-bottom:solid #E6E6E6 1px;">
 								<a href="/semi/views/personBUY/billingHistory.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
-									<div><img src="/semi/resources/payment_active.png" alt="" /></div>
+									<div><img src="/semi/resources/images/payment_active.png" alt="" /></div>
 									<h6>캐시내역</h6>							
 								</div></a>
 								<a href="/semi/views/personBUY/coupon.jsp"><div class="padding-all-15 menu-slot">
-									<div><img src="/semi/resources/coupon_active.png" alt="" /></div>
+									<div><img src="/semi/resources/images/coupon_active.png" alt="" /></div>
 									<h6>쿠폰</h6>			
 								</div></a>
 							</div>
@@ -308,6 +308,7 @@
 				    <th>가격</th>
 				    <th>판매자</th>
 				    <th>거래성사일</th>
+				    <th>메세지</th>
 				  </tr>
 				  </thead>
 				  
@@ -324,7 +325,7 @@
 				   	  	<td><%=dm.getPrice()%></td>
 				   	  	<td><%=dm.getsNickname()%></td>
 				   	  	<td><%=dm.getDealdate()%></td>
-				   
+				   		<td><button class="ui teal button">Teal</button></td>
 				   	  </tr>
 				
 				   	<% num++; } %>

@@ -75,7 +75,7 @@ public class SelectBuyControlPage extends HttpServlet {
 				dingList = dms.selectAllList(m);
 				page = "views/personBUY/buyingcontrol.jsp";
 			}else if(state.equals("1")) {
-				dingList = dms.ingselectList(m,currentPage,limit);
+				dingList = dms.ingselectList(m);
 				page = "views/personBUY/buyingProgressing.jsp";
 			}else if(state.equals("2")) {
 				dingList = dms.selectFinList(m);

@@ -89,7 +89,7 @@ p{
 				background: #364559; 
 				border-radius: 8px;
 				margin: 20px 10px;
-				color:#fff;" onclick="location.href='/semi/nReq.bo'">
+				color:#fff;" onclick="location.href='/semi/prging.bo?state=1'">
 				거래화면으로
 			</button>		
 		</div>

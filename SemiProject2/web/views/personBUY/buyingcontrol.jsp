@@ -47,7 +47,7 @@
 	}
 	.scontainer{
 
-		width : 1024px;
+		width : 1200px;
 		margin:0 auto;
 		overflow : hidden;
 	}
@@ -246,7 +246,7 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a href="/semi/views/personBUY/buyingcontrol.jsp"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
+								<a href="/semi/prging.bo?state=1"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
 									<div><img src="/semi/resources/images/buying_active.png" alt="" /></div>
 									<h6>구매관리</h6>							
 								</div></a>
@@ -257,11 +257,11 @@
 							</div>
 							<div class="menu-line" style="text-align:center;border-bottom:solid #E6E6E6 1px;">
 								<a href="/semi/views/personBUY/billingHistory.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
-									<div><img src="/semi/resources/payment_active.png" alt="" /></div>
+									<div><img src="/semi/resources/images/payment_active.png" alt="" /></div>
 									<h6>캐시내역</h6>							
 								</div></a>
 								<a href="/semi/views/personBUY/coupon.jsp"><div class="padding-all-15 menu-slot">
-									<div><img src="/semi/resources/coupon_active.png" alt="" /></div>
+									<div><img src="/semi/resources/images/coupon_active.png" alt="" /></div>
 									<h6>쿠폰</h6>			
 								</div></a>
 							</div>
@@ -271,7 +271,7 @@
 				</div>
 				
 			</div>
-			<div class="scontainer3 width-75per" style="float:left">
+			<div class="scontainer3 width-75per" style="float:left; width:70%">
 				<div class="padding-15">
 					<h3 class="font-noto" style="font-weight:700">구매관리</h3>
 				</div>
@@ -300,7 +300,7 @@
 					
 				<div class="mp2">
 			
-				<table class="ui blue table" style="width:85%; margin-left:5%;">
+				<table class="ui blue table" style="width:100%; margin-left:5%;">
 				  <thead>
 				    <tr>
 				    <th>No</th>
@@ -308,6 +308,7 @@
 				    <th>가격</th>
 				    <th>판매자</th>
 				    <th>거래성사일</th>
+				    <th>메세지</th>
 				  </tr>
 				  </thead>
 				  
@@ -318,13 +319,40 @@
 				   	
 				   		%>
 				   	  <tr>
-				   	  	<input type="hidden"/>
+				   	  	<input type="hidden" value="<%=dm.getSno()%>">
+				   	  	<input type="hidden" value="<%=dm.getsNickname()%>">
 				   	  	<td><%=num %></td>	
 				   	  	<td><%=dm.getBtitle()%></td>
 				   	  	<td><%=dm.getPrice()%></td>
 				   	  	<td><%=dm.getsNickname()%></td>
 				   	  	<td><%=dm.getDealdate()%></td>
-				   
+				   		<td><button class="ui teal button" onclick="triggerMsgFn()";>전송</button>
+							<!-- Modal -->
+						  <div class="ui small modal">
+							 <div class="header" style="font-size:30px;">
+								 <b>1:1 문의</b><br>
+							 	 <label style="font-size:18px;">제목</label>&nbsp;&nbsp;
+							 	 <div class="ui input focus"><input type="text" id="rTitle" style="font-size:18px;width:600px;height:18px;"></div>
+							 </div>
+							 
+							 <div class="content" style="padding-top:10px; padding-bottom:10px;">
+							  <label style="font-size:18px;"><b>내용</b></label><br>
+							  <textarea id="rContent" style="font-size:18px;width:680px;height:300px;"></textarea>
+					
+						     </div>
+						     
+						     <div class="actions">
+					   			 <button class="ui blue basic approve button" onclick="submitFn()">완료</button>
+							     <button class="ui red basic button cancel ">취소</button>
+					  		 </div>
+						     
+						     
+						     <br>
+						  </div>		   		
+				   		</td>
+				   		
+				   		
+				   		
 				   	  </tr>
 				
 				   	<% num++; } %>
@@ -377,7 +405,44 @@
 		function lbcash(){
 			location.href="cash.jsp";
 		}
+		
+		function triggerMsgFn(){
+		
+			$('.small.modal').modal('show');
+		}
+		
+		$('.cancel').click(function(){
+			$('#mTitle').val(" ");
+			$('#mContent').val(" ");
+		});
+			
+		
+		function submitFn(){
+			$.ajax({
+				url : "/semi/msgToSeller",
+				type : "post",
+				data : {rTitle : $('#rTitle').val(), rContent: $('#rContent').val()},
+				success : function(){
+					$('#rTitle').val(" ");
+					$('#rContent').val(" ");
+					alert("메세지가 전송되었습니다..");
+				},
+				error : function(){
+					alert("전송실패");
+				}
+		
+			});
+				
+		}
+		
+		
+		
+		
+		
+		
+		
 	</script>
+	
 	
 	
 

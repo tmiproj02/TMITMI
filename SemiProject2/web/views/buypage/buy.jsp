@@ -316,7 +316,7 @@ table td:nth-child(4){
     		alert("캐쉬충전이 필요합니다.");
     		location.href="views/personBUY/cash.jsp";
     	}else{ 		
-    		location.href = "<%= request.getContextPath() %>/sptList.bo?tprice="+total1;
+    		   location.href = "<%=request.getContextPath()%>/dealComplete?tprice="+total1+"&bno=<%=b.getBno()%>&sno=<%=b.getSno()%>"
     	}
     		
   
