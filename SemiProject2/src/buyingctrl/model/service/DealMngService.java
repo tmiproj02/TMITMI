@@ -106,7 +106,7 @@ public class DealMngService {
 
 
 
-	public ArrayList<DealMng> selectDeal(int sno) {
+	public ArrayList<DealMng> selectDeal(int sno) throws buyingctrlException {
 		con = getConnection();
 		ArrayList<DealMng> list = dmDao.selectDeal(con,sno);
 		

@@ -70,7 +70,7 @@ public class BoardDao {
 				b.setIntrotext(rset.getString("INTROTEXT"));
 				b.setCpcount(rset.getInt("CPCOUNT"));
 				b.setSevaluation(rset.getInt("SEVALUATION"));
-				
+				b.setNickname(rset.getString("NICKNAME"));
 				
 		
 			}

@@ -276,7 +276,7 @@ font-family: 'Noto Sans KR', sans-serif;
 							<h4>판매 중인 건</h4>
 							<a href="/semi/myboard.bo"><b><%= sellCount %></b>건</a>
 						</div>
-						<div class="detail2" style="border-right: 1px solid #E6E6E6;padding:0 35px;">
+						<div class="detail2" style="border-right: 1px solid #E6E6E6;padding:0 23px;">
 							<h4>이달의 수익금</h4>
 							<a href="/semi/list.ic"><b><%=income %></b>원</a>
 						</div> 
@@ -284,7 +284,7 @@ font-family: 'Noto Sans KR', sans-serif;
 							<h4>구매 중인 건</h4>
 							<a href="/semi/nReq.bo"><b><%= buyCount %></b>건</a>
 						</div>
-						<div class="detail4" style="border-right: 1px solid #E6E6E6;padding:0 39px;">
+						<div class="detail4" style="border-right: 1px solid #E6E6E6;padding:0 26px;">
 							<h4>TMI 캐쉬</h4>
 							<a href="/semi/cList.bo"><b><%= cash %></b>원</a>
 						</div>
