@@ -403,8 +403,8 @@ border:5px solid transparent;
 
                 <div class="search">
                     <input type="hidden" name="type" value="gigs">
-                    <input type="text" name="find" maxlength="15" class="search-input" placeholder="원하는 서비스를 검색하세요!">
-                    <div class="search-btn">
+                    <input type="text" id="searchWord" maxlength="15" class="search-input" placeholder="원하는 서비스를 검색하세요!">
+                    <div class="search-btn" onclick="doSearch()">
                         <img class="width-30px" src="/semi/resources/images/searching.png">
                     </div>
                 </div>
@@ -758,4 +758,28 @@ border:5px solid transparent;
         
     	
 </body>
+<script>
+function doSearch(){
+	var searchWord = $('#searchWord').val();
+	location.href = "/semi/searchedList.bo?searchWord="+searchWord;
+	
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>

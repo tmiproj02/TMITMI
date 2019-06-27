@@ -286,19 +286,16 @@ nav{
                 <div class="container">
                     <div class="left-head paddinghead">
                         <div class="logo">
-                        <%if(m != null){ %>
-                            <a href="/semi/mainheader2.jsp">
-                        <%} else{ %>
+                        
                         	<a href="/semi/index.jsp">
-                        <%} %>
+
                                 <img class="logoImg" src="/semi/resources/images/TMI1.png" width=80px>
                             </a>
                         </div>
                         <div class='head_input'>
-                            <input type="text" name="keyword" maxlength="15" class="search-input" placeholder="어떤 서비스를 찾고계신가요?">
-                            <div class="search-btn">
-                                <img class="width-15px margin-right-10 cursor" src="/semi/resources/images/cancel-button2.png" style="display: none">
-                                <img class="width-20px cursor" src="/semi/resources/images/searching.png" style="vertical-align: inherit">
+                             <input type="text" id="searchWord" maxlength="15" class="search-input" placeholder="어떤 서비스를 찾고계신가요?">
+                            <div class="search-btn">   
+                                <img class="width-20px cursor" src="/semi/resources/images/searching.png" style="vertical-align: inherit" onclick="doSearch();">
                             </div>
                         </div>
                     </div>
@@ -317,7 +314,7 @@ nav{
                             	<div class="padding-20px"><a href="/semi/views/seller/ServiceRegistration.jsp">판매 시작하기</a></div>
                             <%} %>
                             <div class="padding-15px"><a style="cursor:pointer" onclick="buyingctrl();">구매</a></div>
-                            <div class="padding-15px"><a href="/">메시지</a></div>
+                            <div class="padding-15px"><a href="/semi/messageList">메세지</a></div>
                             <div class="padding-15px"><a href="/">찜한 서비스</a></div>
                             <div class="mylog padding-15px"><a href="/">
                             	<div style="width:30px;height:30px"><img src="/semi/resources/images/myprofile.png" width=30px style="border-radius: 500px !important; vertical-align: middle;"/></div>
@@ -459,8 +456,18 @@ nav{
     	});
     	
     	function buyingctrl(){
-			location.href="/semi/nReq.bo";
+			location.href="/semi/prging.bo";
 		}
+    	
+    	function doSearch(){
+    		var searchWord = $('#searchWord').val();
+    		location.href = "/semi/searchedList.bo?searchWord="+searchWord;
+    		
+    	}
+    	
+    	
+    	
+    	
     </script>
 </body>
 </html>

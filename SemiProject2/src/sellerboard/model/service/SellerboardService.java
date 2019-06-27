@@ -111,5 +111,41 @@ public class SellerboardService {
 		
 		return list;
 	}
+	
+	
+	public int getSearchedListCount(String searchWord) {
+		int searchedListCount =0;
+		con = getConnection();
+		
+		try {
+			
+			searchedListCount = sbDao.getSearchedListCount(searchWord,con);
+			
+			commit(con);
+			
+			close(con);
+			
+		}catch(Exception e) {
+		
+			e.printStackTrace();
+		}
+		
+		return searchedListCount;
+	}
 
+	public ArrayList<SellerBoard> searchedList(int currentPage, int pageLimit, int boardLimit, String searchWord) {
+		con = getConnection();
+		ArrayList<SellerBoard> searchedList = null;
+		
+		try {
+			searchedList = sbDao.searchedList(currentPage,pageLimit,boardLimit,searchWord,con);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return searchedList;
+	}
+	
 }

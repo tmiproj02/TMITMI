@@ -226,7 +226,16 @@
 						<ul class="user-profile-box">
 							<li style=" border-top:none;"><div style="text-align : center; margin-bottom:20px;">
 								<div class="font-noto" style="margin-top:5px;margin-bottom:10px;"><a href=""><%= m.getNickName() %></a></div>
-								<div><label for="" class="seller-check font-noto">전문가 인증</label></div>
+								<%if(s==null){ %>
+									<div><label class="seller-check font-noto" style="cursor:pointer;" onclick="gosell();">전문가 인증</label></div>
+									<script>
+										function gosell(){
+											location.href="/semi/views/seller/SellerRegistration.jsp";
+										}
+									</script>
+								<%}else{%>
+									<div><label class="seller-check font-noto">전문가</label></div>
+								<%} %>
 							</div></li>
 							<li><div class="income-out">
 								<div class="income-out-div">
@@ -327,6 +336,13 @@
 						<div class="detail-box">
 							<%if(list != null){ int count = -1;%>
 							<div class="detail-list" style="padding:0">
+								<div class="comment" style="overflow:hidden;background:#f9fafb;padding:5px 0;">
+									<div style="width:20%; display:inline-block; float:left;"><h5>사진</h5></div>
+									<div style="width:45%; display:inline-block;float:left;"><h5>제목</h5></div>
+									<div style="width:10%; display:inline-block;float:left;"><h5>닉네임</h5></div>
+									<div style="width:15%; display:inline-block;float:left;"><h5>가격</h5></div>
+									<div style="width:10%; border-right:none; display:inline-block;float:left;"><h5>상태</h5></div>
+								</div>
 								<%for(DealMng d : list){%>
 								<%if(d.getProgress().equals("취소")){ count++;%>
 								<%

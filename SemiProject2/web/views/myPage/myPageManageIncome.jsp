@@ -269,7 +269,16 @@
 						<ul class="user-profile-box">
 							<li style=" border-top:none;"><div style="text-align : center; margin-bottom:20px;">
 								<div class="font-noto" style="margin-top:5px;margin-bottom:10px;"><a href=""><%= m.getNickName() %></a></div>
-								<div><label for="" class="seller-check font-noto">전문가 인증</label></div>
+								<%if(s==null){ %>
+									<div><label class="seller-check font-noto" style="cursor:pointer;" onclick="gosell();">전문가 인증</label></div>
+									<script>
+										function gosell(){
+											location.href="/semi/views/seller/SellerRegistration.jsp";
+										}
+									</script>
+								<%}else{%>
+									<div><label class="seller-check font-noto">전문가</label></div>
+								<%} %>
 							</div></li>
 							<li><div class="income-out">
 								<div class="income-out-div">

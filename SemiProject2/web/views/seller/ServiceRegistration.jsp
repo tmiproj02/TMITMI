@@ -87,10 +87,11 @@
 						<option selected value="0">선택해주세요</option>
 						<option value="10">디자인</option>
 						<option value="20">IT/프로그래밍</option>
-						<option value="30">콘텐츠 제작</option>
-						<option value="40">번역/통역</option>
-						<option value="50">문서/취업</option>
-						<option value="60">기프트/커스텀</option>
+						<option value="30">마케팅</option>
+						<option value="40">콘텐츠 제작</option>
+						<option value="50">번역/통역</option>
+						<option value="60">문서/취업</option>
+						<option value="70">기프트/커스텀</option>
 					</select>
 					<br><br><br>
 				</div>
@@ -142,11 +143,18 @@
 					
 					<select class="custom-select mr-sm-2" id="category26" name="category2_code" style="position: relative; left:-200px; width:250px; height:40px; display: none;">
 						<option selected value="0">선택해주세요</option>
-						<option value="21">논문</option>
-						<option value="22">타이핑</option>
-						<option value="23">글작성/대본</option>
-						<option value="24">면접 취업코딩</option>
-						<option value="25">자소서/이력서</option>
+						<option value="61">논문</option>
+						<option value="62">타이핑</option>
+						<option value="63">글작성/대본</option>
+						<option value="64">면접 취업코딩</option>
+						<option value="65">자소서/이력서</option>
+					</select>
+					
+					<select class="custom-select mr-sm-2" id="category27" name="category2_code" style="position: relative; left:-200px; width:250px; height:40px; display: none;">
+						<option selected value="0">선택해주세요</option>
+						<option value="71">라이프</option>
+						<option value="72">패션</option>
+						<option value="73">푸드</option>
 					</select>
 					<br><br><br>
 				</div>
@@ -173,7 +181,7 @@
 				<br>
 				<div class="column">
 				    <div class="ui input focus" style="position: relative; left:-200px; width:200px; height:40px;">
-						₩ &nbsp;&nbsp; <input type="text" id="sellerAmount" name="price" placeholder="예) 1000" value="">
+						₩ &nbsp;&nbsp; <input type="text" id="sellerAmount" name="price" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="예) 1000" value="">
 					</div>
 				</div>
 				<br>
@@ -183,7 +191,7 @@
 				</div>
 				<div class="column">
 				    <div class="ui input focus" style="position: relative; left:-180px; width:180px; height:40px;">
-						<input type="text" id="editCount" name="editablecount" placeholder="예) 1" value=""> &nbsp;&nbsp;회
+						<input type="text" id="editCount" name="editablecount" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="예) 1" value=""> &nbsp;&nbsp;회
 					</div>
 				</div>
 				<br>
@@ -193,7 +201,7 @@
 				</div>
 				<div class="column">
 				    <div class="ui input focus" style="position: relative; left:-180px; width:180px; height:40px;">
-						<input type="text" id="dueDate" name="duedate" placeholder="예) 30" value=""> &nbsp;&nbsp;일
+						<input type="text" id="dueDate" name="duedate" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="예) 30" value=""> &nbsp;&nbsp;일
 					</div>
 				</div>
 				
@@ -211,7 +219,7 @@
 				<div class="column">
 					<div class="col-auto my-1">
 						<!-- 빠른작업 -->
-						<select class="custom-select mr-sm-2" name="speed" style="position: relative; left:-200px; width:150px; height:40px;">
+						<select class="custom-select mr-sm-2" id="speed" name="speed" style="position: relative; left:-200px; width:150px; height:40px;">
 							<option selected value="0">가격선택</option>
 							<option value="10000">10,000원</option>
 							<option value="20000">20,000원</option>
@@ -221,16 +229,29 @@
 						</select>
 						
 						
-						<div class="column">
+						<div id=speed1 class="column" hidden>
 							<label style="position:absolute; top :10px; left:-10px;">추가시</label>
-						    <div class="ui input focus" style="position:absolute; top :0px; left:60px; width:140px; height:40px;">
-								<input type="text" id="extradate1" name="extradate1" placeholder="예) 10" value=""> &nbsp;&nbsp;일
+						    <div class="ui input focus" style="position:absolute; top :0px; left:60px; width:140px; height:40px;" >
+								<input type="text" id="extradate1" name="extradate1" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="예) 10" value="" > &nbsp;&nbsp;일
 							</div>
 						</div>
+						
+						<script type="text/javascript">
+						$("#speed").on("change", function(){
+							// value 값으로 선택
+							var valu1=$('#speed').val();
+							console.log("speed : "+valu1);
+							if(valu1==0){
+								document.getElementById('speed1').hidden = true;
+							}else{
+								document.getElementById('speed1').hidden = false;
+							}
+						});
+						</script>
 			
 						<br><br><br><br>
 						<!-- 추가수정 부분 -->
-						<select class="custom-select mr-sm-2" name="plusedit" style="position: relative; left:-200px; width:150px; height:40px;">
+						<select class="custom-select mr-sm-2" id="plusedit" name="plusedit" style="position: relative; left:-200px; width:150px; height:40px;">
 							<!-- selected value="0" 으로 둔것은 밑에 유효성 검사를 할때 사용하기 위함이다 -->
 							<option selected value="0">가격선택</option>
 							<option value="10000">10,000원</option>
@@ -240,12 +261,25 @@
 							<option value="판매자">판매자와 상의하세요</option>
 						</select>
 						
-						<div class="column">
+						<div id="plusedit1" class="column" hidden>
 							<label style="position:absolute; top :125px; left:-10px;">추가시</label>
 						    <div class="ui input focus" style="position:absolute; top :115px; left:60px; width:140px; height:40px;">
-								<input type="text" id="extradate2" name="extradate2" placeholder="예) 3" value=""> &nbsp;&nbsp;회
+								<input type="text" id="extradate2" name="extradate2" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="예) 3" value=""> &nbsp;&nbsp;회
 							</div>
 						</div>
+						
+						<script type="text/javascript">
+						$("#plusedit").on("change", function(){
+							// value 값으로 선택
+							var valu2=$('#plusedit').val();
+							console.log("plusedit : "+valu2);
+							if(valu2==0){
+								document.getElementById('plusedit1').hidden = true;
+							}else{
+								document.getElementById('plusedit1').hidden = false;
+							}
+						});
+						</script>
 						
 						
 					</div>
@@ -493,6 +527,7 @@
 					category24.style.display = "none";
 					category25.style.display = "none";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				} else if(value1 == 20) {
 					submu.style.display ="";
 					category21.style.display = "none";
@@ -501,6 +536,7 @@
 					category24.style.display = "none";
 					category25.style.display = "none";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				} else if(value1 == 30) {
 					submu.style.display ="";
 					category21.style.display = "none";
@@ -509,6 +545,7 @@
 					category24.style.display = "none";
 					category25.style.display = "none";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				} else if(value1 == 40) {
 					submu.style.display ="";
 					category21.style.display = "none";
@@ -517,6 +554,7 @@
 					category24.style.display = "";
 					category25.style.display = "none";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				} else if(value1 == 50) {
 					submu.style.display ="";
 					category21.style.display = "none";
@@ -525,6 +563,7 @@
 					category24.style.display = "none";
 					category25.style.display = "";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				} else if(value1 == 60) {
 					submu.style.display ="";
 					category21.style.display = "none";
@@ -533,6 +572,16 @@
 					category24.style.display = "none";
 					category25.style.display = "none";
 					category26.style.display = "";
+					category27.style.display = "none";
+				} else if(value1 == 70) {
+					submu.style.display ="";
+					category21.style.display = "none";
+					category22.style.display = "none";
+					category23.style.display = "none";
+					category24.style.display = "none";
+					category25.style.display = "none";
+					category26.style.display = "none";
+					category27.style.display = "";
 				} else{
 					submu.style.display ="none";
 					category21.style.display = "none";
@@ -541,6 +590,7 @@
 					category24.style.display = "none";
 					category25.style.display = "none";
 					category26.style.display = "none";
+					category27.style.display = "none";
 				}
 			}
 			

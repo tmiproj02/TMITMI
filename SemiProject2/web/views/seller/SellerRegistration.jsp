@@ -62,12 +62,42 @@
 			<hr class="my-4">
 			
 			<div class="ui segment">
-			<div class="ui two column very relaxed grid">
-				<div class="column">
-				    <h5 class="modal-title">프로필 사진</h5>
+				<div class="ui two column very relaxed grid">
+					<div class="column">
+		    		<h5 class="modal-title">판매자 이미지 등록</h5>
 					<br>
-					<img class="ui small left floated image" src="/semi/views/seller/images/person.png" style="left:30px; width:150px; height:150px;">
+						<div id="titleImgArea">
+							<img id="titleImg" width="350" height="200" text="">
+						</div>
+					<div class="fileArea" id="fileArea">
+						<input type="file" id="thumbnailImg0" name="thumbnailImg0" onchange="loadImg(this, 1);" />
+					</div>
+					<br>
+					<label>상자를 눌러 대표 이미지를 등록하세요</label>
+
+					<script>
+						// 사진 게시판 미리보기 기능 지원 스크립트 강사님거 가져옴
+						$(function(){
+							$('#fileArea').hide();
+							$('#titleImgArea').click(() => {$('#thumbnailImg0').click();});
+						});
+						
+						function loadImg(value, num){
+							if(value.files && value.files[0])  {
+								var reader = new FileReader();
+								reader.onload = function(e){
+									switch(num) {
+									case 1 : $('#titleImg').attr('src', e.target.result);
+										break;
+									} 
+								}
+								reader.readAsDataURL(value.files[0]);
+							}
+						}
+					</script>
 				</div>
+				
+				<!-- phone번호를 받아오기 위하여 만들었다. -->
 				<% 
 					String email = m.getEmail();
 					String phone = null;
@@ -238,7 +268,7 @@
 							<label>계좌번호</label><br>
 							<div class="ui input focus">
 								&nbsp;
-								<input type="text" id="bankNumber" name="bankNumber" placeholder="-없이 입력해 주세요" value="">
+								<input type="text" id="bankNumber" name="bankNumber" onKeypress="if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="-없이 입력해 주세요" value="">
 							</div>
 						</div>
 						<br>

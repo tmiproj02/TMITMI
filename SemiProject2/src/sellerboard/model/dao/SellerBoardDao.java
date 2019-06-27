@@ -444,5 +444,108 @@ public class SellerBoardDao {
 
 		return list;
 	}
+	
+
+	public int getSearchedListCount(String searchWord, Connection con) {
+		int searchedListCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("getSearchedListCount");
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, searchWord);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				searchedListCount = rset.getInt(1);
+				
+			}
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+	
+		}finally {
+			
+			close(rset);
+			close(pstmt);
+			
+		}
+		
+		
+		
+		return searchedListCount;
+	}
+
+
+	public ArrayList<SellerBoard> searchedList(int currentPage, int pageLimit, int boardLimit, String searchWord, Connection con) {
+		ArrayList<SellerBoard> searchedList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchedList");
+	
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+		
+			int startRow = (currentPage - 1)*boardLimit +1;
+			int endRow = startRow+boardLimit-1;	
+			System.out.println(startRow);
+			System.out.println(endRow);
+				System.out.println(sql);
+				System.out.println(searchWord);
+				pstmt.setString(1, searchWord);
+				pstmt.setInt(2, endRow);
+				pstmt.setInt(3, startRow);
+
+			   rset = pstmt.executeQuery();
+			
+			searchedList = new ArrayList<SellerBoard>();
+			
+			while(rset.next()) {
+				SellerBoard b = new SellerBoard();
+				b.setBno(rset.getInt("BNO"));
+				b.setSno(rset.getInt("SNO"));
+				b.setBtitle(rset.getString("BTITLE"));
+				b.setBcontent(rset.getString("BCONTENT"));
+				b.setErecontent(rset.getString("ERECONTENT"));
+				b.setRequest(rset.getString("REQUEST"));
+				b.setCategory1_code(rset.getString("CATEGORY1_CODE"));
+				b.setCategory2_code(rset.getString("CATEGORY2_CODE"));
+				b.setPrice(rset.getInt("PRICE"));
+				b.setBevaluation(rset.getInt("BEVALUATION"));
+				b.setImages(rset.getString("IMAGES"));
+				b.setEditablecount(rset.getInt("EDITABLECOUNT"));
+				b.setDuedate(rset.getInt("DUEDATE"));
+				b.setSpeed(rset.getInt("SPEED"));
+				b.setExtradate1(rset.getString("EXTRADATE1"));
+				b.setPlusedit(rset.getInt("PLUSEDIT"));
+				b.setExtradate2(rset.getString("EXTRADATE2"));
+				b.setAd(rset.getString("AD"));
+				b.setAdexpire(rset.getInt("ADEXPIRE"));
+				b.setBdate(rset.getDate("BDATE"));
+				b.setState(rset.getString("STATE"));
+
+				searchedList.add(b);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);	
+		}		
+		return searchedList;
+	}
+
+	
+	
+	
+	
 
 }
