@@ -126,9 +126,7 @@ public class DealMngDao {
 			pstmt = con.prepareStatement(sql);
 			System.out.println("sql: " + sql);
 			 pstmt.setInt(1, m.getMno());
-			pstmt.setInt(2, endRow);
-			pstmt.setInt(3, startRow);
-
+		
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -136,13 +134,13 @@ public class DealMngDao {
 				
 				dm.setBtitle(rset.getString("btitle"));
 				dm.setsNickname(rset.getString("nickName"));
+				System.out.println(dm.getsNickname());
 				dm.setDmcode(rset.getInt("dmcode"));
 				dm.setDealdate(rset.getDate("dealdate"));
 				dm.setPrice(rset.getInt("price"));
 				dm.setProgress(rset.getString("progress"));
 				dm.setSno(rset.getInt("sno"));
 				dingList.add(dm);
-				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
 				
 			}
 			

@@ -95,12 +95,6 @@ public DealMng(int dmcode, String progress, Date dealdate, String btitle, int pr
 	
 
 
-	
-	
-
-
-
-
 
 
 

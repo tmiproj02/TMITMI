@@ -318,31 +318,32 @@
 				   	for(DealMng dm : dingList){
 				   	
 				   		%>
-				   	  <tr>
-				   	  	<input type="hidden" value="<%=dm.getSno()%>">
-				   	  	<input type="hidden" value="<%=dm.getsNickname()%>">
+				   	  <tr id="trId">
+				   	  	<input id="sno<%=num%>"type="hidden" value="<%=dm.getSno()%>">
+				   	  	<input id="nickName<%=num%>"type="hidden" value="<%=dm.getsNickname()%>">
+				  
 				   	  	<td><%=num %></td>	
 				   	  	<td><%=dm.getBtitle()%></td>
 				   	  	<td><%=dm.getPrice()%></td>
 				   	  	<td><%=dm.getsNickname()%></td>
 				   	  	<td><%=dm.getDealdate()%></td>
-				   		<td><button class="ui teal button" onclick="triggerMsgFn()";>전송</button>
+				   		<td><button class="ui teal button send">전송</button>
 							<!-- Modal -->
 						  <div class="ui small modal">
 							 <div class="header" style="font-size:30px;">
-								 <b>1:1 문의</b><br>
+								 <b>메세지 전송</b><br>
 							 	 <label style="font-size:18px;">제목</label>&nbsp;&nbsp;
-							 	 <div class="ui input focus"><input type="text" id="rTitle" style="font-size:18px;width:600px;height:18px;"></div>
+							 	 <div class="ui input focus"><input type="text" id="mTitle<% %>" style="font-size:18px;width:600px;height:18px;"></div>
 							 </div>
 							 
 							 <div class="content" style="padding-top:10px; padding-bottom:10px;">
 							  <label style="font-size:18px;"><b>내용</b></label><br>
-							  <textarea id="rContent" style="font-size:18px;width:680px;height:300px;"></textarea>
+							  <textarea id="mContent<%=num %>" style="font-size:18px;width:680px;height:300px;"></textarea>
 					
 						     </div>
 						     
 						     <div class="actions">
-					   			 <button class="ui blue basic approve button" onclick="submitFn()">완료</button>
+					   			 <button class="ui blue basic approve button submit2" >완료</button>
 							     <button class="ui red basic button cancel ">취소</button>
 					  		 </div>
 						     
@@ -405,23 +406,49 @@
 		function lbcash(){
 			location.href="cash.jsp";
 		}
-		
-		function triggerMsgFn(){
-		
-			$('.small.modal').modal('show');
-		}
-		
+	
 		$('.cancel').click(function(){
 			$('#mTitle').val(" ");
 			$('#mContent').val(" ");
 		});
 			
+		$('.send').each(function(index,item){
+			
+			$(this).click(function(){
+			   var sno= $(this).parents('#trId').find('input').eq(0).val();
+			   $('.small.modal').modal('show');
+			 
+			   $('.submit2').each(function(index,item){
+				   
+				   $(this).click(function(){
+					 var mTitle = $('#mTitle').val();
+					 var mContent =  $(this).parents('#mContent').val();
+					 console.log($(this));
+					  console.log(mTitle);
+					  console.log(mContent); 
+					   
+					   
+				   });
+				   
+			   });
+			   
+			   
+			 
+			  
+			});
+
+		});
 		
-		function submitFn(){
+		
+		
+	/* /* 	function submitFn(){
+			var nickName = $('')
+
+			
 			$.ajax({
 				url : "/semi/msgToSeller",
-				type : "post",
-				data : {rTitle : $('#rTitle').val(), rContent: $('#rContent').val()},
+				type :s "post",
+				data : {rTitle : $('#rTitle').val(), rContent: $('#rContent').val(),nickName:$('#')},
 				success : function(){
 					$('#rTitle').val(" ");
 					$('#rContent').val(" ");
@@ -433,13 +460,9 @@
 		
 			});
 				
-		}
-		
-		
-		
-		
-		
-		
+		} */
+	
+	
 		
 	</script>
 	

@@ -53,9 +53,6 @@ public class DealCompleteServlet extends HttpServlet {
 			
 			new DealMngService().dealComplete(mno,bno,sno,cp);
 			
-				
-			
-			
 			request.setAttribute("tprice", cp);
 			request.setAttribute("email", email);
 
