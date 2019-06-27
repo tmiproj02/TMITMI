@@ -14,7 +14,7 @@
 
 
 	
-	.coupontable, .ccount{
+	.ccount{
 		width : auto;
 		margin: 0 auto;
 		margin-top : 20px;
@@ -29,14 +29,6 @@
 	#cpinput{
 		margin-left:35%;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	.listcontent{
 		padding:15px;
@@ -153,16 +145,7 @@
 		width:100%;
 		
 	}
-	
-	.detail-box{
-	    border-bottom: solid #E6E6E6 1px !important;
-	}
-	.detail-list{
-		border: solid #E6E6E6 1px !important;
-		padding : 85px 0;
-		text-align : center;
-		margin-top : 20px;
-	}
+
 	.buying-history{
 	    vertical-align: 1px;
 	    font-size: 11px;
@@ -199,6 +182,32 @@
 		letter-spacing : -2px;
 		font-size : 13px;
 	}
+	
+	.detail-box{
+		border-top: solid #E6E6E6 1px !important;
+	    border-bottom: solid #E6E6E6 1px !important;
+	}
+	.detail-list{
+		border: solid #E6E6E6 1px !important;
+		padding : 85px 0;
+		text-align : center;
+		margin-top : 20px;
+	}
+	.mySlist{
+		overflow:hidden;
+		margin:0 auto;
+		border-bottom : 1px solid #E6E6E6;
+		
+	}
+	.mySlist>div{
+		display:inline-block;
+		float:left;
+		vertical-align:center;
+		border-right : 1px solid #E6E6E6;
+	}
+	.mySlist>div div{
+		margin:20px 0;
+	}
 
 </style>
 
@@ -210,7 +219,6 @@
 	DecimalFormat df = new DecimalFormat("###,###");
 	int val = m.getCash();
 	%>
-	
 <div class="my-page-buy">
 		<div class="scontainer">
 			<div class="scontainer1">
@@ -276,20 +284,21 @@
 					<div class="padding-15 font-noto">
 						
 					<div class="ccount">
-			<span class="cpp1">보유한 쿠폰 </span><span class="cpp1" style="color:red;">0</span><span class="cpp1">개</span>
+			<span class="cpp1">보유한 쿠폰 </span><span class="cpp1" id="couponcount" style="color:red;">0</span><span class="cpp1">개</span>
 				<div style="margin-top:20px">
 					<div class="font-noto" style="padding: 0 71.5%;">
 							<div class="ui icon input">
-  							<input type="text" placeholder="프로모션 코드 입력">
-							<i class="inverted circular search link icon"></i>
+  							<input type="text" placeholder="프로모션 코드 입력" class="couponinsert">
+							<i class="inverted circular search link icon" onclick="couponcode();"></i>
 						</div>
 					</div>
 				</div>
-				<p id="couponerr" style="text-align:right; color:tomato;"></p>
+				<p id="couponerr" style="text-align:right; color:tomato; padding-right:5px;"></p>
 				
 			</div>
 					</div>
 				</div>
+				<div id="couponnone">
 					<div class="padding-15" style="margin-top:10px">
 						<div class="detail-box">
 							<div class="detail-list">
@@ -300,54 +309,26 @@
 							</div>
 						</div>
 					</div>
+				</div>
+
+				<div id="couponexi" style="display:none;">
+
+					<div class="padding-15" style="margin-top : 10px;">
+							<div class="mySlist detail-list" style="margin:0;padding: 20px 0">
+									<div style="width:20%; "><img width=85px src="/semi/resources/images/coupon_active.png" style="padding-top:10px;" /></div>
+									<div style="width:46%; "><div>
+										<h5 style="text-align:left; margin:0 20px; color:#FF6666; font-size:20px;">쿠폰</h5> <br>
+										<h5 style="text-align:left; margin:0 20px">5,000원 쿠폰 지급</h5>
+										<h5>(단, 5,000원 이상 구매시 사용 가능)</h5>
+										</div></div>
+									<div style="width:17%; "><div style="margin:30px 0"><h5 style="padding-top:15px;">06/28 지급</h5></div></div>
+									<div style="width:17%; border-right:none;"><div style="margin:30px 0"><h5 style="padding-top:15px;">07/28까지</h5></div></div>
+							</div>
+					</div> 
+				</div>
 
 
-
-
-<div class="purchaseListArea padding-15">
-				
-				<!-- 이 자리에 Arraylist로 반복문 넣어야 결제 내역이 목록화되어 나옴. -->
-				<%--
-					<div class="container1 clearFix">
-			
-			<div class="coupontable">
-				<table class="ui blue table">
-  <thead>
-    <tr>
-      <th>쿠폰명</th>
-      <th>할인액</th>
-      <th>적용조건</th>
-      <th>유효기간</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>신규 가입 환영 쿠폰</td>
-      <td><i class="won sign icon"></i>5,000원</td>
-      <td>5,000원 이상 구매 시</td>
-      <td>(가입일 + 10일)</td>
-    </tr>
-    <tr>
-      <td>그냥 넣어본 칸</td>
-      <td><i class="won sign icon"></i>1,000,000,000,000</td>
-      <td>쿠폰의 금액 이상 구매 시</td>
-      <td>(가입일 + 365일)</td>
-    </tr>
-    <tr id="addcoupon" hidden>
-      <td>추가쿠폰!!!</td>
-      <td><i class="won sign icon"></i>999,000,000,000,000</td>
-      <td>쿠폰의 금액 이상 구매 시</td>
-      <td>6/30까지</td>
-    </tr>
-  </tbody>
-</table>
-
-</div></div> --%>
-					
-
-
-
-		<br><br><br>
+			<br><br><br>
 					
 					<div class="row padding-15" style="width:auto;">
                             <div class="col-xs-12">
@@ -368,13 +349,7 @@
                                 </div>
                             </div>
                         </div>
-					
-					
-					
 				</div>
-				
-				
-				
 			</div>
 		</div>
 		
@@ -389,15 +364,15 @@
 	
 	// 발행 쿠폰 코드
 	var couponMagNum = "hi hello";
-	console.log("발행쿠폰: " + couponMagNum);
-	
+
+
 	
 	// 쿠폰 번호 일치 여부 확인
-	$('#couNum').click(function(event){
+	function couponcode(){
 
 		
 		//  일치하지 않을 때 || 입력하지 않았을 때
-		if(($('#couponNumber').val() != couponMagNum)||($('#couponNumber').val() == "")){
+		if(($('.couponinsert').val() != couponMagNum)||($('#couponNumber').val() == "")){
 			$('#couponerr').text('프로모션 코드를 다시 확인하세요.').show();
 			
 		}
@@ -405,12 +380,14 @@
 		
 		// 정상 입력 시
 		else {
-			$('#couponerr').text('알맞은 쿠폰 번호 입력').show();
-			document.getElementById("addcoupon").hidden = false;
+			$('#couponerr').text('알맞은 쿠폰 번호 입력!').show();
+			$('#couponcount').text('1');
+			$('#couponnone').hide();
+			$('#couponexi').show();
 		}
 		
 		event.preventDefault();
-	});
+	};
 	
 	
 	function lbcash(){
@@ -424,6 +401,8 @@
 	function nrequest(){
 		location.href="/semi/prging.bo"
 	}
+	
+	
 
 	</script>
 	
