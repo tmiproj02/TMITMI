@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
 					
 					
 					
-					RequestDispatcher view = request.getRequestDispatcher("mainheader2.jsp");
+					RequestDispatcher view = request.getRequestDispatcher("index.jsp");
 					view.forward(request, response);
 				}
 			}

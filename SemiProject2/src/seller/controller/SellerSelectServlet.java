@@ -52,7 +52,7 @@ public class SellerSelectServlet extends HttpServlet {
 			if(page!=null) {
 				response.sendRedirect(page);
 			}else {
-				response.sendRedirect("/semi/mainheader2.jsp");
+				response.sendRedirect("/semi/index.jsp");
 			}
 		} catch (SellerException e) {
 			request.setAttribute("msg", "판매자 식별 실패");
