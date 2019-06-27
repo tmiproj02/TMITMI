@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="member.model.vo.Member"%>
 <%@ page import="seller.model.vo.Seller,sellerboard.model.vo.*,java.util.*"%>
+<%@ page import="java.text.DecimalFormat"%>
+<%DecimalFormat dc = new DecimalFormat("###,###,###,###");					  
+%>
 <% 
 	Member m = (Member)session.getAttribute("member");
 	Seller s = (Seller)session.getAttribute("seller");
@@ -9,8 +12,10 @@
 	Top5 t = (Top5)request.getAttribute("t");
 	
 	ArrayList<String> str= new ArrayList<String>();
-	ArrayList<Integer> num= new ArrayList<Integer>();
+	ArrayList<Integer> num1= new ArrayList<Integer>();
 	
+	
+
 	
 	
 	for(Top5 to : list){
@@ -18,19 +23,19 @@
 		System.out.println(t.getTop1());
 		if(to.getCate().equals(t.getTop1())){
 			str.add(to.getNickname());
-			num.add(to.getIncome());
+			num1.add(to.getIncome());
 		}
 	}
 	for(Top5 to : list){
 		if(to.getCate().equals(t.getTop2())){
 			str.add(to.getNickname());
-			num.add(to.getIncome());
+			num1.add(to.getIncome());
 		}
 	}
 	for(Top5 to : list){
 		if(to.getCate().equals(t.getTop3())){
 			str.add(to.getNickname());
-			num.add(to.getIncome());
+			num1.add(to.getIncome());
 		}
 	}	
 	
@@ -230,26 +235,28 @@ div a{
 }
 .rank{
     float: left;
-    background: #BDD4F2;
+    background: #f3f4f8;
     margin-top: 15px;
     margin-right: 20px; 
     border-radius: 10px;
     width:384px;
-     /* height: 350px; */
-     /* border: 1px solid #ccc; */
     
+}
+.rank:hover{
+	border:1px solid #BDD4F2;
 }
 .scontent2:nth-child(6){
     border: none;
 }
 .rank1{
     float: left;
-    background: #BDD4F2;
+    background:  #f3f4f8;
     margin-top: 15px;
     border-radius: 10px;
+    
     width:384px;
      /* height: 350px; */
-     /* border: 1px solid #ccc; */
+     /* border: 1px solid #ccc;#BDD4F2; */
     
 }
 .scontent1{
@@ -269,14 +276,19 @@ div a{
 
 .firstimg{
     float: left;
-    margin-left: 10px;
+    margin-left: 32px;
 }
 .firsttext{
     float: left;
     text-align: center;
     margin: 10px;
-    margin-left: 70px;
+    margin-left: 33px;
     margin-right: 70px;
+    
+}
+.firsttext>p{
+  text-align: center;
+  
 }
 
 .scontent2{
@@ -290,9 +302,9 @@ div a{
 }
 .scontent2 p{
     display: inline-block;
-    padding-left: 50px;
-    padding-right: 30px;
-    /* margin-top: 10px; */
+    padding-left:40px;
+    padding-right: 20px;
+    margin-top: 10px; 
 }
 
 footer{
@@ -301,7 +313,7 @@ footer{
     border-top: 1px solid #e6e6e6; 
 }
 .footer{
-    text-align: center;
+    text-align: center;f
     
 }
 .footer p{
@@ -314,16 +326,28 @@ footer{
     font-size: 12px;
     color: #ccc;
 }
-.ani{
+.ani:hover{
+
 	cursor:pointer;
-	transition: all 0.3s ease-in-out; 
+	transition: all 0.4s ease-in-out; 
 	overflow:hidden;
-	
 }
-.ani>div>div>a>img:hover{
-	 transform:scale(1.3);
+.ani:hover>div>div>a>img{
+	 transform:scale(1.2);
 	 overflow:hidden;
+	 transition: 0.8s;
 }
+.ani1{
+border:5px solid transparent;
+}
+.ani1:hover{
+	cursor:pointer;
+	transition: all 0.1s ease-in-out;
+	background-color:#BDD4F2;
+	border:5px solid #BDD4F2;
+}
+
+
 </style>
 <% if(m != null){
   	response.sendRedirect("mainheader2.jsp");
@@ -451,92 +475,53 @@ footer{
             </div>
 
             <div class="slider1 clearFix">
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
                     	
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/clogo.PNG" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href=""><img src="/semi/resources/images/logoc.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>로고디자인</b></div>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     	
                     	
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                     <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
+                    	<div class="image" style="height:170px;">
 						 	<a href=""><img src="/semi/resources/images/gan.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>간판디자인</b></div>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                     <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/cloth.jpg" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;" >
+						 	<a href=""><img src="/semi/resources/images/ot.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>의류디자인</b></div></a>
 						 	</a>
 						 	
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/cill.PNG" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href=""><img src="/semi/resources/images/ill.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>일러스트디자인</b></div>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
-                <div class="sildercon1">
+                <div class="ani sildercon1">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/webtoon.jpg" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href=""><img src="/semi/resources/images/toon.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>웹툰디자인</b></div>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
 
@@ -551,98 +536,56 @@ footer{
             </div>
 
             <div class="slider1 clearFix">
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
-                    	
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/website.jpg" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href=""><img src="/semi/resources/images/web.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>웹사이트개발</b></div></a>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
-                    	
-                    	
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/program.jpg" style="width:224px;height:170px;border-radius:5px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href=""><img src="/semi/resources/images/pro.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>프로그램개발</b></div></a>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div style="width:224px; ">
-						 	
-						 	<div class="image" style="height:170px;">
+                    	<div class="image" style="height:170px;">
 						 	<a href=""><img src="/semi/resources/images/mobile.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>모바일앱/웹</b></div></a>
-						 	</a>
-						 	
-						 	</div>
-						 	
-						 </div>
-						 	
+						 	</a>			
 						 </div>
                     </div>
                 </div>
-                <div class="sildercon">
+                <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	<div class="ani">
-						 	<div style="width:224px; ">
-						 	
 						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/game.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href=""><img src="/semi/resources/images/games.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>게임</b></div></a>
 						 	</a>
 						 	</div>
-						 	
-						 </div>
-						 	
-						 </div>
                     </div>
                 </div>
-                <div class="sildercon1">
+                <div class="ani sildercon1">
                      <div style="width:224px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	<div class="ani">
-						 	<div style="width:224px; ">
-						 	
 						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/server.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href=""><img src="/semi/resources/images/sev.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>서버 및 기술지원</b></div></a>
 						 	</a>
 						 	</div>
 						 	</div>
-						 </div>
-						 	
+						
 						 </div>
                     </div>
                 </div>
 
             </div>
-        </div>
         </section>
         <section>
             <div class="container" style="margin-top:-50px;">
@@ -650,11 +593,22 @@ footer{
                     <b>TOP 카테고리 전문가 랭킹</b> 
                     <p>TMI에서 가장 많이 판매한 인기 전문가 랭킹 입니다.</p> 
                 </div>
-            
+            <%	
+            	ArrayList<String> num = new ArrayList<String>();
+		         String income = "0";
+			       	if(num1!=null){
+			       	  for(int i : num1){
+			       		income = dc.format(i);
+			       	  	num.add(income);
+			       	  }
+			       	} 
+            %>
 
             <div class="slider1 clearFix">
-                    <div class="rank">                
-                        <div class="sheader2">
+            		
+                    <div class="ani1 rank">   
+                               
+                        <div class="sheader2" style="border:2 solid #BDD4F2; ">  
                         <div class="scontent1">
                             <p><b><%=t.getTop1() %></b></p>
                         </div>
@@ -664,41 +618,42 @@ footer{
                                 <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                             </div>
                             <div class="firsttext">
-                                <h4 style="font-family: 'Noto Sans KR', sans-serif;">총 판매 금액</h4>
-                                <p><%=num.get(0) %>원</p>
-                                <p><%=str.get(0) %></p>
+                                <p style="font-size:13px; font-family: 'Noto Sans KR', sans-serif; margin-bottom:8px;float: left;">총 판매 금액</p>
+                                <p style="font-size:20px; margin-bottom:6px;"><b><%=num.get(0) %>원</b></p>
+                                <p style="font-size:13px;float: left;"><%=str.get(0) %></p>
                             </div>
                         </div>
                         
                             <div class="scontent2">    
                                 <p><b>2위</b></p>
-                                <p><%=num.get(1) %>원</p>
-                                <p><%=str.get(1) %></p>                          
+                                <p><b><%=num.get(1) %>원</b></p>
+                                <p style="float:right;"><%=str.get(1) %></p>                          
                             </div>
 
                             <div class="scontent2">                            
                                	<p><b>3위</b></p>
-                                <p><%=num.get(2) %>원</p>
-                                <p><%=str.get(2) %></p>                         
+                                <p><b><%=num.get(2) %>원</b></p>
+                                <p style="float:right;"><%=str.get(2) %></p>                         
                             </div>
 
                             <div class="scontent2">                            
                                 <p><b>4위</b></p>
-                                <p><%=num.get(3) %>원</p>
-                                <p><%=str.get(3) %></p>                     
+                                <p><b><%=num.get(3) %>원</b></p>
+                                <p style="float:right;"><%=str.get(3) %></p>                     
                             </div>
 
                             <div class="scontent2">
                                 <p><b>5위</b></p>
-                                <p><%=num.get(4) %>원</p>
-                                <p><%=str.get(4) %></p>
+                                <p><b><%=num.get(4) %>원</b></p>
+                                <p style="float:right;"><%=str.get(4) %></p>
                             </div>
                             
                             </div>
                         
                         </div>                                
+                   
                     
-                    <div class="rank">
+                    <div class="ani1 rank">
                            <div class="sheader2">
                         <div class="scontent1">
                             <p><b><%=t.getTop2() %></b></p>
@@ -709,40 +664,40 @@ footer{
                                     <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                             </div>
                             <div class="firsttext">
-                                <h4 style="font-family: 'Noto Sans KR', sans-serif;">총 판매 금액</h4>
-                                <p><%=num.get(5) %>원</p>
-                                <p><%=str.get(5) %></p>
+                                <p style="font-size:13px;font-family: 'Noto Sans KR', sans-serif;margin-bottom:8px;float: left;">총 판매 금액</p>
+                                <p style="font-size:20px; margin-bottom:6px;"><b><%=num.get(5) %>원</b></p>
+                                <p style="font-size:13px;float: left;"><%=str.get(5) %></p>
                             </div>
                         </div>
                         
                             <div class="scontent2">    
                                 <p><b>2위</b></p>
-                                <p><%=num.get(6) %>원</p>
-                                <p><%=str.get(6) %></p>                          
+                                <p><b><%=num.get(6) %>원</b></p>
+                                <p style="float:right;"><%=str.get(6) %></p>                          
                             </div>
 
                             <div class="scontent2">                            
                                 <p><b>3위</b></p>
-                                <p><%=num.get(7) %>원</p>
-                                <p><%=str.get(7) %></p>                           
+                                <p><b><%=num.get(7) %>원</b></p>
+                                <p style="float:right;"><%=str.get(7) %></p>                           
                             </div>
 
                             <div class="scontent2">                            
                                 <p><b>4위</b></p>
-                                <p><%=num.get(8) %>원</p>
-                                <p><%=str.get(8) %></p>                        
+                                <p><b><%=num.get(8) %>원</b></p>
+                                <p style="float:right;"><%=str.get(8) %></p>                        
                             </div>
 
                             <div class="scontent2">
                                 <p><b>5위</b></p>
-                                <p><%=num.get(9) %>원</p>
-                                <p><%=str.get(9) %></p>
+                                <p><b><%=num.get(9) %>원</b></p>
+                                <p style="float:right;"><%=str.get(9) %></p>
                             </div>
                             
                             </div>
                         </div>
 
-                        <div class="rank1">
+                        <div class="ani1 rank1">
                             <div class="sheader2">
                                 <div class="scontent1">
                                     <p><b><%=t.getTop3() %></b></p>
@@ -753,34 +708,34 @@ footer{
                                             <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                                     </div>
                                     <div class="firsttext">
-                                       <h4 style="font-family: 'Noto Sans KR', sans-serif;">총 판매 금액</h4>
-                                       <p><%=num.get(10) %>원</p>
-                                		<p><%=str.get(10) %></p>
+                                       <p style="font-size:13px;font-family: 'Noto Sans KR', sans-serif;margin-bottom:8px;float: left;">총 판매 금액</p>
+                                       <p style="font-size:20px; margin-bottom:6px;"><b><%=num.get(10) %>원</b></p>
+                                		<p style="font-size:13px;float: left;"><%=str.get(10) %></p>
                                     </div>
                                 </div>
                                 
                                     <div class="scontent2">    
                                         <p><b>2위</b></p>
-                                        <p><%=num.get(11) %>원</p>
-                                		<p><%=str.get(11) %></p>                           
+                                        <p><b><%=num.get(11) %>원</b></p>
+                                		<p style="float:right;"><%=str.get(11) %></p>                           
                                     </div>
         
                                     <div class="scontent2">                            
                                         <p><b>3위</b></p>
-                                        <p><%=num.get(12) %>원</p>
-                                		<p><%=str.get(12) %></p>                           
+                                        <p><b><%=num.get(12) %>원</b></p>
+                                		<p style="float:right;"><%=str.get(12) %></p>                           
                                     </div>
         
                                     <div class="scontent2">                            
                                         <p><b>4위</b></p>
-                                        <p><%=num.get(13) %>원</p>
-                                		<p><%=str.get(13) %></p>                    
+                                        <p><b><%=num.get(13) %>원</b></p>
+                                		<p style="float:right;"><%=str.get(13) %></p>                    
                                     </div>
         
                                     <div class="scontent2">
                                         <p><b>5위</b></p>
-                                        <p><%=num.get(14) %>원</p>
-                                		<p><%=str.get(14) %></p>
+                                        <p><b><%=num.get(14) %>원</b></p>
+                                		<p style="float:right;"><%=str.get(14) %></p>
                                     </div>
                          </div>
 

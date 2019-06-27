@@ -291,7 +291,11 @@ nav{
                 <div class="container">
                     <div class="left-head paddinghead">
                         <div class="logo">
+						<%if(m != null){ %>
                             <a href="/semi/mainheader2.jsp">
+                        <%} else{ %>
+                        	<a href="/semi/index.jsp">
+                        <%} %>
                                 <img class="logoImg" src="/semi/resources/images/TMI1.png" width=80px>
                             </a>
                         </div>

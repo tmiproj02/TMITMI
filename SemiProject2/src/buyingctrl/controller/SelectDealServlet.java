@@ -66,11 +66,7 @@ public class SelectDealServlet extends HttpServlet {
 		
 		request.getRequestDispatcher(page).forward(request, response);
 		
-		
-		
-		
-		
-		
+
 	}
 
 	/**
