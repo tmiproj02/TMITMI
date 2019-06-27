@@ -20,12 +20,15 @@ public class MessageService {
 		con = getConnection();
 		int listCount = 0;
 		try {
-			listCount = mDao.listCount(con,email);	
+			listCount = mDao.listCount(con,email);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			close(con);
 		}
 
-		close(con);
+		
 		return listCount;
 	}
 
@@ -40,9 +43,11 @@ public class MessageService {
 		
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			close(con);
 		}
+
 		
-		close(con);
 		
 		return requestList;
 

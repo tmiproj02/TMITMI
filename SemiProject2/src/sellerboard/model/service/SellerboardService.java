@@ -107,6 +107,7 @@ public class SellerboardService {
 		
 		ArrayList<Top5> list = sbDao.selectTop5(con,t);
 		
+		close(con);
 		
 		
 		return list;
@@ -121,14 +122,15 @@ public class SellerboardService {
 			
 			searchedListCount = sbDao.getSearchedListCount(searchWord,con);
 			
-			commit(con);
-			
-			close(con);
+			commit(con);	
 			
 		}catch(Exception e) {
 		
 			e.printStackTrace();
+		}finally {
+			close(con);
 		}
+
 		
 		return searchedListCount;
 	}
@@ -141,7 +143,10 @@ public class SellerboardService {
 			searchedList = sbDao.searchedList(currentPage,pageLimit,boardLimit,searchWord,con);
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			close(con);
 		}
+
 		
 		
 		

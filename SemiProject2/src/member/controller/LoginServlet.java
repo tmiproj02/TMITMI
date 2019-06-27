@@ -90,9 +90,7 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("mCount", mCount);
 					session.setAttribute("buyCount", buyCount);
 					session.setAttribute("sellCount", sellCount);
-					
-					
-					
+
 					RequestDispatcher view = request.getRequestDispatcher("mainheader2.jsp");
 					view.forward(request, response);
 				}

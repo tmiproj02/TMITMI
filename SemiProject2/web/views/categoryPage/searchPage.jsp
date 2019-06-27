@@ -457,20 +457,7 @@
 					</div>
 					<%} %>
 				</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-				
+	
 				<div class="paging">
  
 				  <a href="#" class="btn_arr first"><span class="hide">처음페이지</span></a>            
