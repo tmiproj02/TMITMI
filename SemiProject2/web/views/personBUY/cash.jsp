@@ -406,28 +406,7 @@ p{
       $('.totalprice').text(Number(tprice).toLocaleString('en').split(".")[0]);
    });
    
-   $('button').click(function(){ <%-- 이거 나중에 지우고 아래 주석처리 한 것을 올려야해욥(지금은 결제 막아놓음. 바로 결제완료로 감) --%>
-      var price = Number($("input:radio[name=cPrice]:checked").val()); //가격받는부분
-      var pricemore = price*0.1; //혜택(10%)
-      var tprice = price+pricemore;
-      console.log("결제금액 : " + price);
-   
-      var uname = $('#userName').text();
-      var uemail = $('#email').text();
-      console.log(uname);
-      console.log(uemail);
-
-   
-   
-        //성공 시 이동할 페이지
-        <%-- location.href="<%=request.getContextPath()%>/views/personBUY/billingHistory.jsp"; --%>
-        <%--location.href="<%=request.getContextPath()%>/mCashRec.bo?price="+price+"&email="+uemail;--%> <%-- MemberDB로 넘어가서 캐시 충전 --%>
-        location.href="<%=request.getContextPath()%>/insertRech.bo?tprice="+tprice+"&email="+uemail; <%-- CashDB로 넘어가서 충전내역으로 남김 --%>
-       
-   }); 
-   
-   
-   <%-- 
+  
    $('button').click(function(){
       var price = Number($("input:radio[name=cPrice]:checked").val()); //가격받는부분
       var pricemore = price*0.1; //혜택(10%)
@@ -442,7 +421,7 @@ p{
 
       //--
       var IMP = window.IMP; // 생략가능
-      IMP.init('imp75606853'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용 [완료시imp91745666]
+      IMP.init('imp91745666'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용 [완료시imp91745666]
 
       IMP.request_pay({
           pg : 'html5_inicis', // version 1.1.0부터 지원.
@@ -476,7 +455,6 @@ p{
           }
       });
    }); 
-   --%>
    
 </script>
 

@@ -45,23 +45,20 @@ public class CashSptServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		Member changeMember = (Member)session.getAttribute("member");
 		String page;
-		try {
-			changeMember.setCash(crs.minusinsertCash(m));
-			
-			session.setAttribute("member", changeMember);
-			
-			request
-			.getRequestDispatcher("/bPayment.bo")
-			.forward(request, response);
-			page = "views/buypage/payCreate.jsp"; 
-		} catch (CashRechargeException e) {
-			request.setAttribute("msg", "캐시내역 에러 발생!!");
-			request.setAttribute("exception", e);
-		} 
+//		try {
+//			changeMember.setCash(crs.minusinsertCash(m));
+//			
+//			session.setAttribute("member", changeMember);
+//			
+//			request
+//			.getRequestDispatcher("/bPayment.bo")
+//			.forward(request, response);
+//			page = "views/buypage/payCreate.jsp"; 
+//		} catch (CashRechargeException e) {
+//			request.setAttribute("msg", "캐시내역 에러 발생!!");
+//			request.setAttribute("exception", e);
+//		} 
 		
-		
-		
-//			response.sendRedirect("/semi/views/personBUY/buyingcontrol.jsp");
 		
 		
 		

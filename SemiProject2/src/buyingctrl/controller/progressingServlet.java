@@ -45,20 +45,15 @@ public class progressingServlet extends HttpServlet {
 			page = "views/personBUY/buyingProgressing.jsp";
 			
 			request.setAttribute("dingList", dingList);
-			
-			request.getRequestDispatcher(page).forward(request, response);
-			
-			
+		
 			
 		} catch(buyingctrlException e) {
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "요구사항이 없는 것 불러오기 에러!");
 			request.setAttribute("exception", e);
 
-			
-			request.getRequestDispatcher(page).forward(request, response);
 		}
-		
+		request.getRequestDispatcher(page).forward(request, response);
 		
 		
 		

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import buyingctrl.model.exception.buyingctrlException;
 import buyingctrl.model.service.DealMngService;
 import buyingctrl.model.vo.DealMng;
 import member.model.vo.Member;
@@ -46,7 +47,13 @@ public class SelectDealServlet extends HttpServlet {
 			state=request.getParameter("state");
 		}
 		
-		ArrayList<DealMng> list = dms.selectDeal(s.getSno());
+		ArrayList<DealMng> list = null;
+		try {
+			list = dms.selectDeal(s.getSno());
+		} catch (buyingctrlException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String page="";
 		

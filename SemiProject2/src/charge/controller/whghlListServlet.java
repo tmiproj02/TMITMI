@@ -47,7 +47,12 @@ public class whghlListServlet extends HttpServlet {
 		CashRechargeService cs = new CashRechargeService();
 		
 		String page = "";
-		list = cs.searchNotice(category, m);
+		try {
+			list = cs.searchNotice(category, m);
+		} catch (CashRechargeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		page = "views/personBUY/billingHistory.jsp";
 		request.setAttribute("list", list);

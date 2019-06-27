@@ -136,15 +136,6 @@
 		
 	}
 	
-	.detail-box{
-	    border-bottom: solid #E6E6E6 1px !important;
-	}
-	.detail-list{
-		border: solid #E6E6E6 1px !important;
-		padding : 85px 0;
-		text-align : center;
-		margin-top : 20px;
-	}
 	.buying-history{
 	    vertical-align: 1px;
 	    font-size: 11px;
@@ -181,9 +172,49 @@
 		letter-spacing : -2px;
 		font-size : 13px;
 	}
+		.detail-box{
+		border-top: solid #E6E6E6 1px !important;
+	    border-bottom: solid #E6E6E6 1px !important;
+	}
+	.detail-list{
+		border: solid #E6E6E6 1px !important;
+		padding : 85px 0;
+		text-align : center;
+		margin-top : 20px;
+	}
+	.mySlist{
+		overflow:hidden;
+		margin:0 auto;
+		border-bottom : 1px solid #E6E6E6;
+		
+	}
+	.mySlist>div{
+		display:inline-block;
+		float:left;
+		vertical-align:center;
+		border-right : 1px solid #E6E6E6;
+	}
+	.mySlist>div div{
+		margin:20px 0;
+	}
 	
-	
+		.paging .hide {display:block;height:0;width:0;font-size:0;line-height:0;margin:0;padding:0;overflow:hidden;}
 
+	.paging{padding:19px;text-align:center;}
+	
+	.paging a{display:inline-block;width:23px;height:23px;padding-top:2px;vertical-align:middle;}
+	
+	.paging a:hover{text-decoration:underline;}
+	
+	.paging .btn_arr{text-decoration:none;}
+	
+	.paging .btn_arr, .paging .on{margin:0 3px;padding-top:0;border:1px solid #ddd; border-radius:30px;
+	
+	/* background:url(/front/img/com/btn_paging.png) no-repeat; */}
+	
+	.paging .on{padding-top:1px;height:22px;color:#fff;font-weight:bold;background:rgb(54, 69, 89);}
+	
+	.paging .on:hover{text-decoration:none;}
 </style>
 </head>
 <body>
@@ -256,7 +287,7 @@
 				</div>
 
 				<div style="margin-top:20px; margin-left:71%;">
-					<div class="padding-15 font-noto">
+					<div class="padding-15 font-noto" style="text-align: right;">
 
 						<div class="ui scrolling dropdown">
 							<input type="hidden" name="gender">
@@ -274,10 +305,10 @@
 				
 				
 				</div>
-				
+			<div>	
 				<%if(spentOnlyList.size()==0) { %>
 					<div class="padding-15" style="margin-top:10px">
-						<div class="detail-box">
+						<div class=" detail-box">
 							<div class="detail-list">
 								<!-- 내역이 없을 때 -->
 								<div><img src="/semi/resources/images/nothing.png" style="width:50px;vertical-align: middle;border:0" /></div>
@@ -290,61 +321,51 @@
 
 
 
-		<div class="purchaseListArea padding-15" style="margin-top : 10px;">
+		<div class="purchaseListArea" style="margin-top : 10px;">
 				
 				<!-- 이 자리에 Arraylist로 반복문 넣어야 결제 내역이 목록화되어 나옴. -->
 				<%  for(Cash c : spentOnlyList) { %>
 				
-					<div class="ui items" style="border:3px solid #BDD4F2; border-radius: 5px; padding:10px; height:150px;">
-						<div class="item" >
-							<div class="pllist">
-								<p style="color:orange; font-size:30px" class="font-noto"><%= c.getClassify() %></p>
-							</div>
-							<div class="listcontent">
-								<div class="meta">
+				<%if((c.getClassify()).equals("사용")){ %>
+				<div class="mySlist detail-list" style="margin:0;padding: 20px 0">
 									<%int price = c.getPayp(); %>
-									<span class="price font-noto" style="color:orange; font-size:25px;"><i class="won sign icon"></i><%=df.format(price)%>원</span>
-									
+									<div style="width:20%; "><img width=85px src="/semi/resources/images/cashIcon.png" style="padding-top:10px;" /></div>
+									<div style="width:50%; "><div>
+									<h5 style="text-align:left; margin:0 20px; color:#6E9FED; font-size:20px;"><%= c.getClassify() %></h5> <br>
+										<h5 style="text-align:left; margin:0 20px"><%=df.format(price)%>원이 사용되었습니다.</h5>
+										</div></div>
+									<div style="width:17%; "><div style="margin:30px 0;"><h5 style="padding-top:15px;"><i class="minus icon"></i><i class="won sign icon"></i><%=df.format(price)%>원</h5></div></div>
+									<div style="width:13%; border-right:none;"><div style="margin:30px 0"><h5 style="padding-top:15px;"><%= c.getPaydate() %></h5></div></div>
 								</div>
-									<p style="letter-spacing:2px;" class="font-noto">결제일 : <%= c.getPaydate() %></p>
-									<p class="font-noto">충전된 캐시는 충전 혜택(+10%)이 포함된 금액입니다.</p>
-								<div style="display:inlne; margin-left:230%; margin-top:-50%;">
-									<img  id="coins" src="/semi/resources/images/noun_Coins.png" style="width:90px;"/>
-									</div>
-								
-								
-							</div>
-						</div>
-					</div>
-				<% }} %> 	
+				<% }}}%> 	
 					
 
 			<br>
 
 		<%-- 페이징 처리 --%>
-		<div class="pagingArea" align="center">
-			<button class="ui black button" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=1'"><<</button>
+		<div class="paging" align="center">
+			<a class="btn_arr first" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=1'"><<</a>
 			<%  if(currentPage <= 1){  %>
-			<button class="ui grey button" disabled><</button>
+			<a class="btn_arr prev" disabled><</a>
 			<%  }else{ %>
-			<button class="ui grey button" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%=currentPage - 1 %>'"><</button>
+			<a class="btn_arr prev" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%=currentPage - 1 %>'"><</a>
 			<%  } %>
 			
 			<% for(int p = startPage; p <= endPage; p++){
 					if(p == currentPage){	
 			%>
-				<button class="ui blue basic button" disabled><%= p %></button>
+				<a class="on" disabled><%= p %></a>
 			<%      }else{ %>
-				<button class="ui blue basic button" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%= p %>'"><%= p %></button>
+				<a class="on" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%= p %>'"><%= p %></a>
 			<%      } %>
 			<% } %>
 				
 			<%  if(currentPage >= maxPage){  %>
-			<button class="ui grey button" disabled>></button>
+			<a class="btn_arr next" disabled>></a>
 			<%  }else{ %>
-			<button class="ui grey button" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%=currentPage + 1 %>'">></button>
+			<a class="btn_arr next" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%=currentPage + 1 %>'">></a>
 			<%  } %>
-			<button class="ui black button" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%= maxPage %>'">>></button>
+			<a class="btn_arr last" onclick="location.href='<%= request.getContextPath() %>/cList.bo?currentPage=<%= maxPage %>'">>></a>
 		</div>
 
 
@@ -417,7 +438,7 @@
 	}
 	
 	function nrequest(){
-		location.href="/semi/nReq.bo"
+		location.href="/semi/prging.bo"
 	}
 
 	$('.ui.dropdown').dropdown();
@@ -430,6 +451,7 @@
 		location.href="/semi/rcgList.do"
 	}
 	
+
 	</script>
 	
 	

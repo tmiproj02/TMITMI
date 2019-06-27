@@ -80,7 +80,13 @@ public class CashOnlyRcgListServlet extends HttpServlet {
 				}
 				
 				// 페이징 처리
-				int listCount = crs.getrcgOnlyListCount(m); //게시글 수 (물론 selectList로 해도 되지만, ListCount는 개수만 가져온다.)
+				int listCount = 0;
+				try {
+					listCount = crs.getrcgOnlyListCount(m);
+				} catch (CashRechargeException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} //게시글 수 (물론 selectList로 해도 되지만, ListCount는 개수만 가져온다.)
 												   //create method합시당~ (service, dao, query.properties 순서대로 작성해여~)
 				System.out.println("총 페이지 개수 : " + listCount);
 				

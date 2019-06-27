@@ -13,7 +13,7 @@ import static member.common.JDBCTemplete.*;
 public class DealMngService {
 
 	private Connection con;
-	private DealMngDao dmDao = new DealMngDao();
+	private DealMngDao dmDao;
 	
 	//전체 구매 내역 조회
 	public ArrayList<DealMng> nrselectList(int currentPage, int limit, Member m) throws buyingctrlException {
@@ -106,7 +106,7 @@ public class DealMngService {
 
 
 
-	public ArrayList<DealMng> selectDeal(int sno) {
+	public ArrayList<DealMng> selectDeal(int sno) throws buyingctrlException {
 		con = getConnection();
 		ArrayList<DealMng> list = dmDao.selectDeal(con,sno);
 		
