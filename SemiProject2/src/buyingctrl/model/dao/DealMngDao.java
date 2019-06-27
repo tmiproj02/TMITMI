@@ -25,7 +25,7 @@ public class DealMngDao {
 	private String fin = "완료";
 	private String cc = "취소";
 	
-	public DealMngDao() throws buyingctrlException {
+	public DealMngDao() {
 		prop = new Properties();
 		
 		String filePath
@@ -36,13 +36,9 @@ public class DealMngDao {
 		
 			prop.load(new FileReader(filePath));
 			
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 
 			e.printStackTrace();
-			
-		} catch (IOException e) {
-			
-			throw new buyingctrlException("쿼리에러");
 			
 		}
 	}

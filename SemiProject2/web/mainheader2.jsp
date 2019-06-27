@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="seller.model.vo.Seller,sellerboard.model.vo.*,java.util.*"%>
-<%@ page import="java.text.DecimalFormat"%>
-   <%DecimalFormat dc = new DecimalFormat("###,###,###,###");%> 
+
+   
 <%
 	int mCount = 0;
 	int buyCount = 0;

@@ -61,7 +61,7 @@
 
 <form action="/semi/sellerboard.do" method="post" style="margin-top:100px;" onsubmit="postForm()" enctype="multipart/form-data">
 <!-- 대현씨가 만든 방식도 훌륭하지만 이것의 전제는 번호를 제대로 받아온다는 전제다. 하지만 여러가지 방법을 시도해보았을 때 문제점을 파악할수가 없어 창선이 방식대로 하였다. 양해 해주길... -->
-	<div id="Servicerg" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center">
+	<div id="Servicerg" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center">
 	<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 	<hr class="my-4">
 	<h5 class="modal-title">&nbsp;&nbsp;기본사항</h5>
@@ -168,7 +168,7 @@
    
 	</div>
 
-	<div id="amount" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center" hidden>
+	<div id="amount" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center" hidden>
 		<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 		<hr class="my-4">
 		<h5 class="modal-title">가격설정</h5>
@@ -297,7 +297,7 @@
 	</div>
 	
 	<!-- 수정 및 재진행 안내와 취소및 환불규정 -->
-		<div id="requestbuyer" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center" hidden>
+		<div id="requestbuyer" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center" hidden>
 		<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 		<hr class="my-4">
 		<h5 class="modal-title">작업 전 요청사항</h5>
@@ -429,7 +429,7 @@
 	
 	
 	<!-- 본문 글 동록부분 -->	
-	<div id="board" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center" hidden>
+	<div id="board" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center" hidden>
 		<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 		<hr class="my-4">
 		<h5 class="modal-title">이미지 등록</h5>

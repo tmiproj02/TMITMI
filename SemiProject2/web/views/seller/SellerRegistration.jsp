@@ -44,8 +44,10 @@
 	}
 
 	footer {
-		position: absolute;
-		bottom: -500px;
+		position : relative;
+		
+		
+		top : 1150px;
 		left: 0;
 	}
 
@@ -57,7 +59,8 @@
 	
 	<!-- summit버튼이 눌렸을때 처리하기 위하여 seller.do 라는 경로를 설정한 서블릿을 호출 -->
 	<form action="/semi/seller.do" method="post" style="margin-top:100px;">
-		<div id="regist" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center">
+
+		<div id="regist" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center">
 			<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 			<hr class="my-4">
 			
@@ -239,7 +242,7 @@
 		</div>
 	</div>
 	
-	<div id="account" class="jumbotron" style = "position: absolute; top:100px;left:30%; width:800px; height:auto;" align="center" hidden>
+	<div id="account" class="jumbotron" style = "position: absolute; top:100px;left:20%; width:800px; height:auto;" align="center" hidden>
 
 		<p class="lead">판매를 시작하여 수익을 올려보세요!!</p>
 		<hr class="my-4">

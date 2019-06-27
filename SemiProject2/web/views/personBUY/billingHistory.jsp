@@ -376,7 +376,7 @@
 
 
 			<br>
-				<div class="bgcheck padding-15" style="background-color:#dcdcdc; margin-top:40px; padding-left:15px;">
+				<div class="bgcheck padding-15" style="background-color:#dcdcdc; margin-top:40px; padding-left:15px;padding-top:10px;padding-bottom:10px">
                                         <h6 class="NGB margin-all-0 padding-bottom-5" style="font-size:17px;">
                                             <i class="bullhorn icon"></i>
                                             <b>꼭 확인해주세요!</b>

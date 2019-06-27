@@ -6,6 +6,11 @@
 <%
 SellerBoard b = (SellerBoard)request.getAttribute("sellerboard");
 ArrayList<BoardComment> clist = (ArrayList<BoardComment>)request.getAttribute("clist");
+
+
+
+
+
 %>
 
 <!DOCTYPE html>
@@ -444,23 +449,17 @@ margin: 20px 10px;
      }
    </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<%
+	String price = dc.format(b.getPrice());
+	if(s!=null){
+	 price = dc.format(b.getPrice()); 	  
+	} 
+%>
 
       <div class="detailbox2">
          <div class="detailTit">
             <p><%=b.getBtitle() %></p>
-            <p><%=b.getPrice() %>원</p>
+            <p><%=price %>원</p>
          </div> 
          
 
@@ -507,7 +506,7 @@ margin: 20px 10px;
             <% if(m != null) { %>
             <div style="text-align: center;" style="margin: 30px 0 !important;">
             <a href="<%= request.getContextPath() %>/buyPage.bo?bno=<%=b.getBno()%>"
-               >구매하기(<%=b.getPrice() %>원)</a>
+               >구매하기(<%=price %>원)</a>
             </div>
             
             <% } else { %>

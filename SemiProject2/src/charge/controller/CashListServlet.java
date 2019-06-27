@@ -79,21 +79,7 @@ public class CashListServlet extends HttpServlet {
 					System.out.println("currentPage : " + currentPage);
 				}
 				
-				// 페이징 처리
-				int listCount = crs.getListCount(m); //게시글 수 (물론 selectList로 해도 되지만, ListCount는 개수만 가져온다.)
-												   //create method합시당~ (service, dao, query.properties 순서대로 작성해여~)
-				System.out.println("총 페이지 개수 : " + listCount);
 				
-				maxPage = (int)((double)listCount / limit + 0.9);
-				
-				startPage
-				  = ((int)((double)currentPage / limit + 0.9) - 1) * limit + 1;
-				
-				endPage = startPage + limit - 1;
-				
-				if(endPage > maxPage) {
-					endPage = maxPage;
-				}
 				
 				
 				
@@ -104,6 +90,24 @@ public class CashListServlet extends HttpServlet {
 		String page="";
 	
 		try {
+			
+			// 페이징 처리
+			int listCount = crs.getListCount(m); //게시글 수 (물론 selectList로 해도 되지만, ListCount는 개수만 가져온다.)
+											   //create method합시당~ (service, dao, query.properties 순서대로 작성해여~)
+			System.out.println("총 페이지 개수 : " + listCount);
+			
+			maxPage = (int)((double)listCount / limit + 0.9);
+			
+			startPage
+			  = ((int)((double)currentPage / limit + 0.9) - 1) * limit + 1;
+			
+			endPage = startPage + limit - 1;
+			
+			if(endPage > maxPage) {
+				endPage = maxPage;
+			}
+			
+			
 			rechargeList = crs.selectList(currentPage, limit, m);
 		
 			page = "views/personBUY/billingHistory.jsp";

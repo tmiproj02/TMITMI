@@ -14,10 +14,6 @@
 	ArrayList<String> str= new ArrayList<String>();
 	ArrayList<Integer> num1= new ArrayList<Integer>();
 	
-	
-
-	
-	
 	for(Top5 to : list){
 		if(to.getCate().equals(t.getTop1())){
 			str.add(to.getNickname());
@@ -399,7 +395,7 @@ border:5px solid transparent;
                         </a>
                     </div>
                    <div class="flex-right">
-                            <div class="item1"><a href="/"><b>판매 시작하기</b></a></div>
+                            <div class="item1"><a href="views/LoginForm.jsp"><b>판매 시작하기</b></a></div>
                             <div class="item2"><a href="views/LoginForm.jsp"><b>로그인</b></a></div>
                             <div class="item3"><a class="joinBtn" href="views/member/memberJoin.jsp" style="color: black">무료 회원가입</a></div>
                     </div>

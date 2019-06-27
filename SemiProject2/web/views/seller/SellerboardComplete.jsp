@@ -35,8 +35,8 @@
 	}
 
 	footer {
-		position: absolute;
-		bottom: -500px;
+		position : relative;
+		top : 1150px;
 		left: 0;
 	}
 	
@@ -51,7 +51,7 @@
 		<img src="images/servicecomp.png">
 		<hr class="my-4">
 		<div align="right">
-			<a class="btn btn-primary btn-lg" id="backButton" role="button" href="/semi/mainheader2.jsp">메인으로가기</a>
+			<a class="btn btn-primary btn-lg" id="backButton" role="button" href="/semi/index.jsp">메인으로가기</a>
 		</div>
 	</div>
 		

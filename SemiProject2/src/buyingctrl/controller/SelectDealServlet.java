@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import buyingctrl.model.exception.buyingctrlException;
 import buyingctrl.model.service.DealMngService;
 import buyingctrl.model.vo.DealMng;
 import member.model.vo.Member;
@@ -45,12 +46,10 @@ public class SelectDealServlet extends HttpServlet {
 		if(request.getParameter("state")!=null) {
 			state=request.getParameter("state");
 		}
-		
-		ArrayList<DealMng> list = dms.selectDeal(s.getSno());
-		
 		String page="";
-		
-		if(list != null) {
+		ArrayList<DealMng> list;
+		try {
+			list = dms.selectDeal(s.getSno());
 			request.setAttribute("list", list);
 			if(request.getParameter("state")!=null) {
 				page = "views/myPage/mySell/mySell"+state+".jsp";
@@ -58,10 +57,12 @@ public class SelectDealServlet extends HttpServlet {
 			}else {
 				page = "views/myPage/myPageManageSell.jsp";
 			}
-		}else {
+		} catch (buyingctrlException e) {
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "요구사항이 없는 것 불러오기 에러!");
 		}
+		
+	
 		
 		
 		request.getRequestDispatcher(page).forward(request, response);

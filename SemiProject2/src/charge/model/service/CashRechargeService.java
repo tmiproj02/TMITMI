@@ -97,7 +97,7 @@ public class CashRechargeService  {
 
 
 		//★캐시 필터
-		public ArrayList<Cash> searchNotice(String category, Member m) throws FileNotFoundException, IOException {
+		public ArrayList<Cash> searchNotice(String category, Member m) throws FileNotFoundException, IOException, CashRechargeException {
 			
 			con = getConnection();
 			
@@ -112,7 +112,7 @@ public class CashRechargeService  {
 		}
 
 		//페이징처리 -> 게시글 개수 카운트
-				public int getListCount(Member m) throws FileNotFoundException, IOException {
+				public int getListCount(Member m) throws FileNotFoundException, IOException, CashRechargeException {
 					Connection con = getConnection();
 					int listCount = crDao.getListCount(con, m); //함수 실행시키고 (create method합니당~)
 					
@@ -202,7 +202,7 @@ public class CashRechargeService  {
 		
 		
 		//'사용'내역 불러오기->개수
-				public int getsptOnlyListCount(Member m) throws FileNotFoundException, IOException {
+				public int getsptOnlyListCount(Member m) throws FileNotFoundException, IOException, CashRechargeException {
 					con = getConnection();
 					int listCount = crDao.getsptOnlyListCount(con, m); //함수 실행시키고 (create method합니당~)
 					
@@ -228,7 +228,7 @@ public class CashRechargeService  {
 
 
 		//'충전'내역 불러오기 ->개수
-				public int getrcgOnlyListCount(Member m) throws FileNotFoundException, IOException {
+				public int getrcgOnlyListCount(Member m) throws FileNotFoundException, IOException, CashRechargeException {
 					con = getConnection();
 					int listCount = crDao.getrcgOnlyListCount(con, m); //함수 실행시키고 (create method합니당~)
 					
