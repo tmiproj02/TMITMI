@@ -47,7 +47,8 @@
 
 	<div class="jumbotron" style = "top:100px; left:200px; width:800px; height:auto;" align="center">
 
-		<p class="lead">판매 등록이 완료되었습니다!!</p>
+		<p class="lead" align="center">
+		<img src="images/servicecomp.png">
 		<hr class="my-4">
 		<div align="right">
 			<a class="btn btn-primary btn-lg" id="backButton" role="button" href="/semi/mainheader2.jsp">메인으로가기</a>
