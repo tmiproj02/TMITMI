@@ -24,8 +24,6 @@
 		
 		
 		for(Top5 to : list){
-			System.out.println(to.getTop1());
-			System.out.println(t.getTop1());
 			if(to.getCate().equals(t.getTop1())){
 				str.add(to.getNickname());
 				num1.add(to.getIncome());
@@ -438,21 +436,32 @@
 							</a>건
 						</div>
 					</div>
-					<a href="">
-					<div class="coupon" style="padding:15px;text-align:center">
+					
+					<div class="coupon" onclick="test()" style="padding:15px;text-align:center;cursor:pointer">
 						<div class="coupon1" style="vertical-align:middle;margin-right:10px;">
 							 <img src="/semi/resources/images/pic.jpg" style="width:40px; height:40px;  border-radius: 8px; vertical-align:middle;">
 						</div>
 						<div class="coupon2" style="vertical-align:middle;">
 							<div class="step1" style="font-size:14px;">친구초대하면</div>
 							<div class="step2" style="font-size:16px;"><b>5,000원</b>할인</div>
+							<div class="ui modal" id="friendModal" style="width:800px;">
+		                       <div class="header">친구 초대</div>
+		                       <div class="image content">
+		                         <img src="/semi/resources/images/friend.PNG" style="width:770px;">
+		                         
+		                       </div>
+		                  </div>   
 						</div>
 					</div>
-					</a>
+					
 				</div>
 			</div>
 		</div>
-		
+		<script>
+                  function test(){
+                     $('#friendModal').modal('show');
+                  }
+                  </script>
 		
 		
 		
@@ -470,7 +479,7 @@
                     	
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=10&code=11"><img src="/semi/resources/images/logoc.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>로고디자인</b></div>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:687px; color:white;"><b>로고디자인</b></div>
 						 	</a>
 						 	</div>
                     	
@@ -481,7 +490,7 @@
                     <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=10&code=13"><img src="/semi/resources/images/gan.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>간판디자인</b></div>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:687px; color:white;"><b>간판디자인</b></div>
 						 	</a>
 						 	</div>
                     </div>
@@ -490,7 +499,7 @@
                     <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;" >
 						 	<a href="/semi/selectList.bo?cCode=10&code=12"><img src="/semi/resources/images/ot.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>의류디자인</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:687px; color:white;"><b>의류디자인</b></div></a>
 						 	</a>
 						 	
 						 	</div>
@@ -500,7 +509,7 @@
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=10&code=14"><img src="/semi/resources/images/ill.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>일러스트</b></div>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:687px; color:white;"><b>일러스트</b></div>
 						 	</a>
 						 	</div>
                     </div>
@@ -509,7 +518,7 @@
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=10&code=15"><img src="/semi/resources/images/toon.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>웹툰</b></div>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:687px; color:white;"><b>웹툰</b></div>
 						 	</a>
 						 	</div>
                     </div>
@@ -530,7 +539,7 @@
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=20&code=21"><img src="/semi/resources/images/web.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>웹사이트개발</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:934px; color:white;"><b>웹사이트개발</b></div></a>
 						 	</a>
 						 	</div>
                     </div>
@@ -539,7 +548,7 @@
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=20&code=22"><img src="/semi/resources/images/pro.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>프로그램개발</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:934px; color:white;"><b>프로그램개발</b></div></a>
 						 	</a>
 						 	</div>
                     </div>
@@ -548,7 +557,7 @@
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=20&code=25"><img src="/semi/resources/images/mobile.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>모바일앱/웹</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:934px; color:white;"><b>모바일앱/웹</b></div></a>
 						 	</a>			
 						 </div>
                     </div>
@@ -557,7 +566,7 @@
                      <div style="width:224px; margin:-1px;">
 						 	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=20&code=24"><img src="/semi/resources/images/games.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>게임</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:934px; color:white;"><b>게임</b></div></a>
 						 	</a>
 						 	</div>
                     </div>
@@ -566,7 +575,7 @@
                      <div style="width:224px; margin:-1px;">
 						 	<div class="image" style="height:170px;">
 						 	<a href="/semi/selectList.bo?cCode=20&code=23"><img src="/semi/resources/images/sev.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>서버 및 기술지원</b></div></a>
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:934px; color:white;"><b>서버 및 기술지원</b></div></a>
 						 	</a>
 						 	</div>
 						 	</div>

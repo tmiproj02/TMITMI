@@ -115,7 +115,7 @@ public class CashListServlet extends HttpServlet {
 			request.setAttribute("pi", pi); //담은 것들을 한 번에 보내요~		
 			
 		} catch(CashRechargeException e) {
-			page = "/semi/views/common/errorPage.jsp";
+			page = "views/common/errorPage.jsp";
 			request.setAttribute("msg", "결제목록 불러오기 에러!");
 			request.setAttribute("exception", e);
 			e.printStackTrace();

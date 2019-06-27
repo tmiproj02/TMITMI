@@ -46,7 +46,7 @@ p{
 	<section class="container1 clearFix" style="margin-top: 50px;">
 	<div class="paycontainer1">
 		<div style="width: 100%;" >
-			<img src="/semi/resources/images/detailimg.jpg" alt="" style="width: 100%;"/>
+			<img src="/semi/resources/images/paycreate.png" alt="" style="width: 100%;"/>
 		</div>
 		<div style="margin-top: 20px; border: 1px solid #e6e6e6; padding: 30px 0;">
 			<p style="text-align: center; font-size: 21px; font-weight: bold; margin: 20px 0 !important;">결제가 완료되었습니다.</p>
@@ -86,10 +86,10 @@ p{
 		
 		<div style="text-align: center;">
 			<button style="padding: 10px 100px; 
-background: #364559; 
-border-radius: 8px;
-margin: 20px 10px;
-color:#fff;">
+				background: #364559; 
+				border-radius: 8px;
+				margin: 20px 10px;
+				color:#fff;" onclick="location.href='/semi/nReq.bo'">
 				거래화면으로
 			</button>		
 		</div>

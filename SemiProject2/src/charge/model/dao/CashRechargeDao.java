@@ -226,7 +226,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 				Cash cash = new Cash();
 				
 				cash.setPayno(rset.getInt("payno"));
-				cash.setMno(rset.getInt(m.getMno()));
+				cash.setMno(rset.getInt("mno"));
 				cash.setPayp(rset.getInt("payp"));
 				cash.setPaydate(rset.getDate("paydate"));
 				cash.setClassify(rset.getString("classify"));

@@ -123,6 +123,7 @@ z-index: 2;
 
 </head>
 <body>
+<%@include file= "/views/common/faq.jsp"%>
 <%@include file= "/views/common/cateheader1.jsp"%>
 
 <div class="section1">

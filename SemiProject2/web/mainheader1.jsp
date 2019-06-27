@@ -183,6 +183,8 @@ div a{
     display: inline-block;
     text-align: center;
 }
+
+
 .category ul{
     display: inline-block;
     list-style: none;
@@ -193,9 +195,15 @@ div a{
     margin-top: 30px;
     margin-left: 40px;
     margin-right: 40px;
+    transition:0.25s;
 }
 .category ul li a img{
     width: 30px;
+    
+}
+
+.category ul li:hover{
+	transform: scale(1.05);
 }
 
 .indexTitle{
@@ -344,6 +352,9 @@ border:5px solid transparent;
 	background-color:#BDD4F2;
 	border:5px solid #BDD4F2;
 }
+
+
+
 
 
 </style>
