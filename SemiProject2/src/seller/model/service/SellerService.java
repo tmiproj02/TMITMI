@@ -32,10 +32,6 @@ public class SellerService {
 		con = getConnection();
 		int result = sDao.insertSeller(con,s);
 		//실행하면 숫자가 나오는데 숫자만 돌려주면 된다.		
-		
-		
-		
-		
 		if(result>0) commit(con);
 		else rollback(con);
 		
@@ -84,7 +80,7 @@ public class SellerService {
 		
 		System.out.println("SellerService에서 값 잘받아왔는지 확인" + result);
 		
-		if(result == null) throw new SellerException("Mno를 가져오는 과정에서 문제발생");
+		if(result == null) throw new SellerException("phone를 가져오는 과정에서 문제발생");
 		
 		return result;
 	}

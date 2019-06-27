@@ -91,8 +91,8 @@ public class SellerDao {
 			
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new SellerException(e.getMessage());
+			//e.printStackTrace();
+			throw new SellerException("등록중 DAO에서 에러발생");
 			
 		} finally {
 			close(pstmt);
@@ -161,8 +161,8 @@ public class SellerDao {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new SellerException(e.getMessage());
+			//e.printStackTrace();
+			throw new SellerException("MNO를 가져오는 도중에 문제발생");
 		} finally {
 			// DB 객체를 반환하는 순서는
 			// 선언의 순서와 반드시 정 반대가 되어야 한다.
@@ -189,7 +189,7 @@ public class SellerDao {
 			//System.out.println("DAO에서 끝난 mno값"+mno);
 		} catch (SQLException e) {
 			 
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw new SellerException(e.getMessage());
 			
 		} finally {
@@ -219,8 +219,8 @@ public class SellerDao {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new SellerException(e.getMessage());
+			//e.printStackTrace();
+			throw new SellerException("핸드폰번호를 가져오는 도중 문제발생");
 		} finally {
 			// DB 객체를 반환하는 순서는
 			// 선언의 순서와 반드시 정 반대가 되어야 한다.
