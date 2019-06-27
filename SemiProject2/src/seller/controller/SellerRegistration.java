@@ -13,6 +13,8 @@ import member.model.vo.Member;
 import seller.model.exception.SellerException;
 import seller.model.service.SellerService;
 import seller.model.vo.Seller;
+import sellerboard.model.exception.SellerboardException;
+import sellerboard.model.service.SellerboardService;
 
 /**
  * Servlet implementation class SellerRegistration
@@ -43,7 +45,7 @@ public class SellerRegistration extends HttpServlet {
 		
 		int mno=0;
 		
-		//똑같이 이메일로 MNO 폰번호를가져올것이다. 
+		//똑같이 이메일로 MNO를가져올것이다. 
 		String email = m.getEmail();
 		
 		try {
@@ -75,19 +77,27 @@ public class SellerRegistration extends HttpServlet {
 		Seller s = new Seller(mno, abletime, bankname, bankNumber, careerdate1, careerdate2, careerdate3, career1, career2, career3, certificat1, certificat2, certificat3, introtext);
 		
 		SellerService ss = new SellerService();
+		SellerboardService sbs = new SellerboardService();
+		
+		
 		session.setAttribute("seller", s);
+		int sno=0;
 		
 		try {
 			ss.insertSeller(s);
 			System.out.println("판매자 등록완료");
 			ss.changeIsseller(mno);
+			sno=sbs.findSno(email);
 			response.sendRedirect("views/seller/SellerComplete.jsp");
-		} catch(SellerException e){
+		} catch(SellerException | SellerboardException e){
 			request.setAttribute("msg", "판매자 등록 중 에러가 발생했어");
 			request.setAttribute("exception", e); // 화면을 던져줄거니까
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
+		System.out.println("servlet에서 sno를 잘받았는지 확인 : "+sno);
+		//sno의 세션을 유지 시킨다.
+		session.setAttribute("sno", sno);
 	}
 
 	/**
