@@ -13,7 +13,8 @@ import sellerboard.model.vo.Top5;
 public class SellerboardService {
 
 	private Connection con;
-	private SellerBoardDao sbDao = new SellerBoardDao();
+	private SellerBoardDao sbDao= new SellerBoardDao();
+	
 	
 	public int insertsellerBoard(SellerBoard sb) throws SellerboardException{
 		//Dao = data access object
@@ -29,14 +30,14 @@ public class SellerboardService {
 				return result;
 	}
 
-	public int getListCount(String cCode, String code) {
+	public int getListCount(String cCode, String code) throws SellerboardException {
 		con = getConnection();
 		int result = sbDao.getListCount(con,cCode,code);
 		close(con);
 		return result;
 	}
 
-	public ArrayList<SellerBoard> selectList(int currentPage, int pageLimit, int boardLimit, String cCode, String code) {
+	public ArrayList<SellerBoard> selectList(int currentPage, int pageLimit, int boardLimit, String cCode, String code) throws SellerboardException {
 		con = getConnection();
 		ArrayList<SellerBoard> list = sbDao.selectList(con,currentPage,pageLimit,boardLimit,cCode,code);
 		close(con);
@@ -67,7 +68,7 @@ public class SellerboardService {
 		return result;
 	}
 
-	public Talent SelectTalent(String cCode, String code) {
+	public Talent SelectTalent(String cCode, String code) throws SellerboardException {
 		con = getConnection();
 		
 		String t1 = "";
@@ -142,7 +143,7 @@ public class SellerboardService {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+		 
 		
 		
 		return searchedList;

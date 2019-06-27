@@ -184,27 +184,27 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">로고디자인</a>
+					              <a href="/semi/selectList.bo?cCode=10&code=11">로고디자인</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">의류디자인</a>
+					               <a href="/semi/selectList.bo?cCode=10&code=12">의류디자인</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href=""> 간판디자인</a>
+					            <a href="/semi/selectList.bo?cCode=10&code=13"> 간판디자인</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">일러스트</a>
+					            <a href="/semi/selectList.bo?cCode=10&code=14">일러스트</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">웹툰</a>
+					            <a href="/semi/selectList.bo?cCode=10&code=15">웹툰</a>
 					            </div>
 					          </div>
 					        </div>
@@ -230,27 +230,27 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">웹사이트 개발</a>
+					              <a href="/semi/selectList.bo?cCode=20&code=21">웹사이트 개발</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">프로그램 개발</a>
+					               <a href="/semi/selectList.bo?cCode=20&code=22">프로그램 개발</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">서버 및 기술지원</a>
+					            <a href="/semi/selectList.bo?cCode=20&code=23">서버 및 기술지원</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">게임</a>
+					            <a href="/semi/selectList.bo?cCode=20&code=24">게임</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">모바일앱/웹</a>
+					            <a href="/semi/selectList.bo?cCode=20&code=25">모바일앱/웹</a>
 					            </div>
 					          </div>
 					        </div>
@@ -276,27 +276,27 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">sns마케팅</a>
+					              <a href="/semi/selectList.bo?cCode=30&code=31">sns마케팅</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">종합광고대행</a>
+					               <a href="/semi/selectList.bo?cCode=30&code=32">종합광고대행</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">블로그</a>
+					            <a href="/semi/selectList.bo?cCode=30&code=33">블로그</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">마케팅 노하우</a>
+					            <a href="/semi/selectList.bo?cCode=30&code=34">마케팅 노하우</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">유튜브 크리에이터</a>
+					            <a href="/semi/selectList.bo?cCode=30&code=35">유튜브 크리에이터</a>
 					            </div>
 					          </div>
 					        </div>
@@ -322,27 +322,27 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">영상</a>
+					              <a href="/semi/selectList.bo?cCode=40&code=41">영상</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">더빙/녹음</a>
+					               <a href="/semi/selectList.bo?cCode=40&code=42">더빙/녹음</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">음악/사운드</a>
+					            <a href="/semi/selectList.bo?cCode=40&code=43">음악/사운드</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">엔터테이너</a>
+					            <a href="/semi/selectList.bo?cCode=40&code=44">엔터테이너</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">사진</a>
+					            <a href="/semi/selectList.bo?cCode=40&code=45">사진</a>
 					            </div>
 					          </div>
 					        </div>
@@ -368,17 +368,17 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">번역</a>
+					              <a href="/semi/selectList.bo?cCode=50&code=51">번역</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">영상번역</a>
+					               <a href="/semi/selectList.bo?cCode=50&code=52">영상번역</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">통역</a>
+					            <a href="/semi/selectList.bo?cCode=50&code=53">통역</a>
 					            </div>
 					          </div>
 					        </div>
@@ -404,27 +404,27 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">논문</a>
+					              <a href="/semi/selectList.bo?cCode=60&code=61">논문</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">타이핑</a>
+					               <a href="/semi/selectList.bo?cCode=60&code=62">타이핑</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">글작성/대본</a>
+					            <a href="/semi/selectList.bo?cCode=60&code=63">글작성/대본</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">면접/취업코딩</a>
+					            <a href="/semi/selectList.bo?cCode=60&code=64">면접/취업코딩</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">자소서/이력서</a>
+					            <a href="/semi/selectList.bo?cCode=60&code=65">자소서/이력서</a>
 					            </div>
 					          </div>
 					        </div>
@@ -450,17 +450,17 @@ z-index: 2;
 					        <div class="grouped fields">
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					              <a href="">라이프</a>
+					              <a href="/semi/selectList.bo?cCode=70&code=71">라이프</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					               <a href="">패션</a>
+					               <a href="/semi/selectList.bo?cCode=70&code=72">패션</a>
 					            </div>
 					          </div>
 					          <div class="field">
 					            <div class="ui radio checkbox">
-					            <a href="">푸드</a>
+					            <a href="/semi/selectList.bo?cCode=70&code=73">푸드</a>
 					            </div>
 					          </div>
 					        </div>

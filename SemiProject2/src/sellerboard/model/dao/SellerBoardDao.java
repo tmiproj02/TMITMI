@@ -99,8 +99,7 @@ public class SellerBoardDao {
 			
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new SellerboardException(e.getMessage());
+			throw new SellerboardException("서비스 등록에 실패하였습니다.");
 			
 		} finally {
 			close(pstmt);
@@ -110,7 +109,7 @@ public class SellerBoardDao {
 	}
 
 
-	public int getListCount(Connection con,String cCode, String code) {
+	public int getListCount(Connection con,String cCode, String code) throws SellerboardException {
 		int listCount=0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -132,7 +131,7 @@ public class SellerBoardDao {
 				listCount = rset.getInt(1);
 			}
 		} catch(SQLException e) {
-			e.printStackTrace();
+			throw new SellerboardException("서비스리스트 불러오기 오류");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -143,7 +142,7 @@ public class SellerBoardDao {
 	}
 
 
-	public ArrayList<SellerBoard> selectList(Connection con, int currentPage, int pageLimit, int boardLimit, String cCode, String code) {
+	public ArrayList<SellerBoard> selectList(Connection con, int currentPage, int pageLimit, int boardLimit, String cCode, String code) throws SellerboardException {
 		ArrayList<SellerBoard> list = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -209,8 +208,7 @@ public class SellerBoardDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new SellerboardException("서비스 불러오기 오류");
 		}finally {
 			close(rset);
 			close(pstmt);	
@@ -265,9 +263,7 @@ public class SellerBoardDao {
 			}
 			
 		} catch (SQLException e) {
-			
-			e.printStackTrace();
-			throw new SellerboardException(e.getMessage());
+			throw new SellerboardException("나의 서비스 불러오기 오류");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -299,8 +295,7 @@ public class SellerBoardDao {
 			
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new SellerboardException(e.getMessage());
+			throw new SellerboardException("판매자 식별 오류");
 		} finally {
 			// DB 객체를 반환하는 순서는
 			// 선언의 순서와 반드시 정 반대가 되어야 한다.
@@ -311,7 +306,7 @@ public class SellerBoardDao {
 	}
 
 
-	public String SelectTalent1(Connection con, String cCode) {
+	public String SelectTalent1(Connection con, String cCode) throws SellerboardException {
 		String t = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null; // Select의 결과를 담은 객체
@@ -329,8 +324,7 @@ public class SellerBoardDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new SellerboardException("카테고리 정보를 가져오지 못했습니다.");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -340,7 +334,7 @@ public class SellerBoardDao {
 	}
 
 
-	public String SelectTalent2(Connection con, String code) {
+	public String SelectTalent2(Connection con, String code) throws SellerboardException {
 		String t = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null; // Select의 결과를 담은 객체
@@ -358,8 +352,7 @@ public class SellerBoardDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new SellerboardException("카테고리 정보를 불러오지 못했습니다.");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -390,8 +383,7 @@ public class SellerBoardDao {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new SellerboardException(e.getMessage());
+			throw new SellerboardException("게시물 랭킹을 가져오지 못했습니다.");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -432,8 +424,7 @@ public class SellerBoardDao {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new SellerboardException(e.getMessage());
+			throw new SellerboardException("랭킹 정보를 가져오지 못했습니다.");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -443,7 +434,7 @@ public class SellerBoardDao {
 	}
 	
 
-	public int getSearchedListCount(String searchWord, Connection con) {
+	public int getSearchedListCount(String searchWord, Connection con) throws SellerboardException {
 		int searchedListCount = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -463,7 +454,7 @@ public class SellerBoardDao {
 			
 		}catch(Exception e) {
 			
-			e.printStackTrace();
+			throw new SellerboardException("검색목록을 불러오지 못했습니다.");
 	
 		}finally {
 			
@@ -478,7 +469,7 @@ public class SellerBoardDao {
 	}
 
 
-	public ArrayList<SellerBoard> searchedList(int currentPage, int pageLimit, int boardLimit, String searchWord, Connection con) {
+	public ArrayList<SellerBoard> searchedList(int currentPage, int pageLimit, int boardLimit, String searchWord, Connection con) throws SellerboardException {
 		ArrayList<SellerBoard> searchedList = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -531,8 +522,7 @@ public class SellerBoardDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new SellerboardException("검색을 실패하였습니다.");
 		}finally {
 			close(rset);
 			close(pstmt);	

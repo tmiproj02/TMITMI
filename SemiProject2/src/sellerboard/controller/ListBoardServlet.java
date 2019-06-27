@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sellerboard.model.exception.SellerboardException;
 import sellerboard.model.service.SellerboardService;
 import sellerboard.model.vo.PageInfo;
 import sellerboard.model.vo.SellerBoard;
@@ -38,7 +39,9 @@ public class ListBoardServlet extends HttpServlet {
 		response.setContentType(" text/html; charset=UTF-8"); 
 		
 		ArrayList<SellerBoard> list = null;
-		SellerboardService bs = new SellerboardService();
+		SellerboardService bs;
+		
+			bs = new SellerboardService();
 		
 		int startPage;
 		int endPage;
@@ -55,36 +58,34 @@ public class ListBoardServlet extends HttpServlet {
 		String code = request.getParameter("code");
 		System.out.println(cCode);
 		System.out.println(code);
-		
-		Talent t = bs.SelectTalent(cCode,code);
-		
-		t.setTalent1code(cCode);
-		t.setTalent2code(code);
-		
-		if(request.getParameter("currentPage")!=null) {
-			currentPage
-			= Integer.parseInt(request.getParameter("currentPage"));
-		}
-		
-		int listCount = bs.getListCount(cCode,code);
-		
-		System.out.println("총 게시물 개수 : " + listCount);
-		
-		
-		maxPage = (int)((double)listCount/boardLimit+0.99);
-		
-		startPage = (int)((double)currentPage/(pageLimit+1))*pageLimit+1;
-		
-		endPage = startPage+pageLimit-1;
-		if(endPage>maxPage) {
-			endPage = maxPage;
-		}
-		
-		list = bs.selectList(currentPage, pageLimit, boardLimit, cCode, code);
-		
-		
 		String page="";
-		if(list != null) {
+		Talent t;
+		try {
+			t = bs.SelectTalent(cCode,code);
+			t.setTalent1code(cCode);
+			t.setTalent2code(code);
+			
+			if(request.getParameter("currentPage")!=null) {
+				currentPage
+				= Integer.parseInt(request.getParameter("currentPage"));
+			}
+			
+			int listCount = bs.getListCount(cCode,code);
+			
+			System.out.println("총 게시물 개수 : " + listCount);
+			
+			
+			maxPage = (int)((double)listCount/boardLimit+0.99);
+			
+			startPage = (int)((double)currentPage/(pageLimit+1))*pageLimit+1;
+			
+			endPage = startPage+pageLimit-1;
+			if(endPage>maxPage) {
+				endPage = maxPage;
+			}
+			
+			list = bs.selectList(currentPage, pageLimit, boardLimit, cCode, code);
+			
 			page="views/categoryPage/allCategoryPage.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("talent", t);
@@ -92,10 +93,15 @@ public class ListBoardServlet extends HttpServlet {
 			request.setAttribute("pi", pi);
 			request.setAttribute("code", code);
 			request.setAttribute("cCode", cCode);
-		}else {
+			
+		} catch (SellerboardException e) {
 			page="views/common/errorPage.jsp";
 			request.setAttribute("msg", "게시글 목록 조회 실패");
+			request.setAttribute("exception", e);
+			
 		}
+		
+		
 		request.getRequestDispatcher(page).forward(request, response);
 	}
 

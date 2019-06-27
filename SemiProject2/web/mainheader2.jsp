@@ -213,7 +213,7 @@
 }
 .rank{
     float: left;
-    background: #BDD4F2;
+    background: #f3f4f8;
     margin-top: 15px;
     margin-right: 20px; 
     border-radius: 10px;
@@ -225,7 +225,7 @@
 }
 .rank1{
     float: left;
-    background: #BDD4F2;
+    background: #f3f4f8;
     margin-top: 15px;
     border-radius: 10px;
     width:384px;
@@ -264,22 +264,44 @@
     background: #fff;
     border-bottom: 1px solid #ccc;
     width: 100%;
-    padding: 11px 0;
+    padding: 10px 0;
     /* height:47px; */
     margin: 0 auto;
     
 }
 .scontent2 p{
     display: inline-block;
-    padding-left: 50px;
-    padding-right: 30px;
-    /* margin-top: 10px; */
+    padding-left:40px;
+    padding-right: 15px;
+    margin-top: 10px; 
 }
-    .clearFix::after{
-    content: '';
-    clear: both;
-    display: block;
+
+ .clearFix::after{
+ content: '';
+ clear: both;
+ display: block;
 }
+.ani:hover{
+
+	cursor:pointer;
+	transition: all 0.4s ease-in-out; 
+	overflow:hidden;
+}
+.ani:hover>div>div>a>img{
+	 transform:scale(1.2);
+	 overflow:hidden;
+	 transition: 0.8s;
+}
+.ani1{
+	border:5px solid transparent;
+}
+.ani1:hover{
+	cursor:pointer;
+	transition: all 0.1s ease-in-out;
+	background-color:#BDD4F2;
+	border:5px solid #BDD4F2;
+}
+
 </style>
 </head>
 <body>
