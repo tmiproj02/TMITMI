@@ -6,15 +6,16 @@
 	int s1 = 0;
 	int s2 = 0;
 	int s3 = 0;
-
-	for(DealMng d : list){
-		switch(d.getProgress()){
-			case "진행중" : s1+=1; break;
-			case "완료" : s2+=1; break;
-			case "취소" : s3+=1; break;
- 		}
-	}
 	
+	if(list != null){
+		for(DealMng d : list){
+			switch(d.getProgress()){
+				case "진행중" : s1+=1; break;
+				case "완료" : s2+=1; break;
+				case "취소" : s3+=1; break;
+	 		}
+		}
+	}
 	
 
 
@@ -293,6 +294,7 @@
 				</div>
 				<div style="margin-top:20px">
 					<div class="padding-15">
+						<%if(list!=null){ %>
 						<ul class="sell-ing">
 							<li>
 								<a style="color:#000" href="/semi/dSelect.do">전체 &nbsp; <span class="selling-history select"><%=list.size() %></span></a>
@@ -307,6 +309,22 @@
 								<a href="/semi/dSelect.do?state=s3">취소 &nbsp; <span class="selling-history"><%=s3 %></span></a>
 							</li>
 						</ul>
+						<%} else{%>
+						<ul class="sell-ing">
+							<li>
+								<a style="color:#000" href="/semi/dSelect.do">전체 &nbsp; <span class="selling-history select">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/dSelect.do?state=s1">진행중 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/dSelect.do?state=s2">완료 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/dSelect.do?state=s3">취소 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+						</ul>
+						<%} %>
 					</div>
 				</div>
 				<div style="margin-top:20px">

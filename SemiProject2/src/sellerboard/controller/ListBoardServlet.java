@@ -56,8 +56,6 @@ public class ListBoardServlet extends HttpServlet {
 		
 		String cCode = request.getParameter("cCode");
 		String code = request.getParameter("code");
-		System.out.println(cCode);
-		System.out.println(code);
 		String page="";
 		Talent t;
 		try {
@@ -71,8 +69,6 @@ public class ListBoardServlet extends HttpServlet {
 			}
 			
 			int listCount = bs.getListCount(cCode,code);
-			
-			System.out.println("총 게시물 개수 : " + listCount);
 			
 			
 			maxPage = (int)((double)listCount/boardLimit+0.99);
