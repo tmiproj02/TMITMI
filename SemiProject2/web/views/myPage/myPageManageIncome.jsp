@@ -313,11 +313,19 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
+								<% if(s!=null){ %>
+                        			<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageSell.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">
+	                        	<%} %>					
 									<div><img src="/semi/resources/images/selling_active.png" alt="" /></div>
 									<h6>판매관리</h6>							
 								</div></a>
-								<a href="/semi/list.ic"><div class="padding-all-15 menu-slot active">
+								<% if(s!=null){ %>
+                        			<a href="/semi/list.ic"><div class="padding-all-15 menu-slot active">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageIncome.jsp"><div class="padding-all-15 menu-slot active">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/profits_new_active.png" alt="" /></div>
 									<h6>수익관리</h6>			
 								</div></a>
@@ -327,7 +335,11 @@
 									<div><img src="/semi/resources/images/advertisement_active.png" alt="" /></div>
 									<h6>광고관리</h6>							
 								</div></a>
-								<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot">
+								<% if(s!=null){ %>
+                        			<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageMyService.jsp"><div class="padding-all-15 menu-slot">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/my_gigs_active.png" alt="" /></div>
 									<h6>나의 서비스</h6>			
 								</div></a>
@@ -469,8 +481,9 @@
             				}
             			});
         			</script>
+        			<%if(s!=null){ %>
         			<div style="text-align:right;width:50%;float:left"><button class="ui teal button" onclick="withdrawbtn()">출금신청</button></div>
-        			
+        			<%} %>
         			<div id="withdraw"class="ui modal" style="width:500px">
 					  <div class="header font-noto">출금 신청</div>
 					  <div class="image content">
@@ -480,7 +493,11 @@
 					    		<div class="description font-noto" style="text-align:left;width:100%">
 						      		<div class="ui input focus" style="height:30px">
 									 	<h4 style="margin-top: 4px;margin-right: 10px;">출금 할 금액 : </h4>
+									 	<%if(s!=null){ %>
 									 	<input type="text" id="wdMoney" name="withdraw" placeholder="<%=ic.getBeforeincome()%>"/><h4 style="margin-top: 5px;margin-left: 5px;">원</h4>
+										<%}else{ %>
+										<input type="text" id="wdMoney" name="withdraw" placeholder="0"/><h4 style="margin-top: 5px;margin-left: 5px;">원</h4>
+										<%} %>
 									</div>
 					      		</div>
 					      		
@@ -498,7 +515,11 @@
 						  .modal('show')
 						;
 					}
+					<%if(s!=null){%>
 					var income = <%=ic.getBeforeincome()%>;
+					<%}else{%>
+					var income = 0;
+					<%}%>
 					var money = $('#wdMoney').val();
 					function withdraw(){
 						if(money>income){

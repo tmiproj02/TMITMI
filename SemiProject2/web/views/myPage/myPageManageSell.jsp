@@ -263,11 +263,19 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
+								<% if(s!=null){ %>
+                        			<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageSell.jsp"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">
+	                        	<%} %>					
 									<div><img src="/semi/resources/images/selling_active.png" alt="" /></div>
 									<h6>판매관리</h6>							
 								</div></a>
-								<a href="/semi/list.ic"><div class="padding-all-15 menu-slot">
+								<% if(s!=null){ %>
+                        			<a href="/semi/list.ic"><div class="padding-all-15 menu-slot">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageIncome.jsp"><div class="padding-all-15 menu-slot">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/profits_new_active.png" alt="" /></div>
 									<h6>수익관리</h6>			
 								</div></a>
@@ -277,7 +285,11 @@
 									<div><img src="/semi/resources/images/advertisement_active.png" alt="" /></div>
 									<h6>광고관리</h6>							
 								</div></a>
-								<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot">
+								<% if(s!=null){ %>
+                        			<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageMyService.jsp"><div class="padding-all-15 menu-slot">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/my_gigs_active.png" alt="" /></div>
 									<h6>나의 서비스</h6>			
 								</div></a>
@@ -312,16 +324,16 @@
 						<%} else{%>
 						<ul class="sell-ing">
 							<li>
-								<a style="color:#000" href="/semi/dSelect.do">전체 &nbsp; <span class="selling-history select">0</span></a>
+								<a style="color:#000" href="">전체 &nbsp; <span class="selling-history select">0</span></a>
 							</li>
 							<li>
-								<a href="/semi/dSelect.do?state=s1">진행중 &nbsp; <span class="selling-history">0</span></a>
+								<a href="">진행중 &nbsp; <span class="selling-history">0</span></a>
 							</li>
 							<li>
-								<a href="/semi/dSelect.do?state=s2">완료 &nbsp; <span class="selling-history">0</span></a>
+								<a href="">완료 &nbsp; <span class="selling-history">0</span></a>
 							</li>
 							<li>
-								<a href="/semi/dSelect.do?state=s3">취소 &nbsp; <span class="selling-history">0</span></a>
+								<a href="">취소 &nbsp; <span class="selling-history">0</span></a>
 							</li>
 						</ul>
 						<%} %>

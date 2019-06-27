@@ -38,9 +38,9 @@ public class Top5Servlet extends HttpServlet {
 		
 		String page = "";
 		try {
-			Top5 t = sb.selectTop3();
+			Top5 t = sb.selectTop3(); // 수익순위가 높은 top3 상위카테고리 저장
 			
-			ArrayList<Top5> list = sb.selectTop5(t);
+			ArrayList<Top5> list = sb.selectTop5(t); // top3 카테고리의 게시물의 판매자 순위
 			
 			page = request.getParameter("page");
 			System.out.println(page);

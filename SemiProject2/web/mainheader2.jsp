@@ -13,6 +13,8 @@
 		buyCount = (int)(session.getAttribute("buyCount"));
 
 	    sellCount = (int)(session.getAttribute("sellCount"));
+	    
+	    
 	    ArrayList<Top5> list =(ArrayList<Top5>)request.getAttribute("list");
 		Top5 t = (Top5)request.getAttribute("t");
 		

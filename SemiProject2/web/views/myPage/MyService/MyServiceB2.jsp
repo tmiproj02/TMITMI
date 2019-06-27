@@ -7,14 +7,16 @@
 	int b2 = 0;
 	int b3 = 0;
 	int b4 = 0;
-	for(SellerBoard b : list){
-		switch(b.getState()){
-			case "B1" : b1+=1; break;
-			case "B2" : b2+=1; break;
-			case "B3" : b3+=1; break;
-			case "B4" : b4+=1; break;
- 		}
-	}
+	if(list!=null){
+		for(SellerBoard b : list){
+			switch(b.getState()){
+				case "B1" : b1+=1; break;
+				case "B2" : b2+=1; break;
+				case "B3" : b3+=1; break;
+				case "B4" : b4+=1; break;
+	 		}
+		}
+		}
 %>
 <!DOCTYPE html>
 <html>
@@ -244,21 +246,33 @@
 					<div class="menu-box">
 						<div class="padding-15">
 							<div class="menu-line" style="text-align:center">
-								<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
+								<% if(s!=null){ %>
+                        			<a href="/semi/dSelect.do"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageSell.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">
+	                        	<%} %>					
 									<div><img src="/semi/resources/images/selling_active.png" alt="" /></div>
 									<h6>판매관리</h6>							
 								</div></a>
-								<a href="/semi/list.ic"><div class="padding-all-15 menu-slot">
+								<% if(s!=null){ %>
+                        			<a href="/semi/list.ic"><div class="padding-all-15 menu-slot">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageManageIncome.jsp"><div class="padding-all-15 menu-slot">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/profits_new_active.png" alt="" /></div>
 									<h6>수익관리</h6>			
 								</div></a>
 							</div>
 							<div class="menu-line" style="text-align:center;border-bottom:solid #E6E6E6 1px;">
-								<a href="/semi/views/myPage/myPageManageAd.jsp"><div class="padding-all-15 menu-slot active" style="border-right:solid #E6E6E6 1px;">							
+								<a href="/semi/views/myPage/myPageManageAd.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
 									<div><img src="/semi/resources/images/advertisement_active.png" alt="" /></div>
 									<h6>광고관리</h6>							
 								</div></a>
-								<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot">
+								<% if(s!=null){ %>
+                        			<a href="/semi/myboard.bo"><div class="padding-all-15 menu-slot active">
+	                        	<%}else{ %>
+	            					<a href="/semi/views/myPage/myPageMyService.jsp"><div class="padding-all-15 menu-slot active">
+	                        	<%} %>
 									<div><img src="/semi/resources/images/my_gigs_active.png" alt="" /></div>
 									<h6>나의 서비스</h6>			
 								</div></a>
@@ -275,23 +289,43 @@
 				</div>
 				<div style="margin-top:20px">
 					<div class="padding-15">
+						<%if(s!=null){ %>
 						<ul class="sell-ing">
 							<li>
-								<a style="color:#000" href="/semi/myboard.bo?sno=<%=s.getSno() %>">전체 &nbsp; <span class="selling-history"><%=list.size()%></span></a>
+								<a href="/semi/myboard.bo">전체 &nbsp; <span class="selling-history"><%=list.size()%></span></a>
 							</li>
 							<li>
-								<a href="/semi/myboard.bo?sno=<%=s.getSno() %>&state=B2">판매중 &nbsp; <span class="selling-history select"><%=b2 %></span></a>
+								<a style="color:#000" href="/semi/myboard.bo?state=B2">판매중 &nbsp; <span class="selling-history select"><%=b2 %></span></a>
 							</li>
 							<li>
-								<a href="/semi/myboard.bo?sno=<%=s.getSno() %>&state=B1">승인대기중 &nbsp; <span class="selling-history"><%=b1 %></span></a>
+								<a href="/semi/myboard.bo?state=B1">승인대기중 &nbsp; <span class="selling-history"><%=b1 %></span></a>
 							</li>
 							<li>
-								<a href="/semi/myboard.bo?sno=<%=s.getSno() %>&state=B3">판매중지 &nbsp; <span class="selling-history"><%=b3 %></span></a>
+								<a href="/semi/myboard.bo?state=B3">판매중지 &nbsp; <span class="selling-history"><%=b3 %></span></a>
 							</li>
 							<li>
-								<a href="/semi/myboard.bo?sno=<%=s.getSno() %>&state=B4">비승인 &nbsp; <span class="selling-history"><%=b4 %></span></a>
+								<a href="/semi/myboard.bo?state=B4">비승인 &nbsp; <span class="selling-history"><%=b4 %></span></a>
 							</li>
 						</ul>
+						<%}else{ %>
+						<ul class="sell-ing">
+							<li>
+								<a href="/semi/myboard.bo">전체 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+							<li>
+								<a style="color:#000" href="/semi/myboard.bo?state=B2">판매중 &nbsp; <span class="selling-history select">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/myboard.bo?state=B1">승인대기중 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/myboard.bo?state=B3">판매중지 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+							<li>
+								<a href="/semi/myboard.bo?state=B4">비승인 &nbsp; <span class="selling-history">0</span></a>
+							</li>
+						</ul>
+						<%} %>
 					</div>
 				</div>
 				<div>
