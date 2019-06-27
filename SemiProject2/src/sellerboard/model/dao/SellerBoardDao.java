@@ -423,9 +423,6 @@ public class SellerBoardDao {
 				to.setIncome(rset.getInt(2));
 				to.setCate(rset.getString(3));
 				
-				System.out.println(to.getNickname());
-				System.out.println(to.getIncome());
-				System.out.println(to.getCate());
 				
 				
 				
