@@ -338,7 +338,7 @@ footer{
 	 transition: 0.8s;
 }
 .ani1{
-border:5px solid transparent;
+	border:5px solid transparent;
 }
 .ani1:hover{
 	cursor:pointer;
@@ -479,7 +479,7 @@ border:5px solid transparent;
                      <div style="width:224px; margin:-1px;">
                     	
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/logoc.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=11"><img src="/semi/resources/images/logoc.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>로고디자인</b></div>
 						 	</a>
 						 	</div>
@@ -490,7 +490,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                     <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/gan.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=13"><img src="/semi/resources/images/gan.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>간판디자인</b></div>
 						 	</a>
 						 	</div>
@@ -499,7 +499,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                     <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;" >
-						 	<a href=""><img src="/semi/resources/images/ot.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=12"><img src="/semi/resources/images/ot.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>의류디자인</b></div></a>
 						 	</a>
 						 	
@@ -509,8 +509,8 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/ill.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>일러스트디자인</b></div>
+						 	<a href="/semi/selectList.bo?cCode=10&code=14"><img src="/semi/resources/images/ill.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>일러스트</b></div>
 						 	</a>
 						 	</div>
                     </div>
@@ -518,8 +518,8 @@ border:5px solid transparent;
                 <div class="ani sildercon1">
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/toon.jpg" style="width:224px;height:170px;border-radius:5px;">
-						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>웹툰디자인</b></div>
+						 	<a href="/semi/selectList.bo?cCode=10&code=15"><img src="/semi/resources/images/toon.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:760px; color:white;"><b>웹툰</b></div>
 						 	</a>
 						 	</div>
                     </div>
@@ -539,7 +539,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/web.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=21"><img src="/semi/resources/images/web.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>웹사이트개발</b></div></a>
 						 	</a>
 						 	</div>
@@ -548,7 +548,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/pro.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=22"><img src="/semi/resources/images/pro.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>프로그램개발</b></div></a>
 						 	</a>
 						 	</div>
@@ -557,7 +557,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
                     	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/mobile.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=25"><img src="/semi/resources/images/mobile.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>모바일앱/웹</b></div></a>
 						 	</a>			
 						 </div>
@@ -566,7 +566,7 @@ border:5px solid transparent;
                 <div class="ani sildercon">
                      <div style="width:224px; margin:-1px;">
 						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/games.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=24"><img src="/semi/resources/images/games.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>게임</b></div></a>
 						 	</a>
 						 	</div>
@@ -575,7 +575,7 @@ border:5px solid transparent;
                 <div class="ani sildercon1">
                      <div style="width:224px; margin:-1px;">
 						 	<div class="image" style="height:170px;">
-						 	<a href=""><img src="/semi/resources/images/sev.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=23"><img src="/semi/resources/images/sev.jpg" style="width:224px;height:170px;border-radius:5px;">
 						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:995px; color:white;"><b>서버 및 기술지원</b></div></a>
 						 	</a>
 						 	</div>
@@ -588,7 +588,7 @@ border:5px solid transparent;
             </div>
         </section>
         <section>
-            <div class="container" style="margin-top:-50px;">
+            <div class="container" style="margin-top:-80px;">
                 <div class="indexTitle1">
                     <b>TOP 카테고리 전문가 랭킹</b> 
                     <p>TMI에서 가장 많이 판매한 인기 전문가 랭킹 입니다.</p> 

@@ -213,7 +213,7 @@
 }
 .rank{
     float: left;
-    background: #BDD4F2;
+    background: #f3f4f8;
     margin-top: 15px;
     margin-right: 20px; 
     border-radius: 10px;
@@ -225,7 +225,7 @@
 }
 .rank1{
     float: left;
-    background: #BDD4F2;
+    background: #f3f4f8;
     margin-top: 15px;
     border-radius: 10px;
     width:384px;
@@ -264,22 +264,44 @@
     background: #fff;
     border-bottom: 1px solid #ccc;
     width: 100%;
-    padding: 11px 0;
+    padding: 10px 0;
     /* height:47px; */
     margin: 0 auto;
     
 }
 .scontent2 p{
     display: inline-block;
-    padding-left: 50px;
-    padding-right: 30px;
-    /* margin-top: 10px; */
+    padding-left:40px;
+    padding-right: 15px;
+    margin-top: 10px; 
 }
-    .clearFix::after{
-    content: '';
-    clear: both;
-    display: block;
+
+ .clearFix::after{
+ content: '';
+ clear: both;
+ display: block;
 }
+.ani:hover{
+
+	cursor:pointer;
+	transition: all 0.4s ease-in-out; 
+	overflow:hidden;
+}
+.ani:hover>div>div>a>img{
+	 transform:scale(1.2);
+	 overflow:hidden;
+	 transition: 0.8s;
+}
+.ani1{
+	border:5px solid transparent;
+}
+.ani1:hover{
+	cursor:pointer;
+	transition: all 0.1s ease-in-out;
+	background-color:#BDD4F2;
+	border:5px solid #BDD4F2;
+}
+
 </style>
 </head>
 <body>
@@ -434,432 +456,127 @@
 		
 		
 		
-		<div class="content2">
+	<section>
+
+        <div class="content2">
+            
             <div class="indexTitle">
                 <p><b>디자인 카테고리</b>에서 인기있어요!</p> 
             </div>
 
             <div class="slider1 clearFix">
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px;  margin:-1px;">
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
                     	
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=11"><img src="/semi/resources/images/logoc.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>로고디자인</b></div>
+						 	</a>
+						 	</div>
                     	
                     	
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+                <div class="ani sildercon">
+                    <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=13"><img src="/semi/resources/images/gan.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>간판디자인</b></div>
+						 	</a>
+						 	</div>
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
+                <div class="ani sildercon">
+                    <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;" >
+						 	<a href="/semi/selectList.bo?cCode=10&code=12"><img src="/semi/resources/images/ot.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>의류디자인</b></div></a>
+						 	</a>
 						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+						 	</div>
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:223px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=14"><img src="/semi/resources/images/ill.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>일러스트</b></div>
+						 	</a>
+						 	</div>
                     </div>
                 </div>
-                <div class="sildercon1">
-                    <div style="width:223px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+                <div class="ani sildercon1">
+                     <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=10&code=15"><img src="/semi/resources/images/toon.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:680px; color:white;"><b>웹툰</b></div>
+						 	</a>
+						 	</div>
                     </div>
                 </div>
 
             </div>
         </div>
-        
-        <div class="content2">
+        </section>
+         <section>
+        <div class="content2"style="margin-top:-30px;">
             
             <div class="indexTitle">
                  <p><b>IT/프로그래밍 카테고리</b>에서 인기있어요!</p> 
             </div>
 
             <div class="slider1 clearFix">
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px;  margin:-1px;">
-                    	
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-                    	
-                    	
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=21"><img src="/semi/resources/images/web.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>웹사이트개발</b></div></a>
+						 	</a>
+						 	</div>
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=22"><img src="/semi/resources/images/pro.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>프로그램개발</b></div></a>
+						 	</a>
+						 	</div>
+                    </div>
+                </div>
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
+                    	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=25"><img src="/semi/resources/images/mobile.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>모바일앱/웹</b></div></a>
+						 	</a>			
 						 </div>
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:224px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
+                <div class="ani sildercon">
+                     <div style="width:224px; margin:-1px;">
+						 	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=24"><img src="/semi/resources/images/games.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>게임</b></div></a>
+						 	</a>
+						 	</div>
                     </div>
                 </div>
-                <div class="sildercon">
-                    <div style="width:223px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-                    </div>
-                </div>
-                <div class="sildercon1">
-                    <div style="width:223px; height: 300px; margin:-1px;">
-                    	<div style="width:224px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
+                <div class="ani sildercon1">
+                     <div style="width:224px; margin:-1px;">
+						 	<div class="image" style="height:170px;">
+						 	<a href="/semi/selectList.bo?cCode=20&code=23"><img src="/semi/resources/images/sev.jpg" style="width:224px;height:170px;border-radius:5px;">
+						 	<div class="imgTittle" style="font-size:17px;font-family: 'Noto Sans KR', sans-serif;position:absolute; margin-left:15px;top:914px; color:white;"><b>서버 및 기술지원</b></div></a>
+						 	</a>
+						 	</div>
+						 	</div>
+						
 						 </div>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
 		
 		 
             <div class="container12">
@@ -867,142 +584,157 @@
                     <b>TOP 카테고리 전문가 랭킹</b> 
                     <p>TMI에서 가장 많이 판매한 인기 전문가 랭킹 입니다.</p> 
                 </div>
-            
-
+                
+                <%	
+            	ArrayList<String> num = new ArrayList<String>();
+		         String income = "0";
+			       	if(num1!=null){
+			       	  for(int i : num1){
+			       		income = dc.format(i);
+			       	  	num.add(income);
+			       	  }
+			       	} 
+            %>
+                
             <div class="slider1 clearFix">
-                    <div class="rank">                
-                        <div class="sheader2">
+            		
+                    <div class="ani1 rank">   
+                               
+                        <div class="sheader2" style=" ">  
                         <div class="scontent1">
-                            <p><b>웹사이트 개발</b></p>
+                            <p><b><%=t.getTop1() %></b></p>
                         </div>
  
                         <div class="first clearFix">
                             <div class="firstimg">
                                 <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                             </div>
-                            <div class="firsttext">
-                                <p>총 판매 금액</p>
-                                <p>20000원</p>
-                                <p>아이디</p>
+                            <div class="firsttext" style=" margin-left: 50px;">
+                                <p style="font-size:13px; font-family: 'Noto Sans KR', sans-serif; margin-bottom:8px;float: left;">총 판매 금액</p>
+                                <p style="font-size:18px; margin-bottom:6px;"><b><%=num.get(0) %>원</b></p>
+                                <p style="font-size:13px;float: left;"><%=str.get(0) %></p>
                             </div>
                         </div>
                         
                             <div class="scontent2">    
-                                <p>2위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                            
+                                <p><b>2위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(1) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(1) %></p>                          
                             </div>
 
                             <div class="scontent2">                            
-                                <p>3위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                            
+                               	<p><b>3위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(2) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(2) %></p>                         
                             </div>
 
                             <div class="scontent2">                            
-                                <p>4위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                        
+                                <p><b>4위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(3) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(3) %></p>                     
                             </div>
 
                             <div class="scontent2">
-                                <p>5위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>
+                                <p><b>5위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(4) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(4) %></p>
                             </div>
                             
                             </div>
                         
                         </div>                                
+                   
                     
-                    <div class="rank">
+                    <div class="ani1 rank">
                            <div class="sheader2">
                         <div class="scontent1">
-                            <p><b>자소서/이력서</b></p>
+                            <p><b><%=t.getTop2() %></b></p>
                         </div>
  
                         <div class="first clearFix">
                             <div class="firstimg">
                                     <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                             </div>
-                            <div class="firsttext">
-                                <p>총 판매 금액</p>
-                                <p>20000원</p>
-                                <p>아이디</p>
+                            <div class="firsttext" style=" margin-left: 60px;">
+                                <p style="font-size:13px;font-family: 'Noto Sans KR', sans-serif;margin-bottom:8px;float: left;">총 판매 금액</p>
+                                <p style="font-size:18px; margin-bottom:6px;"><b><%=num.get(5) %>원</b></p>
+                                <p style="font-size:13px;float: left;"><%=str.get(5) %></p>
                             </div>
                         </div>
                         
                             <div class="scontent2">    
-                                <p>2위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                            
+                                <p><b>2위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(6) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(6) %></p>                          
                             </div>
 
                             <div class="scontent2">                            
-                                <p>3위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                            
+                                <p><b>3위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(7) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(7) %></p>                           
                             </div>
 
                             <div class="scontent2">                            
-                                <p>4위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>                        
+                                <p><b>4위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(8) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(8) %></p>                        
                             </div>
 
                             <div class="scontent2">
-                                <p>5위</p>
-                                <p>1000원</p>
-                                <p>아이디</p>
+                                <p><b>5위</b></p>
+                                <p style="font-size:17px;"><b><%=num.get(9) %>원</b></p>
+                                <p style="float:right;font-size:15px;"><%=str.get(9) %></p>
                             </div>
                             
                             </div>
                         </div>
 
-                        <div class="rank1">
+                        <div class="ani1 rank1">
                             <div class="sheader2">
                                 <div class="scontent1">
-                                    <p><b>푸드</b></p>
+                                    <p><b><%=t.getTop3() %></b></p>
                                 </div>
             
                                 <div class="first clearFix">
                                     <div class="firstimg">
                                             <img src="/semi/resources/images/medal.png" style="width:70px; height:90px;">
                                     </div>
-                                    <div class="firsttext">
-                                        <p>총 판매 금액</p>
-                                        <p>20000원</p>
-                                        <p>아이디</p>
+                                    <div class="firsttext" style=" margin-left: 40px;">
+                                       <p style="font-size:13px;font-family: 'Noto Sans KR', sans-serif;margin-bottom:8px;float: left;">총 판매 금액</p>
+                                       <p style="font-size:18px; margin-bottom:6px;"><b><%=num.get(10) %>원</b></p>
+                                		<p style="font-size:13px;float: left;"><%=str.get(10) %></p>
                                     </div>
                                 </div>
                                 
                                     <div class="scontent2">    
-                                        <p>2위</p>
-                                        <p>1000원</p>
-                                        <p>아이디</p>                            
+                                        <p><b>2위</b></p>
+                                        <p style="font-size:17px;"><b><%=num.get(11) %>원</b></p>
+                                		<p style="float:right;font-size:15px;"><%=str.get(11) %></p>                           
                                     </div>
         
                                     <div class="scontent2">                            
-                                        <p>3위</p>
-                                        <p>1000원</p>
-                                        <p>아이디</p>                            
+                                        <p><b>3위</b></p>
+                                        <p style="font-size:17px;"><b><%=num.get(12) %>원</b></p>
+                                		<p style="float:right;font-size:15px;"><%=str.get(12) %></p>                           
                                     </div>
         
                                     <div class="scontent2">                            
-                                        <p>4위</p>
-                                        <p>1000원</p>
-                                        <p>아이디</p>                        
+                                        <p><b>4위</b></p>
+                                        <p style="font-size:17px;"><b><%=num.get(13) %>원</b></p>
+                                		<p style="float:right;font-size:15px;"><%=str.get(13) %></p>                    
                                     </div>
         
                                     <div class="scontent2">
-                                        <p>5위</p>
-                                        <p>1000원</p>
-                                        <p>아이디</p>
+                                        <p><b>5위</b></p>
+                                        <p style="font-size:17px;"><b><%=num.get(14) %>원</b></p>
+                                		<p style="float:right;font-size:15px;"><%=str.get(14) %></p>
                                     </div>
                          </div>
 
                 </div>
             </div>
+
+            
      
 		
 		
