@@ -40,6 +40,44 @@
 	width : 1200px;
 	margin:0 auto;
 }
+.searchbar{
+	width : 1200px;
+	margin:0 auto;
+	/*background: #f3f4f8;*/
+	padding-top:70px;
+	text-align:center;
+	position: relative;
+    display: block;
+    overflow: hidden;
+}
+.search_input{
+    border: none;
+    border-bottom: 4px solid #BDD4F2!important;
+    width: 700px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 50px;
+}
+
+.search-input1{
+ 	font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+	color: #333;
+    font-size: 38px;
+    width: 700px;
+    padding: 10px 55px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
+
+
+
+
+
 .sbody{
 	width : 1200px;
 	margin:0 auto;
@@ -150,6 +188,15 @@
 <div class="section1">
 	<div class="section2">
 		
+			<div class="searchbar">
+			<div class='search_input' >
+				<input type="hidden" name="type">
+                <input type="text" id="searchWord2" maxlength="15" class="search-input1" placeholder="어떤 서비스를 찾고 계신가요?">
+               	 <div class="search-btn" style="top: 88px;right: 270px; cursor: pointer; vertical-align: top;">
+                   <img class="cursor1" id="clearX"src="/semi/resources/images/x.png" style="width:23px; height: 23px; margin-right:10px;margin-bottom:5px;">
+                   <img class="cursor2" src="/semi/resources/images/searching.png" style="width:33px; height: 33px;" onclick="doSearch2();">
+               	 </div>
+            </div>
 
 		<div class="scontent">
 				<div class="left-menu">
@@ -414,7 +461,9 @@
 						<div class="posting">
 						<%for(int j=(4*i);j<(4*(i+1));j++){
 							if(j>=searchedList.size()) break;
-							SellerBoard b = searchedList.get(j);%>
+							SellerBoard b = searchedList.get(j);
+							String price = dc.format(b.getPrice());
+							%>
 						
 						 <div class="ani">
 						 	<div class="ui card" style="margin:0;height:331px;overflow:hidden;">
@@ -424,12 +473,12 @@
 							  <div class="content" style="height:120px;" onclick='location.href="/semi/listDetail.bo?bno=<%= b.getBno()%>"'>
 							    
 							    <div class="meta">
-							      <span class="date">판매자닉네임</span>
+							      <span class="date"><%=b.getNickName() %></span>
 							    </div>
 							    <div class="description" style="width:182px;height:50px;margin-bottom:5px;overflow:hidden;text-overflow: ellipsis; ">
 								   <p style="width:182px;height:50px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;"><%= b.getBtitle() %></p>    
 							    </div>
-							    <a class="header" style="float:right"><%=b.getPrice() %>원</a>
+							    <a class="header" style="float:right"><%=price %>원</a>
 							  </div>
 							  <div class="extra content">
 							    <a>
@@ -457,19 +506,6 @@
 					</div>
 					<%} %>
 				</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 				
 				<div class="paging">
  
@@ -496,4 +532,26 @@
 
 <%@include file= "/views/common/footer.jsp"%>
 </body>
+<script>
+
+	function doSearch2(){
+		var searchWord = $('#searchWord2').val();
+		
+		location.href = "/semi/searchedList.bo?searchWord="+searchWord;
+		
+	}
+	$('#clearX').click(function(){
+		
+		$('#searchWord2').val("");
+		$('#searchWord2').select();
+	});
+	
+
+
+
+</script>
+ 
+
+
+
 </html>

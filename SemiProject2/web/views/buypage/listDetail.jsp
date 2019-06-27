@@ -6,11 +6,6 @@
 <%
 SellerBoard b = (SellerBoard)request.getAttribute("sellerboard");
 ArrayList<BoardComment> clist = (ArrayList<BoardComment>)request.getAttribute("clist");
-
-
-
-
-
 %>
 
 <!DOCTYPE html>
@@ -470,7 +465,7 @@ margin: 20px 10px;
                   <div style="width:100%;text-align : center">
                   	<img src="/semi/resources/images/myprofile.png" alt="" style="border-radius: 100px;border:1px solid #878787"/>
                   </div>
-                  <p style="text-align:center; font-size: 21px; font-weight: bold;">착한매미</p>
+                  <p style="text-align:center; font-size: 21px; font-weight: bold;"><%=b.getNickname() %></p>
                </div>
 
                <div style="text-align: center;">

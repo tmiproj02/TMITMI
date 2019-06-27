@@ -29,7 +29,11 @@ public class SellerBoard implements Serializable {
 	private String state; 					//진행 상태
 	private String extradate1; 				//빠른 작업 일수
 	private String extradate2; 				//추가 수정 회수
-	private int nickName;
+	private String nickName;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
 	private Date dealdateB;					//구매내역 조회할 때 사용할 겁니다:) (구매날짜입니당)
 	private int dmcode;						//'' (주문번호)
 	private int mno;						//구매자
@@ -63,12 +67,10 @@ public class SellerBoard implements Serializable {
 	   
 	   
 	   
-	public int getNickName() {
-		return nickName;
-	}
+	
 
-	public void setNickName(int nickName) {
-		this.nickName = nickName;
+	public String getNickName() {
+		return nickName;
 	}
 
 	public SellerBoard() {

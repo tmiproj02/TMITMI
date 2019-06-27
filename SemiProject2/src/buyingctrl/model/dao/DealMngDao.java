@@ -103,11 +103,14 @@ public class DealMngDao {
 	
 	
 	//진행중 조회
-	public ArrayList<DealMng> ingselectList(Connection con, Member m) throws buyingctrlException  {
+	public ArrayList<DealMng> ingselectList(Connection con, Member m,int currentPage, int limit) throws buyingctrlException  {
 		
 		ArrayList<DealMng> dingList = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
+		int startRow = (currentPage -1) * limit +1; // 현재 페이지가 1이라면  --> 1번글,  현재 페이지가 2라면--> 11번글
+		int endRow = startRow + limit -1; // 10 , 20
+	
 		
 		String sql = prop.getProperty("ingselectList");
 		
@@ -116,10 +119,10 @@ public class DealMngDao {
 			
 			
 			pstmt = con.prepareStatement(sql);
-			
+			System.out.println("sql: " + sql);
 			 pstmt.setInt(1, m.getMno());
-			 System.out.println(m.getMno());
-			System.out.println(sql);
+			pstmt.setInt(2, endRow);
+			pstmt.setInt(3, startRow);
 
 			rset = pstmt.executeQuery();
 			
@@ -131,7 +134,7 @@ public class DealMngDao {
 				dm.setDmcode(rset.getInt("dmcode"));
 				dm.setDealdate(rset.getDate("dealdate"));
 				dm.setPrice(rset.getInt("price"));
-				
+				dm.setProgress(rset.getString("progress"));
 				dingList.add(dm);
 				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
 				
@@ -489,6 +492,147 @@ public class DealMngDao {
 		
 		
 		
+	}
+
+
+	public ArrayList<DealMng> selectAllList(Connection con, Member m) {
+		ArrayList<DealMng> dingList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+	
+		
+		String sql = prop.getProperty("selectAllList");
+		
+		try {
+			dingList = new ArrayList<DealMng>();
+			
+			
+			pstmt = con.prepareStatement(sql);
+			System.out.println("sql: " + sql);
+			 pstmt.setInt(1, m.getMno());
+			 
+
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				DealMng dm = new DealMng();
+				
+				dm.setBtitle(rset.getString("btitle"));
+				dm.setsNickname(rset.getString("nickName"));
+				dm.setDmcode(rset.getInt("dmcode"));
+				dm.setDealdate(rset.getDate("dealdate"));
+				dm.setPrice(rset.getInt("price"));
+				dm.setProgress(rset.getString("progress"));
+				dingList.add(dm);
+				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
+				
+			}
+			
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return dingList;
+	}
+
+
+	public ArrayList<DealMng> selectFinList(Connection con, Member m) {
+		ArrayList<DealMng> dingList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+	
+		
+		String sql = prop.getProperty("selectFinList");
+		
+		try {
+			dingList = new ArrayList<DealMng>();
+			
+			
+			pstmt = con.prepareStatement(sql);
+			System.out.println("sql: " + sql);
+			 pstmt.setInt(1, m.getMno());
+		
+
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				DealMng dm = new DealMng();
+				
+				dm.setBtitle(rset.getString("btitle"));
+				dm.setsNickname(rset.getString("nickName"));
+				dm.setDmcode(rset.getInt("dmcode"));
+				dm.setDealdate(rset.getDate("dealdate"));
+				dm.setPrice(rset.getInt("price"));
+				dm.setProgress(rset.getString("progress"));
+				dingList.add(dm);
+				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
+				
+			}
+			
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return dingList;
+	}
+
+
+	public ArrayList<DealMng> selectCancelList(Connection con, Member m) {
+		ArrayList<DealMng> dingList = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String sql = prop.getProperty("selectCancelList");
+		
+		try {
+			dingList = new ArrayList<DealMng>();
+			
+			
+			pstmt = con.prepareStatement(sql);
+			System.out.println("sql: " + sql);
+			 pstmt.setInt(1, m.getMno());
+	
+
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				DealMng dm = new DealMng();
+				
+				dm.setBtitle(rset.getString("btitle"));
+				dm.setsNickname(rset.getString("nickName"));
+				dm.setDmcode(rset.getInt("dmcode"));
+				dm.setDealdate(rset.getDate("dealdate"));
+				dm.setPrice(rset.getInt("price"));
+				dm.setProgress(rset.getString("progress"));
+				dingList.add(dm);
+				System.out.println("진행중인 구매내역 조회 리스트(DealMngDao) : "+ dingList);
+				
+			}
+			
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return dingList;
 	}
 
 

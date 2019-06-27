@@ -202,6 +202,7 @@ public class SellerBoardDao {
 				b.setAdexpire(rset.getInt("ADEXPIRE"));
 				b.setBdate(rset.getDate("BDATE"));
 				b.setState(rset.getString("STATE"));
+				b.setNickName(rset.getString("USERNAME"));
 
 				list.add(b);
 			}
@@ -473,7 +474,7 @@ public class SellerBoardDao {
 		ArrayList<SellerBoard> searchedList = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("searchedList");
+		String sql = "SELECT BO.*, (SELECT M.NICKNAME FROM MEMBER M JOIN SELLER S ON (M.MNO = S.MNO) WHERE S.SNO= BO.SNO) USERNAME FROM (SELECT ROWNUM RNUM, B.* FROM (SELECT * FROM SELLERBOARD WHERE STATE='B2' AND BTITLE LIKE CONCAT(CONCAT('%',?),'%') ORDER BY BNO DESC) B WHERE ROWNUM <= ?) BO WHERE RNUM >= ?";
 	
 		try {
 			
@@ -516,7 +517,8 @@ public class SellerBoardDao {
 				b.setAdexpire(rset.getInt("ADEXPIRE"));
 				b.setBdate(rset.getDate("BDATE"));
 				b.setState(rset.getString("STATE"));
-
+				b.setNickName(rset.getString("USERNAME"));
+				
 				searchedList.add(b);
 			}
 			

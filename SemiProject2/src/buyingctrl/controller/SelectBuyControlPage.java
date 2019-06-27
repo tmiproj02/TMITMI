@@ -14,14 +14,16 @@ import buyingctrl.model.exception.buyingctrlException;
 import buyingctrl.model.service.DealMngService;
 import buyingctrl.model.vo.DealMng;
 import member.model.vo.Member;
+import message.model.service.MessageService;
+import message.model.vo.PageInfo;
 
 
 @WebServlet("/prging.bo")
-public class progressingServlet extends HttpServlet {
+public class SelectBuyControlPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public progressingServlet() {
+    public SelectBuyControlPage() {
         super();
        
     }
@@ -31,6 +33,7 @@ public class progressingServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		Member m = (Member)session.getAttribute("member");
+		String state = request.getParameter("state");
 		
 		ArrayList<DealMng> dingList = new ArrayList<DealMng>();
 		
@@ -38,13 +41,59 @@ public class progressingServlet extends HttpServlet {
 		
 		String page="";
 		
+		int startPage;
+		int endPage;
+		int maxPage;
+		int currentPage;
+		int limit;
+
+		currentPage = 1;
+		
+	
+		limit = 10;
+
+		if(request.getParameter("currentPage") != null) {
+		
+		   currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		int listCount = dms.getListCount(m);
+		
+		System.out.println("총 페이지 개수 : " + listCount);
+
+		maxPage = (int)((double)listCount / limit + 0.9);
+		startPage = ((int)((double)currentPage / limit + 0.9) - 1) * limit + 1;
+		endPage = startPage + limit -1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+
+
 		try {
 			
-			dingList = dms.ingselectList(m);
+			if(state.equals("0")) {
+				dingList = dms.selectAllList(m);
+				page = "views/personBUY/buyingcontrol.jsp";
+			}else if(state.equals("1")) {
+				dingList = dms.ingselectList(m,currentPage,limit);
+				page = "views/personBUY/buyingProgressing.jsp";
+			}else if(state.equals("2")) {
+				dingList = dms.selectFinList(m);
+				page = "views/personBUY/buyingcontrolFin.jsp";
+			}else {
+				dingList = dms.selectCancelList(m);
+				page = "views/personBUY/buyingcontrolCc.jsp";
+			}
 			
-			page = "views/personBUY/buyingProgressing.jsp";
+			System.out.println("서블릿시점 ding: " + dingList);
+			
 			
 			request.setAttribute("dingList", dingList);
+			PageInfo pi = new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
+			
+			request.setAttribute("pi",pi);
+			
+			
 			
 			request.getRequestDispatcher(page).forward(request, response);
 			
@@ -54,7 +103,7 @@ public class progressingServlet extends HttpServlet {
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "요구사항이 없는 것 불러오기 에러!");
 			request.setAttribute("exception", e);
-
+			e.printStackTrace();
 			
 			request.getRequestDispatcher(page).forward(request, response);
 		}

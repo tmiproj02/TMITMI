@@ -457,7 +457,7 @@ nav{
     	});
     	
     	function buyingctrl(){
-			location.href="/semi/prging.bo";
+			location.href="/semi/prging.bo?state=1";
 		}
     	
     	function doSearch(){
