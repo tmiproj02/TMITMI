@@ -28,7 +28,7 @@ public class IncomeService {
 		
 		if(result>0) commit(con);
 		else rollback(con);
-		
+		close(con);
 		return result;
 	}
 	public int updateincome(int sno, int wdMoney) {
@@ -38,7 +38,7 @@ public class IncomeService {
 		
 		if(result>0) commit(con);
 		else rollback(con);
-		
+		close(con);
 		return result;
 	}
 	

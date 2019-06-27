@@ -99,10 +99,12 @@ public class MemberService {
 		con = getConnection();
 		try {
 		 isDup = mDao.emailDupCheck(con,email);
+		 close(con);
 		}catch(MemberException e) {
 			e.printStackTrace();
+			close(con);
 		}
-		close(con);
+	
 		
 		return isDup;
 	}
@@ -112,6 +114,7 @@ public class MemberService {
 		con = getConnection();
 		String result = mDao.searchId(con, m);
 
+		close(con);
 
 		return result;
 	}
@@ -149,11 +152,13 @@ public class MemberService {
 		try {
 			con = getConnection();
 			isDup = mDao.nickNameDupCheck(con,nickName);
+			close(con);
 		}catch(Exception e) {
+			close(con);
 				e.printStackTrace();
 		}
 		
-		close(con);
+	
 		
 		return isDup;
 	}
@@ -163,10 +168,11 @@ public class MemberService {
 		con = getConnection();
 		try {
 			mCount = mDao.getMcount(m,con);
-			
+			close(con);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			close(con);
 		}
 		
 		
@@ -179,10 +185,12 @@ public class MemberService {
 		con = getConnection();
 		try {
 			buyCount = mDao.getBuyCount(m,con);
+			close(con);
 			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			close(con);
 		}
 		
 		
@@ -194,10 +202,12 @@ public class MemberService {
 		con = getConnection();
 		try {
 			sellCount = mDao.getSellCount(m,con);
+			close(con);
 			
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			close(con);
 		}
 		
 		

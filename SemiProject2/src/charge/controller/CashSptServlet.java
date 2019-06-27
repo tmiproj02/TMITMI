@@ -55,8 +55,8 @@ public class CashSptServlet extends HttpServlet {
 			.forward(request, response);
 			page = "views/buypage/payCreate.jsp"; 
 		} catch (CashRechargeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("msg", "캐시내역 에러 발생!!");
+			request.setAttribute("exception", e);
 		} 
 		
 		

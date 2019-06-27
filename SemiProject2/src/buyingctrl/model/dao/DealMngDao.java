@@ -25,7 +25,7 @@ public class DealMngDao {
 	private String fin = "완료";
 	private String cc = "취소";
 	
-	public DealMngDao() {
+	public DealMngDao() throws buyingctrlException {
 		prop = new Properties();
 		
 		String filePath
@@ -42,7 +42,7 @@ public class DealMngDao {
 			
 		} catch (IOException e) {
 			
-			e.printStackTrace();
+			throw new buyingctrlException("쿼리에러");
 			
 		}
 	}
@@ -90,8 +90,7 @@ public class DealMngDao {
 			}
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new buyingctrlException(e.getMessage());
+			throw new buyingctrlException("전체 구매 내역 에러");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -108,7 +107,7 @@ public class DealMngDao {
 	
 	
 	//진행중 조회
-	public ArrayList<DealMng> ingselectList(Connection con, Member m)  {
+	public ArrayList<DealMng> ingselectList(Connection con, Member m) throws buyingctrlException  {
 		
 		ArrayList<DealMng> dingList = null;
 		PreparedStatement pstmt = null;
@@ -145,7 +144,7 @@ public class DealMngDao {
 			
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
+			throw new buyingctrlException("진행중 조회 에러");
 		
 		} finally {
 			close(rset);
@@ -197,8 +196,7 @@ public class DealMngDao {
 			
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new buyingctrlException(e.getMessage());
+			throw new buyingctrlException("거래 완료 리스트 에러");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -254,7 +252,7 @@ public class DealMngDao {
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
-			throw new buyingctrlException(e.getMessage());
+			throw new buyingctrlException("거래 취소 조회 에러");
 		} finally {
 			close(rset);
 			close(pstmt);
@@ -303,7 +301,7 @@ public class DealMngDao {
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
-			throw new buyingctrlException(e.getMessage());
+			throw new buyingctrlException("구매 전체 내역 검색 에러");
 		}finally {
 			close(rset);
 			close(pstmt);
@@ -353,7 +351,7 @@ public class DealMngDao {
 	}
 
 
-	public ArrayList<DealMng> selectDeal(Connection con, int sno) {
+	public ArrayList<DealMng> selectDeal(Connection con, int sno) throws buyingctrlException {
 		ArrayList<DealMng> list = new ArrayList<DealMng>();
 		
 		PreparedStatement pstmt = null;
@@ -389,8 +387,7 @@ public class DealMngDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new buyingctrlException("페이징 에러");
 		} finally {
 			close(rset);
 			close(pstmt);

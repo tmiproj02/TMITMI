@@ -12,42 +12,43 @@
 <%@ page import = "member.common.PasswordWrapper" %>
 
 <% 
-	final String sender = "tmicor@naver.com"; // 보내는 사람 ID (Ex: @naver.com 까지..)
-	final String password = "TmiTmi123!"; // 보내는 사람 Password
-	
-	String receiver = request.getParameter("email"); // 받는 사용자 (Ex: @naver.com 까지..)
-	
-	
-	// Get the session object
+	final String sender = "tmicor@naver.com"; // 보내는 사람 이메일
+	final String password = "TmiTmi123!"; // 보내는 사람 비밀번호
+	String receiver = request.getParameter("email"); // 받는 사람
+
 	Properties props = new Properties();
+	// STMT 세팅
 	props.put("mail.smtp.host", "smtp.naver.com");
 	props.put("mail.smtp.auth", "true");
-	
+	// 세션에 STMT 권한 획득
 	Session ses = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 		protected PasswordAuthentication getPasswordAuthentication() {
+			// 메일 서버에 접근(네이버 아이디와 비밀번호 사용) 
 			return new PasswordAuthentication(sender, password);
 		}
 	});
-	String host = "http://192.168.20.49/semi/views/member/"; // 사이트
-	String code = null; // 암호화된 인증코드 담을 변수
+	// 보낼 사이트 경로
+	String host = "http://192.168.20.49/semi/views/member/"; 
+	// 암호화된 인증코드 담을 변수 
+	String code = null; 
+	// 보낼 내용
 	String contents = "인증을 위한 인증 메일입니다. 버튼을 누르세요." + "<a href='" + host + "mailVerifyCheck.jsp?code="
 				      + PasswordWrapper.getSHA512(receiver) + "&receiver=" + receiver + "'>" + "인증하기" + "</a>";
-	// Compose the message
 	try {
 		MimeMessage message = new MimeMessage(ses);
-		message.setFrom(new InternetAddress(sender));
-		message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
-	
-		// sender Email Address
-		message.setFrom("TMICorporation <" + sender + ">");
-	
-		// Subject
-		message.setSubject("[인증] 회원가입을 위한 인증 메일입니다.");
-	
-		// Text
-		message.setContent(contents,"text/html; charset=UTF-8");
-		// send the message
-		Transport.send(message);
+		// 보낼 사람 세팅
+		message.setFrom(new InternetAddress(sender)); 
+		// 받는사람 세팅
+		message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver)); 
+		// 보낼사람 세팅 2
+		message.setFrom("TMICorporation <" + sender + ">"); 
+		// 메일 제목
+		message.setSubject("[인증] 회원가입을 위한 인증 메일입니다."); 
+		// 메일 내용
+		message.setContent(contents,"text/html; charset=UTF-8"); 
+		// 전송
+		Transport.send(message); 
+		
 	
 	
 	} catch (MessagingException e) {

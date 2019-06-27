@@ -76,8 +76,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 		
 		
 	} catch(SQLException e) {
-		e.printStackTrace();
-		throw new CashRechargeException(e.getMessage());
+		throw new CashRechargeException("캐시내역 충전 에러");
 	} finally {
 		close(pstmt);
 	}
@@ -119,8 +118,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 			result = pstmt.executeUpdate();
 
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new CashRechargeException(e.getMessage());
+			throw new CashRechargeException("캐시 충전 연결 에러");
 		} finally {
 			close(pstmt);
 		}
@@ -173,8 +171,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 			
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new CashRechargeException(e.getMessage());
+			throw new CashRechargeException("변경된 캐시 확인 에러");
 		} finally {
 			close(pstmt);
 			close(rset);
@@ -237,8 +234,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 			
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new CashRechargeException(e.getMessage());
+			throw new CashRechargeException("캐시 사용내역 에러");
 		}finally {
 			close(rset);
 			close(pstmt);
@@ -253,7 +249,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 
 	//필터! ('충전','사용','전체')
-		public ArrayList<Cash> searchList(Connection con, Member m, String category) throws FileNotFoundException, IOException {
+		public ArrayList<Cash> searchList(Connection con, Member m, String category) throws FileNotFoundException, IOException, CashRechargeException {
 			
 			ArrayList<Cash> list = null;
 			PreparedStatement pstmt = null;
@@ -314,7 +310,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 				
 			} catch (SQLException e) {
 			
-				e.printStackTrace();
+				throw new CashRechargeException("필터");
 				
 			} finally {
 				close(rset);
@@ -359,8 +355,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 			
 			
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new CashRechargeException(e.getMessage());
+			throw new CashRechargeException("사용으로 들어가는 부분 에러");
 		} finally {
 			close(pstmt);
 		}
@@ -375,7 +370,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 	}
 
 		//게시글 개수 카운트
-		public int getListCount(Connection con, Member m) throws FileNotFoundException, IOException {
+		public int getListCount(Connection con, Member m) throws FileNotFoundException, IOException, CashRechargeException {
 			// 총 게시글 수
 					int listCount = 0;
 						// 총 게시글 수를 쿼리로 만들어놓음(board-query.properties에)
@@ -407,7 +402,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 					} catch (SQLException e) {
 					
-						e.printStackTrace();
+						throw new CashRechargeException("게시글 카운트 에러");
 					
 					} finally {
 						close(rset);
@@ -445,8 +440,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 			result = pstmt.executeUpdate();
 
 		} catch(SQLException e) {
-			e.printStackTrace();
-			throw new CashRechargeException(e.getMessage());
+			throw new CashRechargeException("멤버 캐시 + 에러");
 		} finally {
 			close(pstmt);
 		}
@@ -499,7 +493,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 	
 	//사용내역 불러오기 -> 개수
-		public int getsptOnlyListCount(Connection con, Member m) throws FileNotFoundException, IOException {
+		public int getsptOnlyListCount(Connection con, Member m) throws FileNotFoundException, IOException, CashRechargeException {
 			// 총 게시글 수
 			int listCount = 0;
 				// 총 게시글 수를 쿼리로 만들어놓음(board-query.properties에)
@@ -532,7 +526,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 			} catch (SQLException e) {
 			
-				e.printStackTrace();
+				throw new CashRechargeException("사용내역 불러오기 에러");
 			
 			} finally {
 				close(rset);
@@ -594,8 +588,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 				
 				
 			} catch(SQLException e) {
-				e.printStackTrace();
-				throw new CashRechargeException(e.getMessage());
+								throw new CashRechargeException("사용내역 불러오기 에러");
 			}finally {
 				close(rset);
 				close(pstmt);
@@ -609,7 +602,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 
 		//'충전'내역만 불러오기 ->개수
-		public int getrcgOnlyListCount(Connection con, Member m) throws FileNotFoundException, IOException {
+		public int getrcgOnlyListCount(Connection con, Member m) throws FileNotFoundException, IOException, CashRechargeException {
 			// 총 게시글 수
 						int listCount = 0;
 							// 총 게시글 수를 쿼리로 만들어놓음(board-query.properties에)
@@ -642,7 +635,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 
 						} catch (SQLException e) {
 						
-							e.printStackTrace();
+							throw new CashRechargeException("충전내역 개수 에러");
 						
 						} finally {
 							close(rset);
@@ -704,8 +697,7 @@ public int insertRecharge(Connection con, Cash csh) throws CashRechargeException
 				
 				
 			} catch(SQLException e) {
-				e.printStackTrace();
-				throw new CashRechargeException(e.getMessage());
+				throw new CashRechargeException("충전내역 불러오기 에러");
 			}finally {
 				close(rset);
 				close(pstmt);

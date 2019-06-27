@@ -118,7 +118,6 @@ public class CashOnlyRcgListServlet extends HttpServlet {
 			page = "/semi/views/common/errorPage.jsp";
 			request.setAttribute("msg", "결제목록 불러오기 에러!");
 			request.setAttribute("exception", e);
-			e.printStackTrace();
 			
 		}
 		

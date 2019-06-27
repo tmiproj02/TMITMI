@@ -60,7 +60,6 @@ public class finishedListServlet extends HttpServlet {
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "요구사항이 없는 것 불러오기 에러!");
 			request.setAttribute("exception", e);
-			e.printStackTrace();
 			
 			request.getRequestDispatcher(page).forward(request, response);
 		}

@@ -101,22 +101,22 @@ public class NoneRequestServlet extends HttpServlet {
 		
 		try {
 			nreqList = dms.nrselectList(currentPage, limit, m);
-			
+
 			page = "views/personBUY/buyingcontrol.jsp";
-			
+
 			request.setAttribute("nreqList", nreqList);
-			
-			
-			
-			charge.model.vo.PageInfo pi = new charge.model.vo.PageInfo(currentPage, listCount, limit, maxPage, startPage, endPage);
-			// 6개의 페이지 정보 담아서~
-			request.setAttribute("pi", pi); //담은 것들을 한 번에 보내요~	
+
+			charge.model.vo.PageInfo pi = 
+					new charge.model.vo.PageInfo
+					(currentPage, listCount, limit, maxPage, startPage, endPage);
+
+			request.setAttribute("pi", pi);
 			
 		} catch(buyingctrlException e) {
 				page = "/views/common/errorPage.jsp";
 				request.setAttribute("msg", "전체 구매 내역 불러오기 에러!");
 				request.setAttribute("exception", e);
-				e.printStackTrace();
+
 
 		}
 		

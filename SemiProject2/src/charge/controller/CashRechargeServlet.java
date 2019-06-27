@@ -55,8 +55,6 @@ public class CashRechargeServlet extends HttpServlet{
 			
 			session.setAttribute("member", changeMember);
 			
-//			response.sendRedirect("/semi/views/personBUY/buyingcontrol.jsp");
-			
 			request
 			.getRequestDispatcher("/cList.bo")
 			.forward(request, response); 

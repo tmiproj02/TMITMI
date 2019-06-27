@@ -59,7 +59,6 @@ public class searchAllServlet extends HttpServlet {
 			page = "/views/common/errorPage.jsp";
 			request.setAttribute("msg", "전체내역 중 검색한 것 불러오기 에러!");
 			request.setAttribute("exception", e);
-			e.printStackTrace();
 			
 			request.getRequestDispatcher(page).forward(request, response);
 		}	
