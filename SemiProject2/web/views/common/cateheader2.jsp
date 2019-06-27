@@ -296,10 +296,9 @@ nav{
                             </a>
                         </div>
                         <div class='head_input'>
-                            <input type="text" name="keyword" maxlength="15" class="search-input" placeholder="어떤 서비스를 찾고계신가요?">
+                            <input type="text" id="searchWord" maxlength="15" class="search-input" placeholder="어떤 서비스를 찾고계신가요?">
                             <div class="search-btn">
-                                <img class="width-15px margin-right-10 cursor" src="/semi/resources/images/cancel-button2.png" style="display: none">
-                                <img class="width-20px cursor" src="/semi/resources/images/searching.png" style="vertical-align: inherit">
+                                <img class="width-20px cursor" src="/semi/resources/images/searching.png" style="vertical-align: inherit" onclick="doSearch();">
                             </div>
                         </div>
                     </div>
@@ -311,7 +310,7 @@ nav{
                             	<div class="padding-20px"><a href="/semi/views/seller/ServiceRegistration.jsp">판매 시작하기</a></div>
                             <%} %>
                             <div class="padding-15px"><a style="cursor:pointer;" onclick="nrequest();">구매</a></div>
-                            <div class="padding-15px"><a href="/">메시지</a></div>
+                            <div class="padding-15px"><a href="/semi/messageList">메세지</a></div>
                             <div class="padding-15px"><a href="/">찜한 서비스</a></div>
                             <div class="mylog padding-15px"><a href="/">
                             	<div style="width:30px;height:30px"><img src="/semi/resources/images/myprofile.png" width=30px style="border-radius: 500px !important; vertical-align: middle;"/></div>
@@ -327,12 +326,12 @@ nav{
                        			</div>
                             </div>
                             <script>
-                            $('.mylog,.mylog>a,.downmymenu').mouseenter(function(){
-                        		$('.downmymenu').css("display","block");
-                        	});
-                        	$('.mylog,.downmymenu').mouseleave(function(){
-                        		$('.downmymenu').css("display","none");
-                        	});
+                            	$('.mylog,.downmymenu').mouseenter(function(){
+                            		$('.downmymenu').css("display","block");
+                            	});
+                            	$('.mylog,.downmymenu').mouseleave(function(){
+                            		$('.downmymenu').css("display","none");
+                            	});
                             	
                             </script>
                         </div>
@@ -346,9 +345,9 @@ nav{
                         	<div class="cate" id="cate0"><a href="/semi/views/myPage/myPage.jsp">나의정보</a></div>
                         </li>
                         <li clase="talent-category">
-	                        <div class="cate" id="cate1"><a style="cursor:pointer;" onclick="nrequest();">구매관리</a></div>
+	                        <div class="cate" id="cate1"><a href="">구매관리</a></div>
                         	<ul class="downmenu" id="downmenu1">
-                        		<li><a style="cursor:pointer;" onclick="nrequest();">구매관리</a></li>
+                        		<li><a style="cursor:pointer;" onclick="prging();">구매관리</a></li>
                         		<li><a style="cursor:pointer;" onclick="billHist();">TMI캐시</a></li>
                             	<li><a href="/semi/views/personBUY/cash.jsp">캐시충전</a></li>
                             	<li><a href="/semi/views/personBUY/coupon.jsp">쿠폰</a></li>
@@ -359,13 +358,13 @@ nav{
                         	<ul class="downmenu" id="downmenu2">
                         		<li><a href="/semi/dSelect.do">판매관리</a></li>
 	                        	<li><a href="/semi/myboard.bo">나의서비스</a></li>
-	                            <li><a href="/semi/list.ic">수익관리</a></li>
+	                            <li><a href="/semi/views/myPage/myPageManageIncome.jsp">수익관리</a></li>
 	                            <li><a href="/semi/views/myPage/myPageManageAd.jsp">광고등록</a></li>
 	                        </ul>
                         </li>
                         
                         <li clase="talent-category">
-                        	<div class="cate" id="cate3"><a href="">메시지</a></div>
+                        	<div class="cate" id="cate3"><a href="/semi/messageList">메세지</a></div>
                         </li>
                         <li clase="talent-category">
                         	<div class="cate" id="cate4"><a href="">계정설정</a></div>
@@ -422,9 +421,17 @@ nav{
 			location.href="/semi/cList.bo"
 		}
     	
-    	function nrequest(){
-    		location.href="/semi/nReq.bo"
+    	function prging(){
+    		location.href="/semi/prging.bo"
     	}
+    	
+    	function doSearch(){
+    		var searchWord = $('#searchWord').val();
+    		location.href = "/semi/searchedList.bo?searchWord="+searchWord;
+    		
+    	}
+    	
+    	
     </script>
     
     

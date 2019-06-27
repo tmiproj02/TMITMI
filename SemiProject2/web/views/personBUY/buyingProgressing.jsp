@@ -276,15 +276,11 @@
 				<div style="margin-top:20px">
 					<div class="padding-15">
 						<ul class="sell-ing">
-							<li>
-								<a href="">요청사항 미작성 &nbsp; <span class="selling-history">0</span></a>
-							</li>
+							
 							<li>
 								<a style="color:#000" href="">진행중 &nbsp; <span class="selling-history select">0</span></a>
 							</li>
-							<li>
-								<a href="">발송중 &nbsp; <span class="selling-history">0</span></a>
-							</li>
+							
 							<li>
 								<a href="">완료 &nbsp; <span class="selling-history">0</span></a>
 							</li>

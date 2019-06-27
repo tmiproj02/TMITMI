@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ page import="sellerboard.model.vo.*, java.util.*" %>
+<%
+	ArrayList<SellerBoard> searchedList = (ArrayList<SellerBoard>)request.getAttribute("searchedList");
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	int listCount = pi.getListCount();
+	int currentPage = pi.getCurrentPage();
+	int maxPage = pi.getMaxPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	
+%>    
+    
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,37 +40,40 @@
 	width : 1200px;
 	margin:0 auto;
 }
-.searchbar{
+.sbody{
 	width : 1200px;
 	margin:0 auto;
-	/*background: #f3f4f8;*/
-	padding-top:70px;
-	text-align:center;
 	position: relative;
-    display: block;
-    overflow: hidden;
+	z-index: 1;
+	
 }
-.search_input{
-    border: none;
-    border-bottom: 4px solid #BDD4F2!important;
-    width: 700px;
-    text-align: center;
-    margin:0 auto;
-    margin-bottom: 50px;
+.sbody>div{
+	display:inline-block;
+	float:left;
+}
+.cb1{
+	margin-top: 50px; 
+	padding-left:40px;
+	padding-right:10px;
+		
+}
+.cb2{
+    margin-top: 40px; 
+    padding: 0 5px;
+}
+.cb3{
+	text-align:right;
+	margin-top: 50px;
+	z-index:0;
 }
 
-.search-input1{
- 	font-family: 'Noto Sans KR', sans-serif;
-    position: relative;
-	color: #333;
-    font-size: 38px;
-    width: 700px;
-    padding: 10px 55px;
-    text-align: center;
-    border: none;
-    outline: none;
-    background: none;
+.scontent{
+	margin:0 auto;
+	background:transparent;
+	
 }
+
+
 
 
 
@@ -111,6 +129,16 @@
 .paging .on{padding-top:1px;height:22px;color:#fff;font-weight:bold;background:rgb(54, 69, 89);}
 
 .paging .on:hover{text-decoration:none;}
+.ani{
+	width:210px;
+	cursor:pointer;
+	transition:0.25s;
+}
+.ani:hover{
+	transform: scale(1.05);
+}
+
+
 
 
 </style>
@@ -121,16 +149,7 @@
 
 <div class="section1">
 	<div class="section2">
-		<div class="searchbar">
-			<div class='search_input' >
-				<input type="hidden" name="type">
-                <input type="text" name="keyword" maxlength="15" class="search-input1" placeholder="어떤 서비스를 찾고 계신가요?">
-               	 <div class="search-btn" style="top: 88px;right: 270px; cursor: pointer; vertical-align: top;">
-                   <img class="cursor1" src="/semi/resources/images/x.png" style="width:23px; height: 23px; margin-right:10px;margin-bottom:5px;">
-                   <img class="cursor2" src="/semi/resources/images/searching.png" style="width:33px; height: 33px;">
-               	 </div>
-            </div>
-		</div>
+		
 
 		<div class="scontent">
 				<div class="left-menu">
@@ -388,186 +407,35 @@
 						  </script>
 				</div>
 				</div>
-				
+		
 				<div class="post">
-					<div class="post-row" style="z-index:-1">
+					<%for(int i = 0; i<3;i++){ %>
+						<div class="post-row" style="z-index:0">
 						<div class="posting">
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 
-					 	  <div class="posting1">
-					 	 	<div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-							 </div>
-						</div>
+						<%for(int j=(4*i);j<(4*(i+1));j++){
+							if(j>=searchedList.size()) break;
+							SellerBoard b = searchedList.get(j);%>
 						
-					</div>
-					
-					<div class="post-row">
-					 	<div class="posting">
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
+						 <div class="ani">
+						 	<div class="ui card" style="margin:0;height:331px;overflow:hidden;">
+							  <div class="image" style="height:170px;" onclick='location.href="/semi/listDetail.bo?bno=<%= b.getBno()%>"'>
+							    <img src="/semi/resources/selleruploadIMG/<%=b.getImages() %>" style="height:170px;">
 							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
+							  <div class="content" style="height:120px;" onclick='location.href="/semi/listDetail.bo?bno=<%= b.getBno()%>"'>
+							    
 							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
+							      <span class="date">판매자닉네임</span>
 							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
+							    <div class="description" style="width:182px;height:50px;margin-bottom:5px;overflow:hidden;text-overflow: ellipsis; ">
+								   <p style="width:182px;height:50px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;"><%= b.getBtitle() %></p>    
 							    </div>
+							    <a class="header" style="float:right"><%=b.getPrice() %>원</a>
 							  </div>
 							  <div class="extra content">
 							    <a>
 							      <i class="ui" style="height:33px;"></i>
 							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
+							      <div class="ui star rating" data-rating="5" style="float:right;"></div>
 							    </a>
 							  </div>
 							</div>
@@ -582,280 +450,26 @@
 							  })
 							;
 							</script>
-						 	
 						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 
-					 	  <div class="posting1">
-					 	 	<div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-							 </div>
+						
+						<%} %>
 						</div>
 					</div>
-					
-					<div class="post-row">
-						<div class="posting">
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 <div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-						 
-						 
-					 	  <div class="posting1">
-					 	 	<div style="width:210px; ">
-						 	
-						 	<div class="ui card" style="margin:0;">
-							  <div class="image" style="height:170px;">
-							    <img src="/semi/resources/images/night-sky.jpg" style="height:170px;">
-							  </div>
-							  <div class="content" style="height:120px;">
-							    <a class="header">Kristy</a>
-							    <div class="meta">
-							      <span class="date">Joined in 2013</span>
-							    </div>
-							    <div class="description">
-							      Kristy is an art director living in New York.
-							    </div>
-							  </div>
-							  <div class="extra content">
-							    <a>
-							      <i class="ui" style="height:33px;"></i>
-							      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
-							      <div class="ui star rating" data-rating="3" style="float:right;"></div>
-							    </a>
-							  </div>
-							</div>
-							<script>
-							$('.special.cards .image').dimmer({
-								  on: 'hover'
-								});
-							$('.ui.rating')
-							  .rating({
-							    initialRating: 3,
-							    maxRating: 5
-							  })
-							;
-							</script>
-						 	
-						 </div>
-							 </div>
-						</div>
-					</div>
+					<%} %>
 				</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 				
 				<div class="paging">
  
