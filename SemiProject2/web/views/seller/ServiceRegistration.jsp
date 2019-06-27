@@ -518,7 +518,7 @@
 				console.log(value1);
 				checkSelectValue = value1;
 
-				//선택되었을때 View에 표시해줄것들 case구문으로 구현했었는데 문제가 값을 받아오는데 내머리가 터질것같아서 이렇게 구현함
+				//선택되었을때 View에 표시해줄것들 for-each구문으로 구현했었는데 문제가 값을 받아오는데 내머리가 터질것같아서 이렇게 구현함
 				if(value1 == 10) {
 					submu.style.display ="";
 					category21.style.display = "";
