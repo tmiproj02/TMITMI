@@ -14,6 +14,7 @@ import buyingctrl.model.exception.buyingctrlException;
 import buyingctrl.model.service.DealMngService;
 import buyingctrl.model.vo.DealMng;
 import member.model.vo.Member;
+import message.model.vo.PageInfo;
 
 /**
  * Servlet implementation class finishedListServlet
@@ -38,19 +39,52 @@ public class finishedListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member m = (Member)session.getAttribute("member");
 		
-		ArrayList<DealMng> finList = new ArrayList<DealMng>();
+		ArrayList<DealMng> dingList = new ArrayList<DealMng>();
 		
 		DealMngService dms = new DealMngService();
 		
 		String page="";
 		
+		int startPage;
+		int endPage;
+		int maxPage;
+		int currentPage;
+		int limit;
+
+		currentPage = 1;
+		
+	
+		limit = 10;
+
+		if(request.getParameter("currentPage") != null) {
+		
+		   currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		int listCount = dms.getListCount(m);
+		
+		System.out.println("총 페이지 개수 : " + listCount);
+
+		maxPage = (int)((double)listCount / limit + 0.9);
+		startPage = ((int)((double)currentPage / limit + 0.9) - 1) * limit + 1;
+		endPage = startPage + limit -1;
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+
+
 		try {
+				
+			dingList = dms.ingselectList(m,currentPage,limit);
+			System.out.println("서블릿시점 ding: " + dingList);
+			page = "views/personBUY/buyingProgressing.jsp";
 			
-			finList = dms.finselectList(m);
+			request.setAttribute("dingList", dingList);
+			PageInfo pi = new PageInfo(currentPage,listCount,limit,maxPage,startPage,endPage);
 			
-			page = "views/personBUY/buyingcontrolFin.jsp";
+			request.setAttribute("pi",pi);
 			
-			request.setAttribute("finList", finList);
+			
 			
 			request.getRequestDispatcher(page).forward(request, response);
 			
@@ -64,13 +98,6 @@ public class finishedListServlet extends HttpServlet {
 			
 			request.getRequestDispatcher(page).forward(request, response);
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 

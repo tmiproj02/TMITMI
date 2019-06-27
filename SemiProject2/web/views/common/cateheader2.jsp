@@ -309,7 +309,7 @@ nav{
                             <%}else{ %>
                             	<div class="padding-20px"><a href="/semi/views/seller/ServiceRegistration.jsp">판매 시작하기</a></div>
                             <%} %>
-                            <div class="padding-15px"><a style="cursor:pointer;" onclick="nrequest();">구매</a></div>
+                            <div class="padding-15px"><a style="cursor:pointer;" onclick="prging();">구매</a></div>
                             <div class="padding-15px"><a href="/semi/messageList">메세지</a></div>
                             <div class="padding-15px"><a href="/">찜한 서비스</a></div>
                             <div class="mylog padding-15px"><a href="/">
@@ -422,7 +422,7 @@ nav{
 		}
     	
     	function prging(){
-    		location.href="/semi/prging.bo"
+    		location.href="/semi/prging.bo?state=1"
     	}
     	
     	function doSearch(){

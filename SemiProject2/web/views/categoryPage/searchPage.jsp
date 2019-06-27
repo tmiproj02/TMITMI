@@ -40,6 +40,42 @@
 	width : 1200px;
 	margin:0 auto;
 }
+.searchbar{
+	width : 1200px;
+	margin:0 auto;
+	/*background: #f3f4f8;*/
+	padding-top:70px;
+	text-align:center;
+	position: relative;
+    display: block;
+    overflow: hidden;
+}
+.search_input{
+    border: none;
+    border-bottom: 4px solid #BDD4F2!important;
+    width: 700px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 50px;
+}
+
+.search-input1{
+ 	font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+	color: #333;
+    font-size: 38px;
+    width: 700px;
+    padding: 10px 55px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
+
+
+
 .sbody{
 	width : 1200px;
 	margin:0 auto;
@@ -149,7 +185,15 @@
 
 <div class="section1">
 	<div class="section2">
-		
+			<div class="searchbar">
+			<div class='search_input' >
+				<input type="hidden" name="type">
+                <input type="text" id="searchWord2" maxlength="15" class="search-input1" placeholder="어떤 서비스를 찾고 계신가요?">
+               	 <div class="search-btn" style="top: 88px;right: 270px; cursor: pointer; vertical-align: top;">
+                   <img class="cursor1" id="clearX"src="/semi/resources/images/x.png" style="width:23px; height: 23px; margin-right:10px;margin-bottom:5px;">
+                   <img class="cursor2" src="/semi/resources/images/searching.png" style="width:33px; height: 33px;" onclick="doSearch2();">
+               	 </div>
+            </div>
 
 		<div class="scontent">
 				<div class="left-menu">
@@ -483,4 +527,26 @@
 
 <%@include file= "/views/common/footer.jsp"%>
 </body>
+<script>
+
+	function doSearch2(){
+		var searchWord = $('#searchWord2').val();
+		
+		location.href = "/semi/searchedList.bo?searchWord="+searchWord;
+		
+	}
+	$('#clearX').click(function(){
+		
+		$('#searchWord2').val("");
+		$('#searchWord2').select();
+	});
+	
+
+
+
+</script>
+ 
+
+
+
 </html>

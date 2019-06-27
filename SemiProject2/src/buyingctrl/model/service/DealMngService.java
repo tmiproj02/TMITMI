@@ -30,11 +30,11 @@ public class DealMngService {
 	
 	
 	//진행중 조회
-	public ArrayList<DealMng> ingselectList(Member m) throws buyingctrlException {
+	public ArrayList<DealMng> ingselectList(Member m, int currentPage, int limit) throws buyingctrlException {
 		ArrayList<DealMng> dingList = null;
 		con = getConnection();
 		try {
-			dingList = dmDao.ingselectList(con, m);
+			dingList = dmDao.ingselectList(con, m,currentPage,limit);
 			System.out.println("진행중조회service : " + dingList);
 			close(con);
 		}catch(Exception e) {
@@ -150,6 +150,60 @@ public class DealMngService {
 		
 		
 		
+	}
+
+
+
+	public ArrayList<DealMng> selectAllList(Member m) {
+		ArrayList<DealMng> dingList = null;
+		con = getConnection();
+		try {
+			dingList = dmDao.selectAllList(con, m);
+		
+			close(con);
+		}catch(Exception e) {
+			e.printStackTrace();
+			close(con);
+		}
+
+		
+		return dingList;
+	}
+
+
+
+	public ArrayList<DealMng> selectFinList(Member m) {
+		ArrayList<DealMng> dingList = null;
+		con = getConnection();
+		try {
+			dingList = dmDao.selectFinList(con, m);
+		
+			close(con);
+		}catch(Exception e) {
+			e.printStackTrace();
+			close(con);
+		}
+
+		
+		return dingList;
+	}
+
+
+
+	public ArrayList<DealMng> selectCancelList(Member m) {
+		ArrayList<DealMng> dingList = null;
+		con = getConnection();
+		try {
+			dingList = dmDao.selectCancelList(con, m);
+		
+			close(con);
+		}catch(Exception e) {
+			e.printStackTrace();
+			close(con);
+		}
+
+		
+		return dingList;
 	}
 
 	

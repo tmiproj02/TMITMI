@@ -3,8 +3,11 @@
 <%@ page import="member.model.vo.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="buyingctrl.model.vo.DealMng" %>
+<%@ page import="message.model.vo.PageInfo" %>
 <%
 	ArrayList<DealMng> dingList = (ArrayList<DealMng>)request.getAttribute("dingList");
+
+		
 
 %>
 
@@ -208,7 +211,6 @@
 
 	
 	
-	
 </style>
 </head>
 <body>
@@ -278,14 +280,18 @@
 						<ul class="sell-ing">
 							
 							<li>
-								<a style="color:#000" href="">진행중 &nbsp; <span class="selling-history select">0</span></a>
+								<a style="" href="/semi/prging.bo?state=0">전체</a>
 							</li>
 							
 							<li>
-								<a href="">완료 &nbsp; <span class="selling-history">0</span></a>
+								<a style="color:#000" href="/semi/prging.bo?state=1">진행중</a>
+							</li>
+							
+							<li>
+								<a href="/semi/prging.bo?state=2">완료</a>
 							</li>
 							<li>
-								<a href="">취소 &nbsp; <span class="selling-history">0</span></a>
+								<a href="/semi/prging.bo?state=3">취소</a>
 							</li>
 						</ul>
 					</div>
@@ -309,7 +315,7 @@
 				   	<%
 				   	int num = 1;
 				   	for(DealMng dm : dingList){
-				   		
+				   	
 				   		%>
 				   	  <tr>
 				   	  	<input type="hidden"/>
@@ -320,13 +326,11 @@
 				   	  	<td><%=dm.getDealdate()%></td>
 				   
 				   	  </tr>
-					
+				
 				   	<% num++; } %>
 
 				  </tbody>
 				</table>
-				
-				
 				
 				
 				
@@ -368,32 +372,7 @@
 
 
 	<script>
-		document.getElementById("bcorderList").addEventListener("click", function() {
-		document.getElementById("olderlist-cont").hidden = false;
-		document.getElementById("progressing-cont").hidden = true;
-		document.getElementById("comp-cont").hidden = true;
-		document.getElementById("bcorderList").className = "item active";
-		document.getElementById("progressing").className = "item";
-		document.getElementById("comp").className = "item";
-		});
-
-		document.getElementById("progressing").addEventListener("click", function() {
-		document.getElementById("olderlist-cont").hidden = true;
-		document.getElementById("progressing-cont").hidden = false;
-		document.getElementById("comp-cont").hidden = true;
-		document.getElementById("bcorderList").className = "item";
-		document.getElementById("progressing").className = "item active";
-		document.getElementById("comp").className = "item";
-		});
-		
-		document.getElementById("comp").addEventListener("click", function() {
-		document.getElementById("olderlist-cont").hidden = true;
-		document.getElementById("progressing-cont").hidden = true;
-		document.getElementById("comp-cont").hidden = false;
-		document.getElementById("bcorderList").className = "item";
-		document.getElementById("progressing").className = "item";
-		document.getElementById("comp").className = "item active";
-		});
+	
 		
 		function lbcash(){
 			location.href="cash.jsp";
