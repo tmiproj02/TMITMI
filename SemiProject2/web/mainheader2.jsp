@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ page import="seller.model.vo.Seller,sellerboard.model.vo.*,java.util.*"%>
+<%@ page import="java.text.DecimalFormat"%>
+   <%DecimalFormat dc = new DecimalFormat("###,###,###,###");%> 
 <%
 	int mCount = 0;
 	int buyCount = 0;
@@ -11,7 +13,36 @@
 		buyCount = (int)(session.getAttribute("buyCount"));
 
 	    sellCount = (int)(session.getAttribute("sellCount"));
+	    ArrayList<Top5> list =(ArrayList<Top5>)request.getAttribute("list");
+		Top5 t = (Top5)request.getAttribute("t");
+		
+		ArrayList<String> str= new ArrayList<String>();
+		ArrayList<Integer> num1= new ArrayList<Integer>();
+		
+		
 
+		
+		
+		for(Top5 to : list){
+			System.out.println(to.getTop1());
+			System.out.println(t.getTop1());
+			if(to.getCate().equals(t.getTop1())){
+				str.add(to.getNickname());
+				num1.add(to.getIncome());
+			}
+		}
+		for(Top5 to : list){
+			if(to.getCate().equals(t.getTop2())){
+				str.add(to.getNickname());
+				num1.add(to.getIncome());
+			}
+		}
+		for(Top5 to : list){
+			if(to.getCate().equals(t.getTop3())){
+				str.add(to.getNickname());
+				num1.add(to.getIncome());
+			}
+		}	
 %>
    
 <!DOCTYPE html>
@@ -381,7 +412,7 @@
 						</div>
 						<div class="progress3" style="font-size:14px; margin-bottom: 5px;">판매 진행중 
 						<a href="" style="margin-left: 106px;">
-							<span style="color:#f1c40f;"><%=sellCount%></span>
+							<span style="color:#f1c40f;"><%= sellCount %></span>
 							</a>건
 						</div>
 					</div>
