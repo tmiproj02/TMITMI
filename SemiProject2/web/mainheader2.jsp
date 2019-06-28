@@ -305,7 +305,11 @@
 </style>
 </head>
 <body>
+
+
 <%@include file= "/views/common/faq.jsp"%>
+
+
 <%@include file= "/views/common/cateheader1.jsp"%>
 
 <%-- <% if(m == null){
@@ -428,12 +432,12 @@
 							</a>건
 						</div>
 						<div class="progress2" style="font-size:14px; margin-bottom: 5px;">구매 진행중 
-						<a href="/semi/prging.bo" style="margin-left: 106px;">
+						<a href="/semi/prging.bo?state=1" style="margin-left: 106px;">
 							<span style="color:#f1c40f;"><%=buyCount%></span>
 							</a>건
 						</div>
 						<div class="progress3" style="font-size:14px; margin-bottom: 5px;">판매 진행중 
-						<a href="" style="margin-left: 106px;">
+						<a href="/semi/myboard.bo" style="margin-left: 106px;">
 							<span style="color:#f1c40f;"><%= sellCount %></span>
 							</a>건
 						</div>

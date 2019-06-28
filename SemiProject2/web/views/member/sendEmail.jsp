@@ -12,8 +12,8 @@
 <%@ page import = "member.common.PasswordWrapper" %>
 
 <% 
-	final String sender = "tmicor@naver.com"; // 보내는 사람 이메일
-	final String password = "TmiTmi123!"; // 보내는 사람 비밀번호
+	final String sender = "sund46@naver.com"; // 보내는 사람 이메일
+	final String password = "rlaeogus2@"; // 보내는 사람 비밀번호
 	String receiver = request.getParameter("email"); // 받는 사람
 
 	Properties props = new Properties();
@@ -28,7 +28,7 @@
 		}
 	});
 	// 보낼 사이트 경로
-	String host = "http://192.168.20.49/semi/views/member/"; 
+	String host = "http://192.168.20.11/semi/views/member/"; 
 	// 암호화된 인증코드 담을 변수 
 	String code = null; 
 	// 보낼 내용

@@ -24,7 +24,7 @@
 		 	 <div class="ui input focus"><input type="text" id="rTitle" style="font-size:18px;width:600px;height:18px;"></div>
 		 </div>
 		 
-		 <div class="content" style="padding-top:10px; padding-bottom:10px;">
+		  <div class="content" style="padding-top:10px; padding-bottom:10px;">
 		  <label style="font-size:18px;"><b>내용</b></label><br>
 		  <textarea id="rContent" style="font-size:18px;width:710px;height:300px;"></textarea>
 
@@ -63,7 +63,7 @@
 				alert("문의가 접수되었습니다.");
 			},
 			error : function(){
-				alert("전송실패");
+				alert("로그인 후 이용가능한 서비스입니다.");
 			}
 	
 		});

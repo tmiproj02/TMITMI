@@ -311,7 +311,7 @@
 				    <th>가격</th>
 				    <th>판매자</th>
 				    <th>거래성사일</th>
-				    <th>메세지</th>
+				    
 				  </tr>
 				  </thead>
 				  
@@ -329,7 +329,7 @@
 				   	  	<td><%=dm.getPrice()%></td>
 				   	  	<td><%=dm.getsNickname()%></td>
 				   	  	<td><%=dm.getDealdate()%></td>
-				   		<td><button class="ui teal button" onclick="triggerMsgFn()";>전송</button>
+				   		
 							<!-- Modal -->
 						  <div class="ui small modal">
 							 <div class="header" style="font-size:30px;">
