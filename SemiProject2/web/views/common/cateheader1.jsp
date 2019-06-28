@@ -318,7 +318,7 @@ nav{
                             <%} %>
                             <div class="padding-15px"><a style="cursor:pointer" onclick="buyingctrl();">구매</a></div>
                             <div class="padding-15px"><a href="/semi/messageList">메세지</a></div>
-                            <div class="mylog padding-15px"><a href="/">
+                            <div class="mylog padding-15px"><a href="/semi/views/myPage/myPage.jsp">
                             	<div style="width:30px;height:30px"><img src="/semi/resources/images/myprofile.png" width=30px style="border-radius: 500px !important; vertical-align: middle;"/></div>
                             	<div><h5><%= m.getNickName() %></h5></div>
                             	</a>

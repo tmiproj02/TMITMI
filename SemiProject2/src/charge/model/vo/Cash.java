@@ -10,6 +10,7 @@ public class Cash {
 	private int payp;	//결제금액
 	private Date paydate;	//결제일
 	private String classify;	//구문(충전|사용|환불)
+	private String btitle;
 	
 	//생성자
 	public Cash() {
@@ -41,10 +42,11 @@ public class Cash {
 	}
 
 	//재정의
+
 	@Override
 	public String toString() {
 		return "Cash [payno=" + payno + ", mno=" + mno + ", payp=" + payp + ", paydate=" + paydate + ", classify="
-				+ classify + "]";
+				+ classify + ", btitle=" + btitle + "]";
 	}
 
 	//Getter&Setter
@@ -88,6 +90,17 @@ public class Cash {
 		this.classify = classify;
 	}
 
+
+	public String getBtitle() {
+		return btitle;
+	}
+
+
+	public void setBtitle(String btitle) {
+		this.btitle = btitle;
+	}
+
+	
 	
 	
 	

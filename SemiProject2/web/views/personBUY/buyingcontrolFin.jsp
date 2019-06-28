@@ -215,7 +215,10 @@
 </head>
 <body>
 	<%@ include file="/views/common/cateheader2.jsp" %>
-
+	<%
+	DecimalFormat df = new DecimalFormat("###,###");
+	int val = m.getCash();
+	%>
 	<div class="my-page-sell">
 		<div class="scontainer">
 			<div class="scontainer1">
@@ -231,9 +234,9 @@
 						</div>
 						<ul class="user-profile-box">
 							<li style=" border-top:none;"><div style="text-align : center; margin-bottom:20px;">
-								<div class="font-noto" style="margin-top:5px;margin-bottom:10px;"><a href="">회원닉네임</a></div>
+								<div class="font-noto" style="margin-top:5px;margin-bottom:10px;"><a href=""><%=m.getNickName() %></a></div><br>
 								<div class="font-color-lighter font-size-h6">TMI캐시</div>
-								<h3 class="margin-bottom-15 margin-top-5 link-color-blue NGB"><%=m.getCash()%> 원</h3>
+								<h3 class="margin-bottom-15 margin-top-5 link-color-blue NGB"><i class="won sign icon"></i><%=df.format(val) %> 원</h3>
 								<div>
 									<label class="seller-check font-noto" style="cursor:pointer;" onclick="lbcash();"><i class="credit card outline icon"></i>캐시충전</label>
 									
@@ -251,12 +254,12 @@
 									<h6>구매관리</h6>							
 								</div></a>
 								<a href="/semi/views/personBUY/cash.jsp"><div class="padding-all-15 menu-slot">
-									<div><img src="/semi/resources/images/cash_active.png" alt="" /></div>
+									<div style="margin: 3px 0;"><img src="/semi/resources/images/noun_won.png" alt="" /></div>
 									<h6>TMI캐시</h6>			
 								</div></a>
 							</div>
 							<div class="menu-line" style="text-align:center;border-bottom:solid #E6E6E6 1px;">
-								<a href="/semi/views/personBUY/billingHistory.jsp"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
+								<a href="/semi/cList.bo"><div class="padding-all-15 menu-slot" style="border-right:solid #E6E6E6 1px;">							
 									<div><img src="/semi/resources/images/payment_active.png" alt="" /></div>
 									<h6>캐시내역</h6>							
 								</div></a>
@@ -300,11 +303,11 @@
 					
 				<div class="mp2">
 			
-				<table class="ui blue table" style="width:85%; margin-left:5%;">
+				<table class="ui blue table" style="width:94%; margin-left:20px;">
 				  <thead>
 				    <tr>
 				    <th>No</th>
-				    <th style="width:50%; margin-right: 5%;">서비스 이름</th>
+				    <th style="width:45%; margin-right: 5%;">서비스 이름</th>
 				    <th>가격</th>
 				    <th>판매자</th>
 				    <th>거래성사일</th>

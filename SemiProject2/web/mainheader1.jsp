@@ -471,7 +471,7 @@ border:5px solid transparent;
     </div>
 
     <section>
-        	<%@include file= "/views/common/faq1.jsp"%>
+
  		   
         <div class="container">
             
